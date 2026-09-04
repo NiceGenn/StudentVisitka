@@ -26,6 +26,7 @@ python3 -m http.server 8000 --directory src
 │   ├── index.html        главная
 │   ├── about.html        об администрации
 │   ├── structure.html    структура
+│   ├── leaders.html      визитница (генерируется, см. ниже)
 │   ├── services.html     услуги
 │   ├── news.html         новости
 │   ├── schools.html      школы и сады
@@ -35,7 +36,14 @@ python3 -m http.server 8000 --directory src
 │       ├── css/style.css общие стили всех страниц
 │       ├── js/script.js  аккордеон FAQ, плавная прокрутка, год в подвале
 │       └── images/       фотографии
-├── scripts/build.sh      сборка dist/ и архива релиза
+├── data/                 данные визитницы
+│   ├── rukovoditeli.json   руководители из телефонного справочника
+│   └── podrazdeleniya.json разделы и описания функций подразделений
+├── scripts/
+│   ├── build.sh          сборка dist/ и архива релиза
+│   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
+│   ├── gen_leaders.py    данные → src/leaders.html
+│   └── templates/        шаблоны и стили страницы «Визитница»
 ├── docs/                 документация проекта
 │   ├── STRUCTURE.md      разбор страниц, стилей и известных пробелов
 │   └── DEPLOY.md         публикация: GitHub Pages, обычный хостинг, релизы
@@ -45,6 +53,24 @@ python3 -m http.server 8000 --directory src
 ```
 
 Каталоги `dist/` и `release/` создаются сборкой и в репозиторий не попадают.
+
+## Визитница
+
+`src/leaders.html` — карточки подразделений: чем занимается подразделение,
+кто им руководит, кабинет, телефон и почта. Страница **генерируется**, править
+её руками бессмысленно — правки затрёт следующая сборка:
+
+```bash
+# 1. обновить данные из нового телефонного справочника
+python3 scripts/import_xlsx.py ~/Downloads/spravochnik.xlsx
+
+# 2. пересобрать страницу
+python3 scripts/gen_leaders.py
+```
+
+Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка
+карточки — в `scripts/templates/`. Для импорта нужен `openpyxl`
+(`pip install openpyxl`); генератору хватает стандартной библиотеки.
 
 ## Сборка релиза
 

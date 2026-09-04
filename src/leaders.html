@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Визитница | Благовещенский муниципальный округ</title>
+    <meta name="description" content="Руководители подразделений, управлений и учреждений Благовещенского муниципального округа: чем занимается подразделение, кто им руководит и как связаться." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* ============================================================
+         ВИЗИТНИЦА — стили только этой страницы
+         Файл подставляется в <style> генератором scripts/gen_leaders.py
+         ============================================================ */
+
+      /* --- Панель поиска и фильтров --- */
+      .vz-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px 16px;
+        margin: 4px 0 14px;
+      }
+
+      .vz-searchbox {
+        position: relative;
+        flex: 1 1 320px;
+        max-width: 420px;
+      }
+
+      .vz-searchbox svg {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        fill: #9a8f84;
+        pointer-events: none;
+      }
+
+      .vz-searchbox input {
+        width: 100%;
+        font-family: inherit;
+        font-size: 15px;
+        color: #1a1a1a;
+        padding: 11px 14px 11px 40px;
+        border: 1px solid #ddd5ca;
+        border-radius: 6px;
+        background: #ffffff;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .vz-searchbox input:focus {
+        border-color: #7a1a1a;
+        box-shadow: 0 0 0 3px rgba(122, 26, 26, 0.1);
+      }
+
+      .vz-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .vz-chip {
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        color: #5a4a3f;
+        background: #ffffff;
+        border: 1px solid #ddd5ca;
+        border-radius: 50px;
+        padding: 7px 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .vz-chip:hover {
+        border-color: #c49a3c;
+        color: #7a1a1a;
+      }
+
+      .vz-chip.is-active {
+        background: #7a1a1a;
+        border-color: #7a1a1a;
+        color: #ffffff;
+      }
+
+      .vz-status {
+        font-size: 14px;
+        color: #6b6259;
+        margin: 0 0 26px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #e8e3dc;
+      }
+
+      /* --- Разделы --- */
+      .vz-section {
+        margin-bottom: 40px;
+      }
+
+      .vz-section-title {
+        font-size: 21px;
+        font-weight: 700;
+        color: #5a0f0f;
+        letter-spacing: -0.2px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 2px;
+      }
+
+      .vz-section-title span {
+        font-size: 13px;
+        font-weight: 600;
+        color: #8a7c6c;
+        background: #efe9e0;
+        border-radius: 50px;
+        padding: 2px 10px;
+      }
+
+      .vz-section-sub {
+        font-size: 14px;
+        color: #6b6259;
+        margin-bottom: 18px;
+      }
+
+      /* --- Сетка карточек --- */
+      .vz-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+        gap: 22px;
+        align-items: start;
+      }
+
+      /* Скрытые фильтром карточки и разделы: display у них задан явно,
+         поэтому атрибута hidden самого по себе не хватает. */
+      .vz-card[hidden],
+      .vz-section[hidden] {
+        display: none;
+      }
+
+      /* --- Карточка --- */
+      .vz-card {
+        background: #ffffff;
+        border: 1px solid #e8e3dc;
+        border-radius: 8px;
+        border-top: 3px solid #7a1a1a;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+
+      .vz-card:hover {
+        box-shadow: 0 6px 18px rgba(90, 15, 15, 0.12);
+        transform: translateY(-2px);
+      }
+
+      .vz-card-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 22px 14px;
+        background: linear-gradient(180deg, #fbf8f4 0%, #ffffff 100%);
+        border-bottom: 1px solid #f0ebe4;
+      }
+
+      .vz-icon {
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: #7a1a1a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .vz-icon svg {
+        width: 22px;
+        height: 22px;
+        fill: #d9b15a;
+      }
+
+      .vz-card-title h4 {
+        font-size: 17px;
+        font-weight: 700;
+        color: #5a0f0f;
+        line-height: 1.3;
+        letter-spacing: -0.2px;
+        margin-bottom: 3px;
+      }
+
+      .vz-metaline {
+        font-size: 12px;
+        color: #8a7c6c;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      /* --- Блок «Чем занимается» --- */
+      .vz-func {
+        padding: 16px 22px 14px;
+        background: #fdfbf8;
+        border-bottom: 1px solid #f0ebe4;
+      }
+
+      .vz-func p {
+        font-size: 14px;
+        line-height: 1.62;
+        color: #3d3630;
+        margin-bottom: 12px;
+      }
+
+      .vz-h5 {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #a08a52;
+        margin-bottom: 9px;
+      }
+
+      .vz-people .vz-h5 {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px dashed #ece6dd;
+      }
+
+      .vz-people .vz-h5:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .vz-tags {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .vz-tags li {
+        font-size: 12px;
+        color: #6b5b3f;
+        background: #f6efe1;
+        border: 1px solid #ecdfc4;
+        border-radius: 4px;
+        padding: 3px 9px;
+      }
+
+      /* --- Люди --- */
+      .vz-people {
+        padding: 16px 22px 20px;
+        flex-grow: 1;
+      }
+
+      .vz-person {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        margin-bottom: 12px;
+      }
+
+      .vz-person:last-child {
+        margin-bottom: 0;
+      }
+
+      .vz-ava {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #efe9e0;
+        color: #7a1a1a;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .vz-person--main .vz-ava {
+        width: 46px;
+        height: 46px;
+        font-size: 15px;
+        background: #7a1a1a;
+        color: #d9b15a;
+        border: 2px solid #c49a3c;
+      }
+
+      .vz-ava--vac {
+        background: #f2efea;
+        color: #b0a698;
+      }
+
+      .vz-person--main .vz-ava--vac {
+        background: #efe9e0;
+        color: #a2968a;
+        border-color: #ded5c8;
+      }
+
+      .vz-otdel {
+        font-size: 12px;
+        font-weight: 600;
+        color: #8a7c6c;
+        margin-bottom: 1px;
+      }
+
+      .vz-fio {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        line-height: 1.35;
+      }
+
+      .vz-person--main .vz-fio {
+        font-size: 16px;
+        font-weight: 700;
+        color: #5a0f0f;
+      }
+
+      .vz-person--vac .vz-fio {
+        color: #a2968a;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .vz-post {
+        font-size: 13px;
+        color: #6b6259;
+        line-height: 1.4;
+        margin: 1px 0 4px;
+      }
+
+      .vz-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+        font-size: 13px;
+      }
+
+      .vz-contacts a,
+      .vz-contacts span {
+        color: #7a1a1a;
+        white-space: nowrap;
+      }
+
+      .vz-contacts span {
+        color: #8a7c6c;
+      }
+
+      .vz-contacts a:hover {
+        color: #5a0f0f;
+      }
+
+      .vz-room {
+        color: #8a7c6c !important;
+      }
+
+      .vz-badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #8a6d1f;
+        background: #f7edd6;
+        border-radius: 3px;
+        padding: 1px 6px;
+        margin-left: 7px;
+        vertical-align: middle;
+      }
+
+      .vz-badge--ref {
+        color: #5a4a3f;
+        background: #ece6dd;
+      }
+
+      .vz-none {
+        font-size: 13px;
+        color: #a2968a;
+        font-style: italic;
+      }
+
+      /* --- Пустой результат поиска и сноска --- */
+      .vz-empty {
+        text-align: center;
+        padding: 46px 20px;
+        color: #6b6259;
+        background: #ffffff;
+        border: 1px dashed #ddd5ca;
+        border-radius: 8px;
+      }
+
+      .vz-note {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #8a7c6c;
+        background: #fdfbf8;
+        border-left: 3px solid #c49a3c;
+        border-radius: 0 6px 6px 0;
+        padding: 12px 18px;
+        margin: 10px 0 34px;
+      }
+
+      /* --- Адаптив --- */
+      @media (max-width: 768px) {
+        .vz-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .vz-searchbox {
+          max-width: none;
+        }
+
+        .vz-card-head,
+        .vz-func,
+        .vz-people {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .vz-section-title {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
+        </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header>
+      <div class="container header-wrap">
+        <div class="logo">
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
+        </div>
+        <div class="header-contacts">
+          <div class="phone">
+            <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Об администрации</a></li>
+            <li><a href="structure.html">Структура</a></li>
+            <li><a href="leaders.html">Визитница</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="schools.html">Школы и сады</a></li>
+            <li><a href="docs.html">Документы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
+        <main>
+      <div class="container">
+        <h2 class="section-title"><span class="accent-line"></span>Визитница</h2>
+        <p class="section-subtitle">Руководители подразделений, управлений и учреждений Благовещенского муниципального округа — кто за что отвечает и как связаться</p>
+
+        <div class="vz-toolbar">
+          <div class="vz-searchbox">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg>
+            <input type="search" id="vz-search" placeholder="Фамилия, должность или подразделение" aria-label="Поиск по визитнице" autocomplete="off" />
+          </div>
+          <div class="vz-chips"><button type="button" class="vz-chip is-active" data-filter="all">Все</button><button type="button" class="vz-chip" data-filter="vlast">Руководство округа и органы власти</button><button type="button" class="vz-chip" data-filter="apparat">Отделы администрации</button><button type="button" class="vz-chip" data-filter="upravleniya">Управления</button><button type="button" class="vz-chip" data-filter="uchrezhdeniya">Подведомственные учреждения</button><button type="button" class="vz-chip" data-filter="territorii">Территориальные администрации</button><button type="button" class="vz-chip" data-filter="obshestvo">Общественные организации и советы</button></div>
+        </div>
+        <p class="vz-status" id="vz-status">94 руководителя в 42 подразделениях</p>
+
+      <section class="vz-section" data-section="vlast">
+        <h3 class="vz-section-title">Руководство округа и органы власти <span>4</span></h3>
+        <p class="vz-section-sub">Глава округа, представительный орган, контрольные и избирательные органы</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="glava-okruga-i-zamestiteli" data-section="vlast" data-search="глава округа и заместители глава округа и руководство администрации башун александр александрович глава округа  рулева наталья александровна первый заместитель главы администрации мо– начальник финансового управления  ивашутин алексей александрович заместитель главы администрации мо  степанова анна викторовна заместитель главы администрации мо  умнов виталий викторович заместитель главы администрации мо  продашанов дмитрий анатольевич заместитель главы администрации мо ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Глава округа и заместители</h4>
+              <div class="vz-metaline">9 сотрудников</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Глава округа возглавляет администрацию, представляет округ в отношениях с органами государственной власти, подписывает муниципальные правовые акты и отвечает за исполнение бюджета. Заместители курируют закреплённые за ними отрасли: финансы, ЖКХ и дорожное хозяйство, социальную сферу, имущественные отношения и экономику.</p>
+            <ul class="vz-tags"><li>Общее руководство администрацией</li><li>Муниципальные правовые акты</li><li>Приём граждан по личным вопросам</li><li>Представительство округа</li><li>Отраслевое кураторство</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">БА</span><div class="vz-person-body"><div class="vz-fio">Башун Александр Александрович</div><div class="vz-post">Глава округа</div><div class="vz-contacts"><span class="vz-room">каб. 41</span><a href="tel:+74162221689">22-16-89</a><a href="mailto:bashun@blagraion.ru">bashun@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">РН</span><div class="vz-person-body"><div class="vz-fio">Рулева Наталья Александровна</div><div class="vz-post">Первый заместитель главы администрации МО– начальник финансового управления</div><div class="vz-contacts"><span class="vz-room">каб. 40</span><a href="tel:+74162221690">22-16-90</a><a href="tel:+74162771030">77-10-30</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ИА</span><div class="vz-person-body"><div class="vz-fio">Ивашутин Алексей Александрович</div><div class="vz-post">Заместитель главы администрации МО</div><div class="vz-contacts"><span class="vz-room">каб. 36</span><a href="tel:+74162221690">22-16-90</a><a href="mailto:ivashutin@blagraion.ru">ivashutin@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">СА</span><div class="vz-person-body"><div class="vz-fio">Степанова Анна Викторовна</div><div class="vz-post">Заместитель главы администрации МО</div><div class="vz-contacts"><span class="vz-room">каб. 35</span><a href="tel:+74162221642">22-16-42</a><a href="mailto:stepanovaav@blagraion.ru">stepanovaav@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">УВ</span><div class="vz-person-body"><div class="vz-fio">Умнов Виталий Викторович</div><div class="vz-post">Заместитель главы администрации МО</div><div class="vz-contacts"><span class="vz-room">каб. 37</span><a href="tel:+74162774531">77-45-31</a><a href="mailto:umnov@blagraion.ru">umnov@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ПД</span><div class="vz-person-body"><div class="vz-fio">Продашанов Дмитрий Анатольевич</div><div class="vz-post">Заместитель главы администрации МО</div><div class="vz-contacts"><span class="vz-room">каб. 38</span><a href="tel:+74162221691">22-16-91</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="sovet-narodnyh-deputatov" data-section="vlast" data-search="совет народных депутатов совет народных депутатов благовещенского муниципального округа матвеев сергей александрович председатель совета народных депутатов благовещенского муниципального округа  прасков сергей александрович заместитель председателя совета народных депутатов благовещенского муниципального округа  кондратьев владимир викторович заместитель председателя совета народных депутатов благовещенского муниципального округа  бабич людмила анатольевна управляющий делами аппарата совета организационно-правовой отдел совета народных депутатов благовещенского муниципального округа пацук ирина владимировна начальник отдела организационного обеспечения и делопроизводства аппарата совета организационно-правовой отдел совета народных депутатов благовещенского муниципального округа">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M1 21h12v2H1zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83zM13.72 1l5.66 5.66-2.83 2.83-5.66-5.66zM4.11 10.6l5.66 5.66-2.83 2.83-5.66-5.66z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Совет народных депутатов</h4>
+              <div class="vz-metaline">5 сотрудников · 1 отдел</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Представительный орган округа. Принимает устав и изменения к нему, утверждает бюджет и отчёт о его исполнении, устанавливает местные налоги, утверждает стратегию социально-экономического развития и контролирует работу администрации.</p>
+            <ul class="vz-tags"><li>Устав округа</li><li>Бюджет и отчёт об исполнении</li><li>Местные налоги и сборы</li><li>Контроль за администрацией</li><li>Работа с избирателями</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">МС</span><div class="vz-person-body"><div class="vz-fio">Матвеев Сергей Александрович</div><div class="vz-post">Председатель Совета народных депутатов Благовещенского муниципального округа</div><div class="vz-contacts"><span class="vz-room">каб. 32</span><a href="tel:+74162774526">77-45-26</a><a href="mailto:sovet@blagraion.ru">sovet@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">ПС</span><div class="vz-person-body"><div class="vz-fio">Прасков Сергей Александрович</div><div class="vz-post">Заместитель Председателя Совета народных депутатов Благовещенского муниципального округа</div><div class="vz-contacts"><span class="vz-room">каб. 12, с. Чигири, ул. Центральная 37</span><a href="mailto:sovet@blagraion.ru">sovet@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">КВ</span><div class="vz-person-body"><div class="vz-fio">Кондратьев Владимир Викторович</div><div class="vz-post">Заместитель Председателя Совета народных депутатов Благовещенского муниципального округа</div><div class="vz-contacts"><a href="mailto:sovet@blagraion.ru">sovet@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">БЛ</span><div class="vz-person-body"><div class="vz-otdel">Организационно-правовой отдел совета народных депутатов Благовещенского муниципального округа</div><div class="vz-fio">Бабич Людмила Анатольевна</div><div class="vz-post">Управляющий делами аппарата Совета</div><div class="vz-contacts"><span class="vz-room">каб. 12</span><a href="tel:+74162774503">77-45-03</a><a href="mailto:babich@blagraion.ru">babich@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ПИ</span><div class="vz-person-body"><div class="vz-otdel">Организационно-правовой отдел совета народных депутатов Благовещенского муниципального округа</div><div class="vz-fio">Пацук Ирина Владимировна</div><div class="vz-post">Начальник отдела организационного обеспечения и делопроизводства аппарата Совета</div><div class="vz-contacts"><span class="vz-room">каб. 12</span><a href="tel:+74162774503">77-45-03</a><a href="mailto:sovet@blagraion.ru">sovet@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="kontrolno-schetnaya-palata" data-section="vlast" data-search="контрольно-счётная палата контрольно-счетная палата благовещенского муниципального округа фитц марина юрьевна председатель ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Контрольно-счётная палата</h4>
+              <div class="vz-metaline">3 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Постоянно действующий орган внешнего муниципального финансового контроля. Проводит экспертизу проекта бюджета, проверяет законность и результативность расходования средств, оценивает использование муниципального имущества и готовит заключения для Совета народных депутатов.</p>
+            <ul class="vz-tags"><li>Экспертиза проекта бюджета</li><li>Внешняя проверка отчёта об исполнении</li><li>Контрольные мероприятия в учреждениях</li><li>Аудит закупок</li><li>Использование муниципального имущества</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ФМ</span><div class="vz-person-body"><div class="vz-fio">Фитц Марина Юрьевна</div><div class="vz-post">Председатель</div><div class="vz-contacts"><span class="vz-room">каб. 12</span><a href="tel:+74162770172">77-01-72</a><a href="mailto:kso@blagraion.ru">kso@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="izbiratelnaya-komissiya" data-section="vlast" data-search="избирательная комиссия избирательная комиссия благовещенского муниципального округа сычева ольга николаевна председатель ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Избирательная комиссия</h4>
+              <div class="vz-metaline">2 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует подготовку и проведение муниципальных выборов и местных референдумов, ведёт регистрацию кандидатов, контролирует соблюдение избирательных прав граждан и устанавливает итоги голосования на территории округа.</p>
+            <ul class="vz-tags"><li>Подготовка и проведение выборов</li><li>Регистрация кандидатов</li><li>Списки избирателей</li><li>Итоги голосования</li><li>Правовое просвещение избирателей</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">СО</span><div class="vz-person-body"><div class="vz-fio">Сычева Ольга Николаевна</div><div class="vz-post">Председатель</div><div class="vz-contacts"><span class="vz-room">каб. 5</span><a href="tel:+74162523837">52-38-37</a><a href="mailto:tik00@amurizbirkom.ru">tik00@amurizbirkom.ru</a></div></div></div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="vz-section" data-section="apparat">
+        <h3 class="vz-section-title">Отделы администрации <span>11</span></h3>
+        <p class="vz-section-sub">Структурные подразделения аппарата администрации округа</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="organizacionno-kontrolnyy-otdel" data-section="apparat" data-search="организационно-контрольный отдел организационно-контрольный отдел федченко алла геннадьевна начальник организационно-контрольный отдел сохимо татьяна николаевна заместитель начальника организационно-контрольный отдел">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2m2 14H7v-2h7zm3-4H7v-2h10zm0-4H7V7h10z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Организационно-контрольный отдел</h4>
+              <div class="vz-metaline">6 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Планирует работу администрации, готовит совещания и заседания коллегиальных органов, ведёт контроль исполнения поручений главы округа и муниципальных правовых актов, координирует взаимодействие подразделений и организует работу с обращениями граждан.</p>
+            <ul class="vz-tags"><li>План работы администрации</li><li>Подготовка совещаний и коллегий</li><li>Контроль исполнения поручений</li><li>Обращения граждан</li><li>Наградная работа</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ФА</span><div class="vz-person-body"><div class="vz-fio">Федченко Алла Геннадьевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 33</span><a href="tel:+74162774513">77-45-13</a><a href="mailto:orkotdel@blagraion.ru">orkotdel@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">СТ</span><div class="vz-person-body"><div class="vz-otdel">Организационно-контрольный отдел</div><div class="vz-fio">Сохимо Татьяна Николаевна</div><div class="vz-post">Заместитель начальника</div><div class="vz-contacts"><span class="vz-room">каб. 33</span><a href="tel:+74162774513">77-45-13</a><a href="mailto:orkotdel@blagraion.ru">orkotdel@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-municipalnoy-sluzhby-i-dokumentacionnogo-o" data-section="apparat" data-search="отдел муниципальной службы и документационного обеспечения отдел муниципальной службы и документационного обеспечения макухина людмила валентиновна начальник отдел муниципальной службы и документационного обеспечения">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3m-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3m0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5m8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел муниципальной службы и документационного обеспечения</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Ведёт кадровую работу администрации: приём и увольнение служащих, конкурсы на замещение должностей, аттестацию и повышение квалификации. Отвечает за противодействие коррупции, ведение личных дел и документооборот администрации.</p>
+            <ul class="vz-tags"><li>Кадры муниципальной службы</li><li>Конкурсы и кадровый резерв</li><li>Аттестация и обучение</li><li>Противодействие коррупции</li><li>Документооборот и архив текущего года</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">МЛ</span><div class="vz-person-body"><div class="vz-fio">Макухина Людмила Валентиновна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 1а</span><a href="tel:+74162774530">77-45-30</a><a href="mailto:makuhina@blagraion.ru">makuhina@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="pravovoy-otdel" data-section="apparat" data-search="правовой отдел правовой отдел гурьянова светлана владимировна начальник правовой отдел">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M1 21h12v2H1zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83zM13.72 1l5.66 5.66-2.83 2.83-5.66-5.66zM4.11 10.6l5.66 5.66-2.83 2.83-5.66-5.66z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Правовой отдел</h4>
+              <div class="vz-metaline">6 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Проводит правовую экспертизу проектов муниципальных правовых актов и договоров, представляет интересы администрации в судах, ведёт претензионную работу и консультирует подразделения по вопросам применения законодательства.</p>
+            <ul class="vz-tags"><li>Экспертиза правовых актов</li><li>Представительство в судах</li><li>Договорная и претензионная работа</li><li>Антикоррупционная экспертиза</li><li>Правовые консультации подразделений</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ГС</span><div class="vz-person-body"><div class="vz-fio">Гурьянова Светлана Владимировна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 6</span><a href="tel:+74162774525">77-45-25</a><a href="mailto:pravo@blagraion.ru">pravo@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-po-grazhdanskoy-zaschite-i-pozharnoy-bezop" data-section="apparat" data-search="отдел по гражданской защите и пожарной безопасности отдел по гражданской защите и пожарной безопасности карченко арина александровна начальник отдел по гражданской защите и пожарной безопасности">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2zm12-3h-2v-2h2zm0-4h-2v-4h2z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел по гражданской защите и пожарной безопасности</h4>
+              <div class="vz-metaline">1 сотрудник · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует мероприятия гражданской обороны и защиты населения от чрезвычайных ситуаций, обеспечивает пожарную безопасность на территории округа, поддерживает в готовности силы и средства предупреждения ЧС, координирует действия при паводках и лесных пожарах.</p>
+            <ul class="vz-tags"><li>Гражданская оборона</li><li>Предупреждение и ликвидация ЧС</li><li>Пожарная безопасность</li><li>Безопасность на водных объектах</li><li>Обучение населения действиям при ЧС</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КА</span><div class="vz-person-body"><div class="vz-fio">Карченко Арина Александровна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 15</span><a href="tel:+74162221646">22-16-46</a><a href="mailto:gochs@blagraion.ru">gochs@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-po-rezhimu-sekretnosti-i-mobilizacionnoy-r" data-section="apparat" data-search="отдел по режиму секретности и мобилизационной работе отдел по режиму секретности и мобилизационной работе николаев виктор сергеевич начальник отдел по режиму секретности и мобилизационной работе">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2m-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4m3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел по режиму секретности и мобилизационной работе</h4>
+              <div class="vz-metaline">2 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Обеспечивает защиту сведений, составляющих государственную тайну, ведёт секретное делопроизводство и организует мобилизационную подготовку экономики округа во взаимодействии с органами военного управления.</p>
+            <ul class="vz-tags"><li>Защита государственной тайны</li><li>Секретное делопроизводство</li><li>Мобилизационная подготовка</li><li>Воинский учёт и бронирование</li><li>Допуск к сведениям особой важности</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">НВ</span><div class="vz-person-body"><div class="vz-fio">Николаев Виктор Сергеевич</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 10</span><a href="tel:+74162774511">77-45-11</a><a href="mailto:vasgoman@mail.ru">vasgoman@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-municipalnogo-kontrolya" data-section="apparat" data-search="отдел муниципального контроля отдел муниципального контроля комчадалова анна александровна начальника отдела отдел муниципального контроля">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел муниципального контроля</h4>
+              <div class="vz-metaline">5 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Осуществляет муниципальный земельный, жилищный и дорожный контроль, контроль в сфере благоустройства. Обеспечивает работу административной комиссии округа и исполняет отдельные государственные полномочия, в том числе в сфере оборота алкогольной продукции.</p>
+            <ul class="vz-tags"><li>Муниципальный земельный контроль</li><li>Контроль в сфере благоустройства</li><li>Административная комиссия</li><li>Профилактические визиты</li><li>Госполномочия по алкогольной продукции</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КА</span><div class="vz-person-body"><div class="vz-fio">Комчадалова Анна Александровна</div><div class="vz-post">Начальника отдела</div><div class="vz-contacts"><span class="vz-room">каб. 26</span><a href="tel:+74162774521">77-45-21</a><a href="mailto:mzk@blagraion.ru">mzk@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-dorozhnoy-deyatelnosti" data-section="apparat" data-search="отдел дорожной деятельности отдел дорожной деятельности долматова анна юрьевна (декрет) начальник отдела отдел дорожной деятельности">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8zM6.85 7h10.29l1.04 3H5.81zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел дорожной деятельности</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует содержание, ремонт и капитальный ремонт автомобильных дорог местного значения, обеспечивает безопасность дорожного движения, ведёт учёт дорог и координирует работу по пассажирским перевозкам на муниципальных маршрутах.</p>
+            <ul class="vz-tags"><li>Содержание и ремонт дорог</li><li>Безопасность дорожного движения</li><li>Реестр дорог местного значения</li><li>Муниципальные маршруты</li><li>Дорожный фонд округа</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ДА</span><div class="vz-person-body"><div class="vz-fio">Долматова Анна Юрьевна<span class="vz-badge">декрет</span></div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 1</span><a href="tel:+74162223934">22-39-34</a><a href="mailto:deykunav@blagraion.ru">deykunav@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-selskogo-hozyaystva-i-ohrany-okruzhayusche" data-section="apparat" data-search="отдел сельского хозяйства и охраны окружающей среды отдел сельского хозяйства и охраны окружающей среды сучков алексей георгиевич начальник отдел сельского хозяйства и охраны окружающей среды">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3 11 0 13-14 13-14-1 2-8 2.25-13 3.25S4 15 4 15c2-3.5 5.5-4.5 13-7"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел сельского хозяйства и охраны окружающей среды</h4>
+              <div class="vz-metaline">2 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Поддерживает сельхозтоваропроизводителей округа и личные подсобные хозяйства, ведёт мониторинг посевных и уборочных работ, сопровождает господдержку АПК. Отвечает за вопросы охраны окружающей среды и обращения с отходами.</p>
+            <ul class="vz-tags"><li>Поддержка сельхозпроизводителей</li><li>Посевная и уборочная кампании</li><li>Личные подсобные хозяйства</li><li>Охрана окружающей среды</li><li>Обращение с отходами</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">СА</span><div class="vz-person-body"><div class="vz-fio">Сучков Алексей Георгиевич</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 312</span><a href="tel:+74162774529">77-45-29</a><a href="mailto:sx@blagraion.ru">sx@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="otdel-po-socialnym-voprosam" data-section="apparat" data-search="отдел по социальным вопросам отдел по социальным вопросам рыбакова оксана юрьевна начальник отдел по социальным вопросам">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел по социальным вопросам</h4>
+              <div class="vz-metaline">2 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Координирует социальную политику округа, взаимодействует с органами социальной защиты и ветеранскими организациями, исполняет полномочия по опеке и попечительству в отношении совершеннолетних недееспособных граждан.</p>
+            <ul class="vz-tags"><li>Опека над совершеннолетними</li><li>Поддержка ветеранов и инвалидов</li><li>Социально ориентированные НКО</li><li>Профилактика социального неблагополучия</li><li>Работа с семьями участников СВО</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">РО</span><div class="vz-person-body"><div class="vz-fio">Рыбакова Оксана Юрьевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 12</span><a href="tel:+74162774512">77-45-12</a><a href="mailto:oksid17o@yandex.ru">oksid17o@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="komissiya-po-delam-nesovershennoletnih-i-zaschit" data-section="apparat" data-search="комиссия по делам несовершеннолетних и защите их прав комиссия по делам несовершеннолетних и защите их прав">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4m5 5H7a1 1 0 0 0-1 1v6h2v8h8v-8h2V8a1 1 0 0 0-1-1"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Комиссия по делам несовершеннолетних и защите их прав</h4>
+              <div class="vz-metaline">1 сотрудник · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Координирует работу органов и учреждений системы профилактики безнадзорности и правонарушений несовершеннолетних, рассматривает дела об административных правонарушениях в отношении подростков и родителей, ведёт индивидуальную профилактическую работу с семьями в социально опасном положении.</p>
+            <ul class="vz-tags"><li>Профилактика безнадзорности</li><li>Дела об административных правонарушениях</li><li>Работа с семьями в СОП</li><li>Защита прав несовершеннолетних</li><li>Межведомственное взаимодействие</li></ul>
+          </div>
+          <div class="vz-people"><p class="vz-none">В справочнике руководитель не указан</p></div>
+        </article>
+
+        <article class="vz-card" id="otdel-municipalnyh-torgov" data-section="apparat" data-search="отдел муниципальных торгов отдел муниципальных торгов гудлевская наталья владимировна начальник отдел муниципальных торгов">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2M1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 20 4H5.21l-.94-2zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Отдел муниципальных торгов</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует определение поставщиков для нужд округа по 44-ФЗ: готовит и размещает извещения, обеспечивает работу комиссий по осуществлению закупок, ведёт торги по продаже и аренде муниципального имущества и земельных участков.</p>
+            <ul class="vz-tags"><li>Закупки по 44-ФЗ</li><li>Комиссии по осуществлению закупок</li><li>Торги по имуществу и земле</li><li>Планирование закупок</li><li>Контроль сроков процедур</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ГН</span><div class="vz-person-body"><div class="vz-fio">Гудлевская Наталья Владимировна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 7</span><a href="tel:+74162223914">22-39-14</a></div></div></div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="vz-section" data-section="upravleniya">
+        <h3 class="vz-section-title">Управления <span>9</span></h3>
+        <p class="vz-section-sub">Отраслевые управления с собственными отделами и полномочиями</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="upravlenie-imuschestvennyh-i-zemelnyh-otnosheniy" data-section="upravleniya" data-search="управление имущественных и земельных отношений управление имущественных и земельных отношений кравченко марина александровна начальник управления  юрьева елена анатольевна начальник имущественный отдел белямова виктория николаевна начальник земельный отдел">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление имущественных и земельных отношений</h4>
+              <div class="vz-metaline">16 сотрудников · 2 отдела</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Управляет и распоряжается муниципальным имуществом и земельными участками округа: ведёт реестр имущества, оформляет аренду и продажу, приватизацию, предоставляет участки гражданам и организациям, в том числе льготным категориям.</p>
+            <ul class="vz-tags"><li>Реестр муниципального имущества</li><li>Аренда и продажа имущества</li><li>Предоставление земельных участков</li><li>Приватизация</li><li>Земельный контроль в части учёта</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КМ</span><div class="vz-person-body"><div class="vz-fio">Кравченко Марина Александровна</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 3</span><a href="tel:+74162770173">77-01-73</a><a href="mailto:ozo@blagraion.ru">ozo@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">ЮЕ</span><div class="vz-person-body"><div class="vz-otdel">Имущественный отдел</div><div class="vz-fio">Юрьева Елена Анатольевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 2</span><a href="tel:+74162771029">77-10-29</a><a href="mailto:omi@blagraion.ru">omi@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">БВ</span><div class="vz-person-body"><div class="vz-otdel">Земельный отдел</div><div class="vz-fio">Белямова Виктория Николаевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 3</span><a href="tel:+74162772516">77-25-16</a><a href="mailto:ozo@blagraion.ru">ozo@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-zhkh" data-section="upravleniya" data-search="управление жкх управление жкх благовещенского муниципального округа гурылёва ольга владимировна начальник управления  картамышева лариса владимировна начальник отдела жилищный отдел воронцова дарья сергеевна начальник отдела отдел по благоустройству">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление ЖКХ</h4>
+              <div class="vz-metaline">13 сотрудников · 2 отдела</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует тепло-, водо- и электроснабжение населённых пунктов округа, отвечает за подготовку к отопительному сезону, содержание муниципального жилищного фонда, переселение из аварийного жилья и благоустройство территорий.</p>
+            <ul class="vz-tags"><li>Подготовка к отопительному сезону</li><li>Коммунальная инфраструктура</li><li>Муниципальный жилищный фонд</li><li>Переселение из аварийного жилья</li><li>Благоустройство и озеленение</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ГО</span><div class="vz-person-body"><div class="vz-fio">Гурылёва Ольга Владимировна</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 13</span><a href="tel:+74162774505">77-45-05</a><a href="mailto:zhkh@blagraion.ru">zhkh@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">КЛ</span><div class="vz-person-body"><div class="vz-otdel">Жилищный отдел</div><div class="vz-fio">Картамышева Лариса Владимировна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 13</span><a href="tel:+74162774502">77-45-02</a><a href="mailto:zhkh@blagraion.ru">zhkh@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ВД</span><div class="vz-person-body"><div class="vz-otdel">Отдел по благоустройству</div><div class="vz-fio">Воронцова Дарья Сергеевна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 11</span><a href="tel:+74162774508">77-45-08</a><a href="mailto:zhkh@blagraion.ru">zhkh@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-arhitektury-i-gradostroitelstva" data-section="upravleniya" data-search="управление архитектуры и градостроительства управление архитектуры и градостроительства вакансия начальник управления  марченко лариса викторовна начальник отдела ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7zM6 19H4v-2h2zm0-4H4v-2h2zm0-4H4V9h2zm0-4H4V5h2zm4 12H8v-2h2zm0-4H8v-2h2zm0-4H8V9h2zm0-4H8V5h2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8zm-2-8h-2v2h2zm0 4h-2v2h2z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление архитектуры и градостроительства</h4>
+              <div class="vz-metaline">7 сотрудников</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Ведёт градостроительную деятельность округа: генеральный план, правила землепользования и застройки, документацию по планировке территории. Выдаёт градостроительные планы участков, разрешения на строительство и ввод объектов в эксплуатацию.</p>
+            <ul class="vz-tags"><li>Генеральный план и ПЗЗ</li><li>Градостроительные планы участков</li><li>Разрешения на строительство</li><li>Ввод объектов в эксплуатацию</li><li>Информационная система обеспечения градостроительной деятельности</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main vz-person--vac"><span class="vz-ava vz-ava--vac">—</span><div class="vz-person-body"><div class="vz-fio">Вакансия</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 1</span><a href="tel:+74162223934">22-39-34</a><a href="mailto:arh@blagraion.ru">arh@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">МЛ</span><div class="vz-person-body"><div class="vz-fio">Марченко Лариса Викторовна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 1</span><a href="tel:+74162223934">22-39-34</a><a href="mailto:arh@blagraion.ru">arh@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-ekonomicheskogo-razvitiya" data-section="upravleniya" data-search="управление экономического развития управление экономического развития благовещенского муниципального округа гулянов сергей николаевич начальник управления  воробьева евгения георгиевна (отпуск) начальник отдел инвестиций, потребительского рынка и развития туризма рычкова надежда васильевна заместитель начальника управления – начальник отдела отдел муниципальных программ и развития предпринимательства васильева александра алексеевна руководитель сектор планирования и прогнозирования">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление экономического развития</h4>
+              <div class="vz-metaline">6 сотрудников · 3 отдела</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Разрабатывает прогноз социально-экономического развития округа и муниципальные программы, сопровождает инвестиционные проекты, поддерживает малое и среднее предпринимательство, отвечает за развитие потребительского рынка и туризма.</p>
+            <ul class="vz-tags"><li>Прогноз социально-экономического развития</li><li>Муниципальные программы</li><li>Поддержка предпринимательства</li><li>Инвестиционные проекты</li><li>Потребительский рынок и туризм</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ГС</span><div class="vz-person-body"><div class="vz-fio">Гулянов Сергей Николаевич</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 208</span><a href="tel:+74162772510">77-25-10</a><a href="mailto:gulyanov@blagraion.ru">gulyanov@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">ВЕ</span><div class="vz-person-body"><div class="vz-otdel">Отдел инвестиций, потребительского рынка и развития туризма</div><div class="vz-fio">Воробьева Евгения Георгиевна<span class="vz-badge">отпуск</span></div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 208</span><a href="tel:+74162772510">77-25-10</a><a href="mailto:ekonomika@blagraion.ru">ekonomika@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">РН</span><div class="vz-person-body"><div class="vz-otdel">Отдел муниципальных программ и развития предпринимательства</div><div class="vz-fio">Рычкова Надежда Васильевна</div><div class="vz-post">Заместитель начальника управления – начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 208</span><a href="tel:+74162772581">77-25-81</a><a href="mailto:ekonomika@blagraion.ru">ekonomika@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ВА</span><div class="vz-person-body"><div class="vz-otdel">Сектор планирования и прогнозирования</div><div class="vz-fio">Васильева Александра Алексеевна</div><div class="vz-post">Руководитель</div><div class="vz-contacts"><span class="vz-room">каб. 208</span><a href="tel:+74162772510">77-25-10</a><a href="mailto:ekonomika@blagraion.ru">ekonomika@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-po-delam-molodezhi-kultury-i-sporta" data-section="upravleniya" data-search="управление по делам молодёжи, культуры и спорта управление по делам молодежи, культуры, физической культуры и спорта мулявко лариса петровна начальник  крючкова елена николаевна заместитель начальника  коновалов юрий владимирович начальник отдела по физической культуре и спорту ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M14.4 6 14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление по делам молодёжи, культуры и спорта</h4>
+              <div class="vz-metaline">3 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует культурно-досуговую работу и библиотечное обслуживание, реализует молодёжную политику, развивает физическую культуру и массовый спорт, проводит окружные фестивали, спартакиады и патриотические мероприятия.</p>
+            <ul class="vz-tags"><li>Культурно-досуговая деятельность</li><li>Молодёжная политика</li><li>Массовый спорт и ГТО</li><li>Окружные фестивали и спартакиады</li><li>Патриотическое воспитание</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">МЛ</span><div class="vz-person-body"><div class="vz-fio">Мулявко Лариса Петровна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 24</span><a href="tel:+74162223917">22-39-17</a><a href="mailto:mulyavko.lora@yandex.ru">mulyavko.lora@yandex.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">КЕ</span><div class="vz-person-body"><div class="vz-fio">Крючкова Елена Николаевна</div><div class="vz-post">Заместитель начальника</div><div class="vz-contacts"><span class="vz-room">каб. 24</span><a href="tel:+74162223917">22-39-17</a><a href="mailto:mks@blagraion.ru">mks@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">КЮ</span><div class="vz-person-body"><div class="vz-fio">Коновалов Юрий Владимирович</div><div class="vz-post">Начальник отдела по физической культуре и спорту</div><div class="vz-contacts"><span class="vz-room">каб. 24</span><a href="tel:+74162223917">22-39-17</a><a href="mailto:mks@blagraion.ru">mks@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="finansovoe-upravlenie" data-section="upravleniya" data-search="финансовое управление финансовое управление администрации благовещенского муниципального округа рулева наталья александровна первый заместитель главы администрации мо– начальник финансового управления  дружинина ольга анатольевна заместитель начальника финансового управления  боровикова татьяна николаевна заместитель начальника финансового управления – начальник отдела отдел учета и отчетности гаврилова наталья владимировна начальник бюджетного отдела бюджетный отдел дзевенис татьяна владимировна начальник ревизионный отдел каржавина светлана викторовна начальник отдел казначейского исполнения бюджета ермолина анна николаевна начальник отдел доходов уваров геннадий геннадьевич начальник отдел информационного обслуживания">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Финансовое управление</h4>
+              <div class="vz-metaline">14 сотрудников · 6 отделов</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Составляет проект бюджета округа и организует его исполнение, ведёт казначейское исполнение и учёт, управляет муниципальным долгом, осуществляет внутренний муниципальный финансовый контроль и формирует бюджетную отчётность.</p>
+            <ul class="vz-tags"><li>Проект бюджета округа</li><li>Казначейское исполнение</li><li>Доходы и межбюджетные отношения</li><li>Внутренний финансовый контроль</li><li>Бюджетная отчётность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">РН</span><div class="vz-person-body"><div class="vz-fio">Рулева Наталья Александровна<span class="vz-badge vz-badge--ref">по должности</span></div><div class="vz-post">Первый заместитель главы администрации МО– начальник финансового управления</div><div class="vz-contacts"><span class="vz-room">каб. 40</span><a href="tel:+74162221690">22-16-90</a><a href="tel:+74162771030">77-10-30</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">ДО</span><div class="vz-person-body"><div class="vz-fio">Дружинина Ольга Анатольевна</div><div class="vz-post">Заместитель начальника финансового управления</div><div class="vz-contacts"><span class="vz-room">каб. 15</span><a href="tel:+74162771024">77-10-24</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">БТ</span><div class="vz-person-body"><div class="vz-otdel">Отдел учета и отчетности</div><div class="vz-fio">Боровикова Татьяна Николаевна</div><div class="vz-post">Заместитель начальника финансового управления – начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 9</span><a href="tel:+74162771023">77-10-23</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ГН</span><div class="vz-person-body"><div class="vz-otdel">Бюджетный отдел</div><div class="vz-fio">Гаврилова Наталья Владимировна</div><div class="vz-post">Начальник бюджетного отдела</div><div class="vz-contacts"><span class="vz-room">каб. 15</span><a href="tel:+74162771024">77-10-24</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ДТ</span><div class="vz-person-body"><div class="vz-otdel">Ревизионный отдел</div><div class="vz-fio">Дзевенис Татьяна Владимировна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 8</span><a href="tel:+74162774523">77-45-23</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">КС</span><div class="vz-person-body"><div class="vz-otdel">Отдел казначейского исполнения бюджета</div><div class="vz-fio">Каржавина Светлана Викторовна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 7</span><a href="tel:+74162771026">77-10-26</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ЕА</span><div class="vz-person-body"><div class="vz-otdel">Отдел доходов</div><div class="vz-fio">Ермолина Анна Николаевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 5</span><a href="tel:+74162771028">77-10-28</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">УГ</span><div class="vz-person-body"><div class="vz-otdel">Отдел информационного обслуживания</div><div class="vz-fio">Уваров Геннадий Геннадьевич</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 14</span><a href="tel:+74162771027">77-10-27</a><a href="mailto:fin_upr@blagraion.ru">fin_upr@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-obrazovaniya" data-section="upravleniya" data-search="управление образования управление образования аксенова оксана михайловна начальник управления  акусок ирина владимировна заместитель начальника управления  мищенко марина викторовна начальник отдела общего и дошкольного образования  шевелева ольга александровна начальник отдела дополнительного образования  трофимцова диана владимировна начальник отдела по воспитанию и дополнительному образованию  аббакумова светлана викторовна директор ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7c0 2.21 3.58 4 8 4s8-1.79 8-4-3.58-4-8-4m0 6c-3.87 0-6-1.5-6-2s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2m-8 2.38c-.61.34-1.04.73-1.26 1.12C2.25 12.82 2 13.38 2 14c0 2.21 3.58 4 8 4s8-1.79 8-4c0-.62-.25-1.18-.74-1.5-.22-.39-.65-.78-1.26-1.12V14c0 1.1-2.69 2-6 2s-6-.9-6-2z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление образования</h4>
+              <div class="vz-metaline">13 сотрудников</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Обеспечивает получение общего и дошкольного образования на территории округа, координирует работу школ, детских садов и учреждений дополнительного образования, организует летний отдых детей и исполняет полномочия органа опеки и попечительства над несовершеннолетними.</p>
+            <ul class="vz-tags"><li>Общее и дошкольное образование</li><li>Дополнительное образование и воспитание</li><li>Организация летнего отдыха</li><li>Опека и попечительство над детьми</li><li>Комплектование и аттестация кадров</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководство</h5><div class="vz-person vz-person--main"><span class="vz-ava">АО</span><div class="vz-person-body"><div class="vz-fio">Аксенова Оксана Михайловна</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 19</span><a href="tel:+74162774520">77-45-20</a><a href="mailto:upobr@blagraion.ru">upobr@blagraion.ru</a></div></div></div><div class="vz-person vz-person--main"><span class="vz-ava">АС</span><div class="vz-person-body"><div class="vz-fio">Аббакумова Светлана Викторовна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 10, с. Чигири, ул. Центральная 37</span><a href="mailto:mocdod@blagraion.ru">mocdod@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">АИ</span><div class="vz-person-body"><div class="vz-fio">Акусок Ирина Владимировна</div><div class="vz-post">Заместитель начальника управления</div><div class="vz-contacts"><span class="vz-room">каб. 20</span><a href="tel:+74162774519">77-45-19</a><a href="mailto:upobr@blagraion.ru">upobr@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">ММ</span><div class="vz-person-body"><div class="vz-fio">Мищенко Марина Викторовна</div><div class="vz-post">Начальник отдела общего и дошкольного образования</div><div class="vz-contacts"><span class="vz-room">каб. 20</span><a href="tel:+74162774520">77-45-20</a><a href="mailto:upobr@blagraion.ru">upobr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ШО</span><div class="vz-person-body"><div class="vz-fio">Шевелева Ольга Александровна</div><div class="vz-post">Начальник отдела дополнительного образования</div><div class="vz-contacts"><span class="vz-room">каб. 20</span><a href="tel:+74162774517">77-45-17</a><a href="mailto:sheveleva@blagraion.ru">sheveleva@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ТД</span><div class="vz-person-body"><div class="vz-fio">Трофимцова Диана Владимировна</div><div class="vz-post">Начальник отдела по воспитанию и дополнительному образованию</div><div class="vz-contacts"><span class="vz-room">каб. 20</span><a href="tel:+74162774520">77-45-20</a><a href="mailto:upobr@blagraion.ru">upobr@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="upravlenie-po-rabote-s-territoriyami" data-section="upravleniya" data-search="управление по работе с территориями управление по работе с территориями вакансия начальник управления  вакансия заместитель начальника управления по работе с территориями администрации благовещенского муниципального округа ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Управление по работе с территориями</h4>
+              <div class="vz-metaline">2 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Координирует работу территориальных администраций сёл округа, обеспечивает взаимодействие жителей населённых пунктов с администрацией округа, сопровождает сходы граждан и программы инициативного бюджетирования.</p>
+            <ul class="vz-tags"><li>Координация администраций сёл</li><li>Сходы и собрания граждан</li><li>Инициативное бюджетирование</li><li>ТОС и старосты сёл</li><li>Обратная связь с жителями</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main vz-person--vac"><span class="vz-ava vz-ava--vac">—</span><div class="vz-person-body"><div class="vz-fio">Вакансия</div><div class="vz-post">Начальник управления</div><div class="vz-contacts"><span class="vz-room">каб. 6а, ул. Шевченко, 28</span><a href="mailto:territorii@blagraion.ru">territorii@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person vz-person--vac"><span class="vz-ava vz-ava--vac">—</span><div class="vz-person-body"><div class="vz-fio">Вакансия</div><div class="vz-post">Заместитель начальника управления по работе с территориями администрации Благовещенского муниципального округа</div><div class="vz-contacts"><span class="vz-room">каб. 6а, ул. Шевченко, 28</span><a href="mailto:territorii@blagraion.ru">territorii@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="voenno-uchetnyy-stol" data-section="upravleniya" data-search="военно-учётный стол военно-учетный стол морозова евгения сергеевна начальник вус ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Военно-учётный стол</h4>
+              <div class="vz-metaline">2 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Ведёт первичный воинский учёт граждан, пребывающих в запасе, и граждан, подлежащих призыву, на территории округа. Обеспечивает бронирование граждан за организациями и взаимодействие с военным комиссариатом.</p>
+            <ul class="vz-tags"><li>Первичный воинский учёт</li><li>Призывные мероприятия</li><li>Бронирование граждан</li><li>Взаимодействие с военкоматом</li><li>Учётные документы граждан запаса</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">МЕ</span><div class="vz-person-body"><div class="vz-fio">Морозова Евгения Сергеевна</div><div class="vz-post">Начальник ВУС</div><div class="vz-contacts"><span class="vz-room">с. Чигири, ул. Центральная, д. 37</span><a href="tel:+74162210362">21-03-62</a><a href="mailto:admchigiri@mail.ru">admchigiri@mail.ru</a></div></div></div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="vz-section" data-section="uchrezhdeniya">
+        <h3 class="vz-section-title">Подведомственные учреждения <span>6</span></h3>
+        <p class="vz-section-sub">Муниципальные учреждения и предприятия округа</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="mku-centralizovannaya-buhgalteriya" data-section="uchrezhdeniya" data-search="мку «централизованная бухгалтерия» муниципальное казенное учреждение «цб учреждений благовещенского муниципального округа» коляда светлана владимировна директор  морскова аксана александровна заместитель директора – начальник отдела отдел обслуживания учреждений культуры лобова анна геннадьевна начальник отдела – главный бухгалтер отдел по обслуживанию учреждений образования гусева наталья игоревна заместитель начальника отдела отдел по обслуживанию учреждений образования рыбальченко татьяна владимировна начальник отдела отдел обслуживания прочих учреждений пономарёва олеся сергеевна начальник отдела отдел экономической службы гавриленко татьяна борисовна начальник отдела отдел муниципальных закупок">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 3h5v2h-5zM7 18H5v-2h2zm0-4H5v-2h2zm0-4H5V8h2zm5 8h-3v-2h3zm0-4h-3v-2h3zm7 4h-5v-2h5zm0-4h-5v-2h5z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Централизованная бухгалтерия»</h4>
+              <div class="vz-metaline">37 сотрудников · 5 отделов</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Ведёт бухгалтерский и налоговый учёт муниципальных учреждений округа — образования, культуры и прочих. Составляет отчётность, начисляет заработную плату, планирует финансово-хозяйственную деятельность и сопровождает закупки учреждений.</p>
+            <ul class="vz-tags"><li>Бухгалтерский учёт учреждений</li><li>Заработная плата и отчётность</li><li>Планы финансово-хозяйственной деятельности</li><li>Экономическое сопровождение</li><li>Закупки учреждений</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КС</span><div class="vz-person-body"><div class="vz-fio">Коляда Светлана Владимировна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 10</span><a href="tel:+74162772518">77-25-18</a><a href="mailto:buh@blagraion.ru">buh@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">МА</span><div class="vz-person-body"><div class="vz-otdel">Отдел обслуживания учреждений культуры</div><div class="vz-fio">Морскова Аксана Александровна</div><div class="vz-post">Заместитель директора – начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 16</span><a href="tel:+74162772519">77-25-19</a><a href="mailto:mrskv17@yandex.ru">mrskv17@yandex.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ЛА</span><div class="vz-person-body"><div class="vz-otdel">Отдел по обслуживанию учреждений образования</div><div class="vz-fio">Лобова Анна Геннадьевна</div><div class="vz-post">Начальник отдела – главный бухгалтер</div><div class="vz-contacts"><span class="vz-room">каб. 18</span><a href="tel:+74162772520">77-25-20</a><a href="mailto:mu-zb-obl@rambler.ru">mu-zb-obl@rambler.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ГН</span><div class="vz-person-body"><div class="vz-otdel">Отдел по обслуживанию учреждений образования</div><div class="vz-fio">Гусева Наталья Игоревна</div><div class="vz-post">Заместитель начальника отдела</div><div class="vz-contacts"><span class="vz-room">каб. 18</span><a href="tel:+74162772521">77-25-21</a><a href="mailto:mu-zb-obl@rambler.ru">mu-zb-obl@rambler.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">РТ</span><div class="vz-person-body"><div class="vz-otdel">Отдел обслуживания прочих учреждений</div><div class="vz-fio">Рыбальченко Татьяна Владимировна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 17</span><a href="tel:+74162771025">77-10-25</a></div></div></div><div class="vz-person"><span class="vz-ava">ПО</span><div class="vz-person-body"><div class="vz-otdel">Отдел экономической службы</div><div class="vz-fio">Пономарёва Олеся Сергеевна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 19</span><a href="tel:+74162774509">77-45-09</a><a href="mailto:mu-zb-obl@rambler.ru">mu-zb-obl@rambler.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ГТ</span><div class="vz-person-body"><div class="vz-otdel">Отдел муниципальных закупок</div><div class="vz-fio">Гавриленко Татьяна Борисовна</div><div class="vz-post">Начальник отдела</div><div class="vz-contacts"><span class="vz-room">каб. 16</span><a href="tel:+74162772519">77-25-19</a><a href="mailto:zakupki.buh@blagraion.ru">zakupki.buh@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mbu-informacionnyy-centr" data-section="uchrezhdeniya" data-search="мбу «информационный центр» муниципальное бюджетное учреждение «информационный центр благовещенского муниципального округа» вихрова анастасия васильевна директор  степанова юлия андреевна заместитель директора -начальник отдела ки  тонких светлана викторовна начальник отдел взаимодействия со сми шеверева анна николаевна начальник общий отдел попов игорь александрович начальник отдел мониторинга и прогнозирования чс беломестнов вячеслав геннадьевич начальник отдел информационных технологий кукличева софья валерьевна (декрет) начальник отдел информационных технологий ульзутуева елена викторовна начальник отдел картографического обеспечения трухина елена дмитриевна начальник архивный отдел ( пузырёв андрей сергеевич начальник хозяйственный отдел мустафаев эльдар дунямалы-оглы начальник отдел еддс">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v2H8v2h8v-2h-2v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 12H4V5h16z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МБУ «Информационный центр»</h4>
+              <div class="vz-metaline">65 сотрудников · 10 отделов</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Обеспечивает информационно-техническую и хозяйственную работу администрации: связь со СМИ и сайт округа, информационные технологии и защита информации, картография и архив, единая дежурно-диспетчерская служба, транспорт и содержание зданий.</p>
+            <ul class="vz-tags"><li>Взаимодействие со СМИ и сайт</li><li>Информационные технологии и защита информации</li><li>ЕДДС и система-112</li><li>Картографическое обеспечение</li><li>Архивное дело</li><li>Транспорт и хозяйственное обеспечение</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ВА</span><div class="vz-person-body"><div class="vz-fio">Вихрова Анастасия Васильевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 31</span><a href="tel:+74162221601">22-16-01</a><a href="mailto:icbr@blagraion.ru">icbr@blagraion.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">СЮ</span><div class="vz-person-body"><div class="vz-fio">Степанова Юлия Андреевна</div><div class="vz-post">Заместитель директора -начальник отдела КИ</div><div class="vz-contacts"><span class="vz-room">Фойе, ул. Шевченко, 28</span><a href="tel:+74162770170">77-01-70</a><a href="mailto:lumina@blagraion.ru">lumina@blagraion.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">ТС</span><div class="vz-person-body"><div class="vz-otdel">Отдел взаимодействия со СМИ</div><div class="vz-fio">Тонких Светлана Викторовна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 33</span><a href="tel:+74162774513">77-45-13</a><a href="mailto:tonkih@blagraion.ru">tonkih@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ША</span><div class="vz-person-body"><div class="vz-otdel">Общий отдел</div><div class="vz-fio">Шеверева Анна Николаевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 27</span><a href="tel:+74162774515">77-45-15</a><a href="mailto:nikolavna.25@mail.ru">nikolavna.25@mail.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ПИ</span><div class="vz-person-body"><div class="vz-otdel">Отдел мониторинга и прогнозирования ЧС</div><div class="vz-fio">Попов Игорь Александрович</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 15</span><a href="tel:+74162774506">77-45-06</a></div></div></div><div class="vz-person"><span class="vz-ava">БВ</span><div class="vz-person-body"><div class="vz-otdel">Отдел информационных технологий</div><div class="vz-fio">Беломестнов Вячеслав Геннадьевич</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 30</span><a href="tel:+74162221677">22-16-77</a><a href="mailto:icbr@blagraion.ru">icbr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">КС</span><div class="vz-person-body"><div class="vz-otdel">Отдел информационных технологий</div><div class="vz-fio">Кукличева Софья Валерьевна<span class="vz-badge">декрет</span></div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 30</span><a href="tel:+74162221677">22-16-77</a><a href="mailto:icbr@blagraion.ru">icbr@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">УЕ</span><div class="vz-person-body"><div class="vz-otdel">Отдел картографического обеспечения</div><div class="vz-fio">Ульзутуева Елена Викторовна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 30</span><a href="tel:+74162774524">77-45-24</a><a href="mailto:uev69@mail.ru">uev69@mail.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ТЕ</span><div class="vz-person-body"><div class="vz-otdel">Архивный отдел (</div><div class="vz-fio">Трухина Елена Дмитриевна</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">с. Чигири, ул. Новая, 2/1</span><a href="tel:+74162477551">47-75-51</a><a href="mailto:arhiv@blagraion.ru">arhiv@blagraion.ru</a></div></div></div><div class="vz-person"><span class="vz-ava">ПА</span><div class="vz-person-body"><div class="vz-otdel">Хозяйственный отдел</div><div class="vz-fio">Пузырёв Андрей Сергеевич</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 30</span><a href="tel:+74162221677">22-16-77</a></div></div></div><div class="vz-person"><span class="vz-ava">МЭ</span><div class="vz-person-body"><div class="vz-otdel">Отдел ЕДДС</div><div class="vz-fio">Мустафаев Эльдар Дунямалы-оглы</div><div class="vz-post">Начальник</div><div class="vz-contacts"><span class="vz-room">каб. 15</span><a href="tel:+74162774506">77-45-06</a><a href="mailto:edds@blagraion.ru">edds@blagraion.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mau-dorremstroy" data-section="uchrezhdeniya" data-search="мау «дорремстрой» муниципальное автономное учреждение благовещенского округа «дорремстрой» стёпин андрей васильевич директор  телухов александр андреевич начальник дорожной деятельности ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8zM6.85 7h10.29l1.04 3H5.81zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МАУ «Дорремстрой»</h4>
+              <div class="vz-metaline">4 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Выполняет работы по содержанию и ремонту автомобильных дорог округа, зимнему содержанию улично-дорожной сети, обслуживанию элементов благоустройства и вывозу снега.</p>
+            <ul class="vz-tags"><li>Содержание дорог</li><li>Зимняя уборка и вывоз снега</li><li>Ямочный и текущий ремонт</li><li>Дорожные знаки и разметка</li><li>Обслуживание благоустройства</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководство</h5><div class="vz-person vz-person--main"><span class="vz-ava">СА</span><div class="vz-person-body"><div class="vz-fio">Стёпин Андрей Васильевич</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 214</span><a href="tel:+74162996756">99-67-56</a><a href="mailto:mbudrs@gmail.com">mbudrs@gmail.com</a></div></div></div><div class="vz-person vz-person--main"><span class="vz-ava">ТА</span><div class="vz-person-body"><div class="vz-fio">Телухов Александр Андреевич</div><div class="vz-post">Начальник дорожной деятельности</div><div class="vz-contacts"><span class="vz-none">контакты не указаны</span></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mkp-resurs" data-section="uchrezhdeniya" data-search="мкп «ресурс» муниципальное казенное предприятие «ресурс» афанасьев артём иванович директор ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H6.5c-.88 0-.33-.75-.31-.78C7.48 10.94 9.4 7.57 12.16 3h1l-1 7h4.51c.4 0 .62.19.4.66C12.97 17.55 11 21 11 21"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКП «Ресурс»</h4>
+              <div class="vz-metaline">1 сотрудник</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Муниципальное предприятие, обеспечивающее коммунальное обслуживание населённых пунктов округа и эксплуатацию объектов коммунальной инфраструктуры, находящихся в муниципальной собственности.</p>
+            <ul class="vz-tags"><li>Эксплуатация коммунальных объектов</li><li>Водоснабжение населённых пунктов</li><li>Аварийно-восстановительные работы</li><li>Обслуживание сетей</li><li>Подготовка объектов к зиме</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">АА</span><div class="vz-person-body"><div class="vz-fio">Афанасьев Артём Иванович</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="mailto:mkp.resurs@mail.ru">mkp.resurs@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mauk-centr-kultury-i-sporta" data-section="uchrezhdeniya" data-search="маук «центр культуры и спорта» муниципальное автономное учреждение культуры «центр культуры и спорта благовещенского муниципального округа» санжаровская ирина валерьевна директор  мусатова екатерина олеговна заместитель директора ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M14.4 6 14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МАУК «Центр культуры и спорта»</h4>
+              <div class="vz-metaline">4 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Организует культурно-массовые и спортивные мероприятия округа, поддерживает клубные формирования и творческие коллективы, проводит окружные праздники, конкурсы и соревнования.</p>
+            <ul class="vz-tags"><li>Окружные праздники и фестивали</li><li>Клубные формирования</li><li>Творческие коллективы</li><li>Спортивные соревнования</li><li>Методическая помощь сельским клубам</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">СИ</span><div class="vz-person-body"><div class="vz-fio">Санжаровская Ирина Валерьевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 24</span><a href="tel:+74162223930">22-39-30</a><a href="mailto:cks1-2014@yandex.ru">cks1-2014@yandex.ru</a></div></div></div><h5 class="vz-h5">Заместители</h5><div class="vz-person"><span class="vz-ava">МЕ</span><div class="vz-person-body"><div class="vz-fio">Мусатова Екатерина Олеговна</div><div class="vz-post">Заместитель директора</div><div class="vz-contacts"><span class="vz-room">каб. 24</span><a href="tel:+74162223930">22-39-30</a><a href="mailto:cks1-2014@yandex.ru">cks1-2014@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mbuk-mezhposelencheskaya-centralnaya-biblioteka" data-section="uchrezhdeniya" data-search="мбук «межпоселенческая центральная библиотека» муниципальное бюджетное учреждение культуры «межпоселенческая центральная библиотека» тренина надежда анатольевна директор ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7c0 2.21 3.58 4 8 4s8-1.79 8-4-3.58-4-8-4m0 6c-3.87 0-6-1.5-6-2s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2m-8 2.38c-.61.34-1.04.73-1.26 1.12C2.25 12.82 2 13.38 2 14c0 2.21 3.58 4 8 4s8-1.79 8-4c0-.62-.25-1.18-.74-1.5-.22-.39-.65-.78-1.26-1.12V14c0 1.1-2.69 2-6 2s-6-.9-6-2z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МБУК «Межпоселенческая центральная библиотека»</h4>
+              <div class="vz-metaline">1 сотрудник</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Обеспечивает библиотечное обслуживание жителей округа, комплектует и хранит книжный фонд, ведёт краеведческую работу, организует читательские клубы и просветительские мероприятия в сельских филиалах.</p>
+            <ul class="vz-tags"><li>Библиотечное обслуживание</li><li>Комплектование фонда</li><li>Краеведческая работа</li><li>Просветительские мероприятия</li><li>Методическая работа с филиалами</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ТН</span><div class="vz-person-body"><div class="vz-fio">Тренина Надежда Анатольевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162213351">21-33-51</a><a href="mailto:mcb@blagraion.ru">mcb@blagraion.ru</a></div></div></div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="vz-section" data-section="territorii">
+        <h3 class="vz-section-title">Территориальные администрации <span>11</span></h3>
+        <p class="vz-section-sub">Администрации сёл — работа с жителями на местах</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="mku-volkovskaya-administraciya" data-section="territorii" data-search="мку «волковская администрация» мку «волковская администрация» самандов джасур азизович директор мку «волковская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Волковская администрация»</h4>
+              <div class="vz-metaline">4 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">СД</span><div class="vz-person-body"><div class="vz-fio">Самандов Джасур Азизович</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 1</span><a href="tel:+74162390317">39-03-17</a><a href="mailto:Sam5828@mail.ru">Sam5828@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-gribskaya-administraciya" data-section="territorii" data-search="мку «грибская администрация» мку «грибская администрация» лега анжелика сергеевна директор мку «грибская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Грибская администрация»</h4>
+              <div class="vz-metaline">4 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ЛА</span><div class="vz-person-body"><div class="vz-fio">Лега Анжелика Сергеевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162396322">39-63-22</a><a href="mailto:adm_grib@mail.ru">adm_grib@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-grodekovskaya-administraciya" data-section="territorii" data-search="мку «гродековская администрация» мку «гродековская администрация» берегова ольга геннадьевна директор мку «гродековская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Гродековская администрация»</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">БО</span><div class="vz-person-body"><div class="vz-fio">Берегова Ольга Геннадьевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 3</span><a href="tel:+74162396591">39-65-91</a><a href="mailto:adm.grodekovo@yandex.ru">adm.grodekovo@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-markovskaya-administraciya" data-section="territorii" data-search="мку «марковская администрация» мку «марковская администрация» вакансия директор мку «марковская администрация» хайкова лариса юрьевна и.о. директора мку «марковская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Марковская администрация»</h4>
+              <div class="vz-metaline">4 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main vz-person--vac"><span class="vz-ava vz-ava--vac">—</span><div class="vz-person-body"><div class="vz-fio">Вакансия</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162394030">39-40-30</a><a href="mailto:markovo-blag@mail.ru">markovo-blag@mail.ru</a></div></div></div><h5 class="vz-h5">Руководители отделов</h5><div class="vz-person"><span class="vz-ava">ХЛ</span><div class="vz-person-body"><div class="vz-otdel">МКУ «Марковская администрация»</div><div class="vz-fio">Хайкова Лариса Юрьевна</div><div class="vz-post">И.о. директора</div><div class="vz-contacts"><a href="tel:+74162394034">39-40-34</a><a href="mailto:markovo-blag@mail.ru">markovo-blag@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-mihaylovskaya-administraciya" data-section="territorii" data-search="мку «михайловская администрация» мку «михайловская администрация» локтионова виктория сергеевна директор мку «михайловская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Михайловская администрация»</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ЛВ</span><div class="vz-person-body"><div class="vz-fio">Локтионова Виктория Сергеевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162598443">59-84-43</a><a href="mailto:mihailovka-blag@yandex.ru">mihailovka-blag@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-natalinskaya-administraciya" data-section="territorii" data-search="мку «натальинская администрация» мку «натальинская администрация» макарова нина николаевна директор мку «натальинская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Натальинская администрация»</h4>
+              <div class="vz-metaline">2 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">МН</span><div class="vz-person-body"><div class="vz-fio">Макарова Нина Николаевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162391525">39-15-25</a><a href="mailto:natalino@inbox.ru">natalino@inbox.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-novopetrovskaya-administraciya" data-section="territorii" data-search="мку «новопетровская администрация» мку «новопетровская администрация» гладкий иван владимирович директор мку «новопетровская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Новопетровская администрация»</h4>
+              <div class="vz-metaline">4 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ГИ</span><div class="vz-person-body"><div class="vz-fio">Гладкий Иван Владимирович</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162391840">39-18-40</a><a href="mailto:novopetrovka-blag@yandex.ru">novopetrovka-blag@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-novotroickaya-administraciya" data-section="territorii" data-search="мку «новотроицкая администрация» мку «новотроицкая администрация» перевозчиков виктор сергеевич директор мку «новотроицкая администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Новотроицкая администрация»</h4>
+              <div class="vz-metaline">6 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ПВ</span><div class="vz-person-body"><div class="vz-fio">Перевозчиков Виктор Сергеевич</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 2</span><a href="tel:+74162395735">39-57-35</a><a href="mailto:novoadm521@yandex.ru">novoadm521@yandex.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-sergeevskaya-administraciya" data-section="territorii" data-search="мку «сергеевская администрация» мку «сергеевская администрация» клышников виталий викторович директор мку «сергеевская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Сергеевская администрация»</h4>
+              <div class="vz-metaline">3 сотрудника · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КВ</span><div class="vz-person-body"><div class="vz-fio">Клышников Виталий Викторович</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 6</span><a href="tel:+74162385043">38-50-43</a><a href="mailto:sergeevka-blag@mail.ru">sergeevka-blag@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-ust-ivanovskaya-administraciya" data-section="territorii" data-search="мку «усть-ивановская администрация» мку «усть-ивановская администрация» зайцев антон александрович директор мку «усть-ивановская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Усть-Ивановская администрация»</h4>
+              <div class="vz-metaline">6 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">ЗА</span><div class="vz-person-body"><div class="vz-fio">Зайцев Антон Александрович</div><div class="vz-post">Директор</div><div class="vz-contacts"><a href="tel:+74162396694">39-66-94</a><a href="mailto:budunda14@mail.ru">budunda14@mail.ru</a></div></div></div></div>
+        </article>
+
+        <article class="vz-card" id="mku-chigirinskaya-administraciya" data-section="territorii" data-search="мку «чигиринская администрация» мку «чигиринская администрация» кривошеева анна николаевна директор мку «чигиринская администрация»">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg></span>
+            <div class="vz-card-title">
+              <h4>МКУ «Чигиринская администрация»</h4>
+              <div class="vz-metaline">5 сотрудников · в составе администрации</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</p>
+            <ul class="vz-tags"><li>Приём жителей и выдача справок</li><li>Содержание улиц и освещение</li><li>Первичный воинский учёт</li><li>Сходы граждан и старосты</li><li>Благоустройство и пожарная безопасность</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководитель</h5><div class="vz-person vz-person--main"><span class="vz-ava">КА</span><div class="vz-person-body"><div class="vz-fio">Кривошеева Анна Николаевна</div><div class="vz-post">Директор</div><div class="vz-contacts"><span class="vz-room">каб. 10</span><a href="tel:+74162210352">21-03-52</a><a href="mailto:admchigiri@mail.ru">admchigiri@mail.ru</a></div></div></div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="vz-section" data-section="obshestvo">
+        <h3 class="vz-section-title">Общественные организации и советы <span>1</span></h3>
+        <p class="vz-section-sub">Совещательные и общественные структуры при администрации</p>
+        <div class="vz-grid">
+        <article class="vz-card" id="obschestvennye-organizacii-i-sovety" data-section="obshestvo" data-search="общественные организации и советы общественные организации, советы музыка наталья анатольевна председатель совета ветеранов бмо  степаненко маргарита викторовна председатель общественного совета бмо ">
+          <div class="vz-card-head">
+            <span class="vz-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3m-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3m0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5m8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5"/></svg></span>
+            <div class="vz-card-title">
+              <h4>Общественные организации и советы</h4>
+              <div class="vz-metaline">2 сотрудника</div>
+            </div>
+          </div>
+          <div class="vz-func">
+            <h5 class="vz-h5">Чем занимается</h5>
+            <p>Совещательные и общественные структуры округа: Совет ветеранов и Общественный совет. Представляют интересы жителей, участвуют в обсуждении муниципальных программ и общественном контроле, ведут патриотическую и социальную работу.</p>
+            <ul class="vz-tags"><li>Общественный контроль</li><li>Работа с ветеранами</li><li>Обсуждение муниципальных программ</li><li>Патриотическое воспитание</li><li>Обратная связь с жителями</li></ul>
+          </div>
+          <div class="vz-people"><h5 class="vz-h5">Руководство</h5><div class="vz-person vz-person--main"><span class="vz-ava">МН</span><div class="vz-person-body"><div class="vz-fio">Музыка Наталья Анатольевна</div><div class="vz-post">Председатель Совета ветеранов БМО</div><div class="vz-contacts"><span class="vz-room">каб. 107, ул. Св. Иннокентия, 13</span><a href="tel:+74162770191">77-01-91</a><a href="mailto:veterani_blg@outlook.com">veterani_blg@outlook.com</a></div></div></div><div class="vz-person vz-person--main"><span class="vz-ava">СМ</span><div class="vz-person-body"><div class="vz-fio">Степаненко Маргарита Викторовна</div><div class="vz-post">Председатель Общественного совета БМО</div><div class="vz-contacts"><span class="vz-none">контакты не указаны</span></div></div></div></div>
+        </article>
+        </div>
+      </section>
+        <p class="vz-empty" id="vz-empty" hidden>Ничего не найдено. Попробуйте другой запрос или снимите фильтр по разделу.</p>
+        <p class="vz-note">Сведения о руководителях приведены по телефонному справочнику органов власти округа (Актуально на 01.09.2026. Без мобильных телефонов и дат рождения). Описания функций подготовлены по типовым положениям о подразделениях и подлежат уточнению по действующим положениям.</p>
+      </div>
+    </main>
+
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
+          </div>
+          <div>
+            <h4>Контакты</h4>
+            <ul>
+              <li class="footer-phone">8 (4162) 22-16-90</li>
+              <li><a href="mailto:mail@blagraion.ru">mail@blagraion.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Разделы</h4>
+            <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
+              <li><a href="leaders.html">Визитница</a></li>
+              <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Режим работы</h4>
+            <ul>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

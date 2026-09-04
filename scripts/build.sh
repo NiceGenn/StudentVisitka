@@ -28,6 +28,15 @@ cp -R "$SRC"/. "$DIST"/
 # Файл для GitHub Pages: отключает обработку Jekyll.
 touch "$DIST/.nojekyll"
 
+# Визитница генерируется из data/ — предупреждаем, если страница отстала.
+for data_file in "$ROOT"/data/*.json; do
+  if [ -e "$data_file" ] && [ "$data_file" -nt "$SRC/leaders.html" ]; then
+    echo "==> ВНИМАНИЕ: $(basename "$data_file") новее src/leaders.html"
+    echo "    выполните: python3 scripts/gen_leaders.py"
+    break
+  fi
+done
+
 echo "==> Проверка внутренних ссылок"
 missing=0
 while IFS= read -r page; do
