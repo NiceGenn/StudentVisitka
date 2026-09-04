@@ -171,6 +171,9 @@
   пункты.forEach(function (п) {
     п.addEventListener('click', function () {
       применить(п.dataset.id);
+      // На телефоне список занимает почти весь экран: после выбора
+      // его нужно закрыть, иначе сайта не видно.
+      if (window.matchMedia('(max-width: 768px)').matches) список.hidden = true;
     });
   });
 

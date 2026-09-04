@@ -3,29 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Новости | Управление образования</title>
+    <title>Новости | Благовещенский муниципальный округ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/themes.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      /* ============================================================
+           ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "НОВОСТИ"
+           ============================================================ */
+
+      .news-extra {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
   </head>
-  <body>
-    <!-- ШАПКА -->
+<body>
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
+        </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
     <header>
-      <div class="container header-top">
+      <div class="container header-wrap">
         <div class="logo">
           <img src="assets/images/gerb.png" alt="Герб Благовещенского муниципального округа" class="gerb" width="56" height="56" />
-          <h1>📚 Управление образования</h1>
-          <p>Администрации Благовещенского муниципального округа</p>
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
         </div>
         <div class="header-contacts">
-          <span>📞 8 (4162) 77-45-19</span>
-          <span>📍 ул. Зейская, д. 198</span>
-          <span>🕐 пн–пт 8:00–17:00</span>
+          <div class="phone">
+            <a href="tel:+74162774519">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- НАВИГАЦИЯ -->
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
 <nav>
     <div class="container">
         <ul>
@@ -41,122 +83,145 @@
     </div>
 </nav>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
     <main>
       <div class="container">
-        <h2 class="section-title">Новости образования</h2>
-        <p class="section-subtitle">Актуальные события и объявления</p>
+        <h2 class="section-title"><span class="accent-line"></span>Новости администрации</h2>
+        <p class="section-subtitle">Актуальные события и официальные объявления</p>
 
         <div class="news-grid">
           <div class="news-card">
-            <div class="image">🏆</div>
-            <div class="content">
-              <div class="date">15 марта 2026</div>
-              <h3>Школьники района победили в областной олимпиаде</h3>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM7 10.82C5.84 10.4 5 9.3 5 8V7h2v3.82zM19 8c0 1.3-.84 2.4-2 2.82V7h2v1z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">15 марта 2026</div>
+              <h3>Школьники округа победили в областной олимпиаде</h3>
               <p>Ученики Грибской СОШ заняли призовые места в областной олимпиаде по математике и физике.</p>
-              <p style="margin-top: 10px; font-size: 14px">Всего в олимпиаде участвовали 12 школьников из нашего района.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+              <p class="news-extra">Всего в олимпиаде участвовали 12 школьников из нашего округа.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
 
           <div class="news-card">
-            <div class="image">🏫</div>
-            <div class="content">
-              <div class="date">10 марта 2026</div>
-              <h3>Открытие "Точки роста" в Белогорской СОШ</h3>
-              <p>В Белогорской средней школе открылся новый центр цифрового образования "Точка роста".</p>
-              <p style="margin-top: 10px; font-size: 14px">Оснащение включает современное оборудование для изучения робототехники и IT-технологий.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-6 9.18v4L12 19l6-2.82v-4L12 15l-6-2.82z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">10 марта 2026</div>
+              <h3>Открытие «Точки роста» в Белогорской СОШ</h3>
+              <p>В Белогорской средней школе открылся новый центр цифрового образования «Точка роста».</p>
+              <p class="news-extra">Оснащение включает оборудование для изучения робототехники и IT-технологий.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
 
           <div class="news-card">
-            <div class="image">📝</div>
-            <div class="content">
-              <div class="date">5 марта 2026</div>
-              <h3>Начался приём заявлений в 1-й класс</h3>
-              <p>С 1 апреля стартует приём документов в первые классы школ Благовещенского района.</p>
-              <p style="margin-top: 10px; font-size: 14px">Заявления принимаются через портал Госуслуг и лично в Управлении образования.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">5 марта 2026</div>
+              <h3>Начался приём заявлений в первый класс</h3>
+              <p>С 1 апреля стартует приём документов в первые классы школ Благовещенского округа.</p>
+              <p class="news-extra">Заявления принимаются через портал Госуслуг и лично в управлении образования.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
 
           <div class="news-card">
-            <div class="image">☀️</div>
-            <div class="content">
-              <div class="date">28 февраля 2026</div>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">28 февраля 2026</div>
               <h3>Подготовка к летней оздоровительной кампании</h3>
               <p>Началась подготовка к организации летнего отдыха и оздоровления детей в 2026 году.</p>
-              <p style="margin-top: 10px; font-size: 14px">Планируется работа лагерей с дневным пребыванием на базе школ района.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+              <p class="news-extra">Планируется работа лагерей с дневным пребыванием на базе школ округа.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
 
           <div class="news-card">
-            <div class="image">🧑‍🏫</div>
-            <div class="content">
-              <div class="date">20 февраля 2026</div>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">20 февраля 2026</div>
               <h3>Семинар для учителей начальных классов</h3>
-              <p>В Управлении образования прошёл семинар для учителей начальных классов по новым образовательным стандартам.</p>
-              <p style="margin-top: 10px; font-size: 14px">Участие приняли 45 педагогов из всех школ района.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+              <p>В управлении образования прошёл семинар по новым образовательным стандартам.</p>
+              <p class="news-extra">Участие приняли 45 педагогов из всех школ округа.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
 
           <div class="news-card">
-            <div class="image">🎓</div>
-            <div class="content">
-              <div class="date">15 февраля 2026</div>
+            <div class="news-image">
+              <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" /></svg>
+            </div>
+            <div class="news-content">
+              <div class="news-date">15 февраля 2026</div>
               <h3>Подготовка к ЕГЭ и ОГЭ</h3>
-              <p>В школах района начались консультационные занятия по подготовке к государственной итоговой аттестации.</p>
-              <p style="margin-top: 10px; font-size: 14px">Расписание консультаций опубликовано на сайтах школ.</p>
-              <a href="#" style="color: #1a3a6b; font-weight: 500; display: inline-block; margin-top: 10px">Читать полностью →</a>
+              <p>В школах округа начались консультационные занятия по подготовке к итоговой аттестации.</p>
+              <p class="news-extra">Расписание консультаций опубликовано на сайтах школ.</p>
+              <a href="#" class="read-more">Читать далее →</a>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- ПОДВАЛ -->
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
     <footer>
       <div class="container">
         <div class="footer-grid">
           <div>
-            <h4>Управление образования</h4>
-            <p style="color: #ccc; font-size: 14px">Администрации Благовещенского муниципального округа</p>
+            <img src="assets/images/gerb.png" alt="" class="gerb gerb--footer" width="44" height="44" />
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
           </div>
           <div>
             <h4>Контакты</h4>
             <ul>
-              <li>📞 8 (4162) 77-45-19</li>
-              <li>📧 obrazovanie@blgraion.amurobl.ru</li>
-              <li>📍 ул. Зейская, д. 198</li>
+              <li class="footer-phone">8 (4162) 77-45-19</li>
+              <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
             </ul>
           </div>
           <div>
-            <h4>Быстрые ссылки</h4>
+            <h4>Разделы</h4>
             <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
               <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
               <li><a href="schools.html">Школы и сады</a></li>
-              <li><a href="faq.html">Вопрос-ответ</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
             </ul>
           </div>
           <div>
             <h4>Режим работы</h4>
             <ul>
-              <li>пн–пт: 8:00–17:00</li>
-              <li>перерыв: 12:00–13:00</li>
-              <li>сб–вс: выходной</li>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© <span id="current-year">2026</span> Управление образования. Все права защищены.</p>
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
         </div>
       </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
     <script src="assets/js/themes.js" defer></script>
   </body>
 </html>

@@ -722,7 +722,8 @@
 .th-panel {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  /* Выше кнопки «наверх»: она постоянная, а эта панель временная. */
+  bottom: 80px;
   z-index: 900;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -816,7 +817,7 @@
 @media (max-width: 768px) {
   .th-panel {
     right: 12px;
-    bottom: 12px;
+    bottom: 68px;
   }
 
   .th-list {

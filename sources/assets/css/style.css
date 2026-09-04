@@ -790,3 +790,45 @@ footer {
     font-size: 16px;
   }
 }
+
+/* ==========================================
+   КНОПКА «НАВЕРХ»
+   Разметку создаёт script.js, поэтому в страницах её нет.
+   ========================================== */
+
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #ffffff;
+  background: var(--color-primary-dark);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.to-top:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.to-top[hidden] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .to-top {
+    right: 12px;
+    bottom: 12px;
+    width: 40px;
+    height: 40px;
+  }
+}

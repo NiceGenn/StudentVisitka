@@ -153,3 +153,33 @@ if (yearElement) {
     });
   });
 })();
+
+
+// ============================================================
+// КНОПКА «НАВЕРХ»
+// ============================================================
+
+(function () {
+  const кнопка = document.createElement('button');
+  кнопка.type = 'button';
+  кнопка.className = 'to-top';
+  кнопка.setAttribute('aria-label', 'Наверх');
+  кнопка.hidden = true;
+  кнопка.innerHTML =
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+    '<path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" ' +
+    'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(кнопка);
+
+  // Кнопка появляется, когда шапка уже ушла за край экрана.
+  function проверить() {
+    кнопка.hidden = window.pageYOffset < 400;
+  }
+
+  window.addEventListener('scroll', проверить, { passive: true });
+  проверить();
+
+  кнопка.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

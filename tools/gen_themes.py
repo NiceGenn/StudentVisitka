@@ -43,7 +43,8 @@ JS = ROOT / 'sources' / 'assets' / 'js' / 'themes.js'
 .th-panel {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  /* Выше кнопки «наверх»: она постоянная, а эта панель временная. */
+  bottom: 80px;
   z-index: 900;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -137,7 +138,7 @@ JS = ROOT / 'sources' / 'assets' / 'js' / 'themes.js'
 @media (max-width: 768px) {
   .th-panel {
     right: 12px;
-    bottom: 12px;
+    bottom: 68px;
   }
 
   .th-list {
@@ -199,6 +200,9 @@ JS = ROOT / 'sources' / 'assets' / 'js' / 'themes.js'
   пункты.forEach(function (п) {
     п.addEventListener('click', function () {
       применить(п.dataset.id);
+      // На телефоне список занимает почти весь экран: после выбора
+      // его нужно закрыть, иначе сайта не видно.
+      if (window.matchMedia('(max-width: 768px)').matches) список.hidden = true;
     });
   });
 
