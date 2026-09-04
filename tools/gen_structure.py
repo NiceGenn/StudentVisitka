@@ -33,6 +33,22 @@ CONTEINERS = {
 # Пометки из справочника, которые выносятся из ФИО в отдельную плашку.
 MARKS = ('декрет', 'отпуск', 'совместительство')
 
+# Силуэт вместо фотографии. Один <symbol> на страницу, каждая карточка
+# ссылается на него через <use> — иначе 266 копий разметки.
+СИЛУЭТ = (
+    '<svg class="vz-sprite" aria-hidden="true" width="0" height="0">'
+    '<symbol id="vz-face" viewBox="0 0 40 40">'
+    '<circle cx="20" cy="15" r="6.6"/>'
+    '<path d="M20 24c-7.7 0-14 4.6-14 10.3V40h28v-5.7C34 28.6 27.7 24 20 24z"/>'
+    '</symbol></svg>')
+
+# Оттенков силуэта шесть: без них колонка из тридцати одинаковых кружков
+# выглядит как ошибка вёрстки. Оттенок выбирается по ФИО — при пересборке
+# у человека остаётся тот же.
+ОТТЕНКОВ = 6
+
+ФОТО = {}
+
 ICONS = {
     'star': 'M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
     'gavel': 'M1 21h12v2H1zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83zM13.72 1l5.66 5.66-2.83 2.83-5.66-5.66zM4.11 10.6l5.66 5.66-2.83 2.83-5.66-5.66z',
@@ -182,8 +198,17 @@ def person_html(p, main=False):
     фио, пометка = split_mark(p['фио'])
     вакансия = фио.lower().startswith('вакан')
     cls = 'vz-person' + (' vz-person--main' if main else '') + (' vz-person--vac' if вакансия else '')
-    ava = '<span class="vz-ava%s">%s</span>' % (
-        ' vz-ava--vac' if вакансия else '', '—' if вакансия else esc(initials(фио)))
+    if вакансия:
+        ava = '<span class="vz-ava vz-ava--vac">—</span>'
+    elif ФОТО.get(фио):
+        ava = ('<span class="vz-ava vz-ava--photo">'
+               '<img src="%s" alt="%s" loading="lazy" decoding="async" /></span>'
+               % (esc(ФОТО[фио]), esc(фио)))
+    else:
+        оттенок = sum(map(ord, фио)) % ОТТЕНКОВ + 1
+        ava = ('<span class="vz-ava vz-ava--face vz-ava--t%d" title="Фотография не предоставлена">'
+               '<svg viewBox="0 0 40 40" aria-hidden="true"><use href="#vz-face" /></svg>'
+               '</span>' % оттенок)
 
     контакты = []
     if p['кабинет']:
@@ -307,6 +332,7 @@ def plural(n, one, few, many):
 def main():
     spr = json.loads((ROOT / 'data' / 'rukovoditeli.json').read_text(encoding='utf-8'))
     meta = json.loads((ROOT / 'data' / 'podrazdeleniya.json').read_text(encoding='utf-8'))
+    ФОТО.update(json.loads((ROOT / 'data' / 'foto.json').read_text(encoding='utf-8'))['фото'])
     cards = build_cards(spr, meta)
 
     всего_людей = sum(len(c['люди']) for c in cards)
@@ -337,6 +363,7 @@ def main():
                            'муниципального округа: подразделения, чем каждое занимается, '
                            'руководители и сотрудники с телефонами.'))
     страница = шапка.replace('{{СТИЛИ}}', стили).replace('{{СОДЕРЖИМОЕ}}', (
+        '%s\n'
         '        <h2 class="section-title"><span class="accent-line"></span>Структура администрации</h2>\n'
         '        <p class="section-subtitle">Подразделения, управления и учреждения Благовещенского '
         'муниципального округа. Нажмите на подразделение, чтобы увидеть руководителя и сотрудников</p>\n'
@@ -356,7 +383,7 @@ def main():
         '        <p class="vz-note">Сведения приведены по телефонному справочнику '
         'органов власти округа (%s). Описания функций подготовлены по типовым положениям '
         'о подразделениях и подлежат уточнению по действующим положениям.</p>\n' % (
-            ICONS['search'], фильтры,
+            СИЛУЭТ, ICONS['search'], фильтры,
             len(cards), plural(len(cards), 'подразделение', 'подразделения', 'подразделений'),
             всего_людей, plural(всего_людей, 'сотрудник', 'сотрудника', 'сотрудников'),
             секции, esc(spr['актуально'].rstrip('.')))))

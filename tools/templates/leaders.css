@@ -393,6 +393,42 @@
         color: var(--tone-muted-4);
       }
 
+      /* --- Фотография или силуэт вместо неё --- */
+      .vz-sprite {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .vz-ava--photo,
+      .vz-ava--face {
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .vz-ava--photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .vz-ava--face svg {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+        opacity: 0.5;
+      }
+
+      /* Шесть оттенков: колонка одинаковых кружков читается как ошибка. */
+      .vz-ava--t1 { background: var(--tone-line-4); color: var(--color-primary); }
+      .vz-ava--t2 { background: var(--tone-surface-3); color: var(--color-primary-dark); }
+      .vz-ava--t3 { background: var(--tone-line-5); color: var(--color-accent); }
+      .vz-ava--t4 { background: var(--tone-surface-4); color: var(--color-primary); }
+      .vz-ava--t5 { background: var(--tone-line-3); color: var(--color-primary-dark); }
+      .vz-ava--t6 { background: var(--tone-surface-2); color: var(--color-accent); }
+
       .vz-person--main .vz-ava--vac {
         background: var(--tone-line-4);
         color: var(--tone-muted-5);
