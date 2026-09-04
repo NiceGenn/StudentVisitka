@@ -11,7 +11,16 @@
            ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
            ============================================================ */
       .hero {
-        background: linear-gradient(180deg, rgba(18, 52, 73, 0.55) 0%, rgba(18, 52, 73, 0.78) 100%), url('assets/images/blag-city.jpg');
+        /* Затемнение только слева, где лежит текст: справа фотография
+           остаётся открытой. */
+        background:
+          linear-gradient(
+            100deg,
+            rgba(18, 52, 73, 0.85) 0%,
+            rgba(18, 52, 73, 0.6) 42%,
+            rgba(18, 52, 73, 0.12) 100%
+          ),
+          url('assets/images/blag-city.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -40,13 +49,15 @@
         font-weight: 700;
         letter-spacing: -0.5px;
         margin: 0 0 8px;
+        /* Текст лежит на фотографии — тень страхует читаемость. */
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
       }
 
       .hero-text p {
         font-size: 18px;
-        opacity: 0.95;
         max-width: 640px;
         margin: 0;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
       }
 
       .hero-stats {
