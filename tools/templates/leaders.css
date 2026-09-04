@@ -224,13 +224,77 @@
         border-color: var(--color-primary);
       }
 
-      .vz-count {
-        font-size: 12px;
-        color: var(--tone-muted-2);
-        margin-top: 14px;
-        padding-top: 12px;
+      /* Отдел внутри карточки: свёрнутый список сотрудников. */
+      .vz-dept {
         border-top: 1px solid var(--tone-line-5);
       }
+
+      .vz-dept summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+        list-style: none;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-primary);
+      }
+
+      .vz-dept summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .vz-dept summary span {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--tone-muted-2);
+        white-space: nowrap;
+      }
+
+      .vz-dept summary::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-right: 2px solid var(--tone-muted-2);
+        border-bottom: 2px solid var(--tone-muted-2);
+        transform: rotate(45deg);
+        margin-top: -4px;
+      }
+
+      .vz-dept[open] summary::after {
+        transform: rotate(-135deg);
+        margin-top: 2px;
+      }
+
+      .vz-dept summary:hover {
+        color: var(--color-primary-dark);
+      }
+
+      .vz-dept-body {
+        padding: 4px 0 12px 4px;
+        border-left: 2px solid var(--tone-line-5);
+        margin-left: 4px;
+        padding-left: 14px;
+      }
+
+      /* Сотрудники внутри отдела — компактнее руководства. */
+      .vz-dept-body .vz-person {
+        margin-bottom: 10px;
+      }
+
+      .vz-dept-body .vz-ava {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+      }
+
+      .vz-dept-body .vz-otdel {
+        display: none;
+      }
+
 
       /* --- Блок «Чем занимается» --- */
       .vz-func {
