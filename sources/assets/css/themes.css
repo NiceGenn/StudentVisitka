@@ -1,0 +1,825 @@
+/* Все схемы из data/palitry.json. Файл временный. */
+
+/* Сталь и лён — Монохромный сине-стальной на светлом фоне — основная схема */
+:root[data-palette="steel"] {
+  /* фирменные цвета */
+  --color-primary: #1f4e6d;
+  --color-primary-dark: #123449;
+  --color-accent: #3f83ad;
+  --color-accent-light: #86b4d0;
+  --color-page: #f4f6f8;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f4ff;
+  --tone-surface-2: #f4f8fb;
+  --tone-surface-3: #f8fbfd;
+  --tone-surface-4: #e1ecf6;
+  --tone-surface-5: #eaeef2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0e1f0;
+  --tone-line-2: #dce2e8;
+  --tone-line-3: #cad4dd;
+  --tone-line-4: #e0e8ef;
+  --tone-line-5: #e4eaf0;
+  --tone-line-6: #dde5ec;
+  --tone-line-7: #c4d9ec;
+  --tone-line-8: #c8d4de;
+  --tone-line-9: #d6e8f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #84909a;
+  --tone-muted-2: #6c7c8a;
+  --tone-muted-3: #527ca0;
+  --tone-muted-4: #98a5b0;
+  --tone-muted-5: #8a97a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4d5a;
+  --tone-deep-2: #59636b;
+  --tone-deep-3: #30373d;
+  --tone-deep-4: #3f566b;
+  --tone-deep-5: #1f588a;
+}
+
+/* Хвоя — Глубокий зелёный того же характера — теплее стали */
+:root[data-palette="pine"] {
+  /* фирменные цвета */
+  --color-primary: #22543f;
+  --color-primary-dark: #153428;
+  --color-accent: #3f8b6a;
+  --color-accent-light: #7bbca0;
+  --color-page: #f4f7f5;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7fff3;
+  --tone-surface-2: #f4fbf8;
+  --tone-surface-3: #f8fdfb;
+  --tone-surface-4: #e1f6ec;
+  --tone-surface-5: #eaf2ee;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0f0e0;
+  --tone-line-2: #dce8e2;
+  --tone-line-3: #caddd3;
+  --tone-line-4: #e0efe8;
+  --tone-line-5: #e4f0ea;
+  --tone-line-6: #ddece4;
+  --tone-line-7: #c4ecd8;
+  --tone-line-8: #c8ded3;
+  --tone-line-9: #d6f7e6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #849a8f;
+  --tone-muted-2: #6c8a7b;
+  --tone-muted-3: #52a079;
+  --tone-muted-4: #98b0a4;
+  --tone-muted-5: #8aa296;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f5a4d;
+  --tone-deep-2: #596b62;
+  --tone-deep-3: #303d37;
+  --tone-deep-4: #3f6b55;
+  --tone-deep-5: #1f8a55;
+}
+
+/* Сланец — Почти нейтральный сине-серый — самая тихая схема */
+:root[data-palette="slate"] {
+  /* фирменные цвета */
+  --color-primary: #3a4652;
+  --color-primary-dark: #252d36;
+  --color-accent: #647a8f;
+  --color-accent-light: #9aabbb;
+  --color-page: #f5f6f8;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f1ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1eaf6;
+  --tone-surface-5: #eaedf2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0ddf0;
+  --tone-line-2: #dce1e8;
+  --tone-line-3: #cad2dd;
+  --tone-line-4: #e0e6ef;
+  --tone-line-5: #e4e9f0;
+  --tone-line-6: #dde3ec;
+  --tone-line-7: #c4d5ec;
+  --tone-line-8: #c8d1de;
+  --tone-line-9: #d6e4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848d9a;
+  --tone-muted-2: #6c788a;
+  --tone-muted-3: #5272a0;
+  --tone-muted-4: #98a2b0;
+  --tone-muted-5: #8a94a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4a5a;
+  --tone-deep-2: #59606b;
+  --tone-deep-3: #30353d;
+  --tone-deep-4: #3f516b;
+  --tone-deep-5: #1f4c8a;
+}
+
+/* Тёмный янтарь — Тёплый коричнево-золотой на светлом фоне */
+:root[data-palette="amber"] {
+  /* фирменные цвета */
+  --color-primary: #5c452a;
+  --color-primary-dark: #3a2b19;
+  --color-accent: #9a7440;
+  --color-accent-light: #c2a072;
+  --color-page: #f8f6f2;
+
+  /* фоны и заливки */
+  --tone-surface-1: #fff6e7;
+  --tone-surface-2: #fbf8f4;
+  --tone-surface-3: #fdfbf8;
+  --tone-surface-4: #f6eee1;
+  --tone-surface-5: #f2efea;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0e4d0;
+  --tone-line-2: #e8e4dc;
+  --tone-line-3: #ddd6ca;
+  --tone-line-4: #efeae0;
+  --tone-line-5: #f0ece4;
+  --tone-line-6: #ece6dd;
+  --tone-line-7: #ecddc4;
+  --tone-line-8: #ded6c8;
+  --tone-line-9: #f7ebd6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a9284;
+  --tone-muted-2: #8a7f6c;
+  --tone-muted-3: #a08352;
+  --tone-muted-4: #b0a798;
+  --tone-muted-5: #a2998a;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a503f;
+  --tone-deep-2: #6b6459;
+  --tone-deep-3: #3d3830;
+  --tone-deep-4: #6b5b3f;
+  --tone-deep-5: #8a631f;
+}
+
+/* Винный — Приглушённый винно-красный — ближе к исходной схеме */
+:root[data-palette="wine"] {
+  /* фирменные цвета */
+  --color-primary: #6b2c3e;
+  --color-primary-dark: #451a27;
+  --color-accent: #9c5a6c;
+  --color-accent-light: #c08d9b;
+  --color-page: #f8f4f5;
+
+  /* фоны и заливки */
+  --tone-surface-1: #ffe7ed;
+  --tone-surface-2: #fbf4f6;
+  --tone-surface-3: #fdf8f9;
+  --tone-surface-4: #f6e1e6;
+  --tone-surface-5: #f2eaec;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0d0d8;
+  --tone-line-2: #e8dcdf;
+  --tone-line-3: #ddcacf;
+  --tone-line-4: #efe0e4;
+  --tone-line-5: #f0e4e7;
+  --tone-line-6: #ecdde1;
+  --tone-line-7: #ecc4ce;
+  --tone-line-8: #dec8cd;
+  --tone-line-9: #f7d6de;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a848a;
+  --tone-muted-2: #8a6c74;
+  --tone-muted-3: #a05265;
+  --tone-muted-4: #b0989e;
+  --tone-muted-5: #a28a90;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a3f46;
+  --tone-deep-2: #6b595e;
+  --tone-deep-3: #3d3033;
+  --tone-deep-4: #6b3f4a;
+  --tone-deep-5: #8a1f3a;
+}
+
+/* Индиго — Глубокий сине-фиолетовый — строго, но не как у всех */
+:root[data-palette="indigo"] {
+  /* фирменные цвета */
+  --color-primary: #2f3a63;
+  --color-primary-dark: #1c2340;
+  --color-accent: #5b6ba3;
+  --color-accent-light: #8f9cc9;
+  --color-page: #f5f6fa;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7eaff;
+  --tone-surface-2: #f4f5fb;
+  --tone-surface-3: #f8f9fd;
+  --tone-surface-4: #e1e4f6;
+  --tone-surface-5: #eaebf2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0d4f0;
+  --tone-line-2: #dcdee8;
+  --tone-line-3: #cacddd;
+  --tone-line-4: #e0e2ef;
+  --tone-line-5: #e4e6f0;
+  --tone-line-6: #dddfec;
+  --tone-line-7: #c4c9ec;
+  --tone-line-8: #c8cbde;
+  --tone-line-9: #d6daf7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #84879a;
+  --tone-muted-2: #6c708a;
+  --tone-muted-3: #525ca0;
+  --tone-muted-4: #989bb0;
+  --tone-muted-5: #8a8da2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f435a;
+  --tone-deep-2: #595b6b;
+  --tone-deep-3: #30323d;
+  --tone-deep-4: #3f456b;
+  --tone-deep-5: #1f2d8a;
+}
+
+/* Бордо (текущая) — Как сейчас: тёмно-бордовый с золотом */
+:root[data-palette="current"] {
+  /* фирменные цвета */
+  --color-primary: #7a1a1a;
+  --color-primary-dark: #5a0f0f;
+  --color-accent: #c49a3c;
+  --color-accent-light: #d9b15a;
+  --color-page: #f8f5f0;
+
+  /* фоны и заливки */
+  --tone-surface-1: #fff8e7;
+  --tone-surface-2: #fbf8f4;
+  --tone-surface-3: #fdfbf8;
+  --tone-surface-4: #f6efe1;
+  --tone-surface-5: #f2efea;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0e4d0;
+  --tone-line-2: #e8e3dc;
+  --tone-line-3: #ddd5ca;
+  --tone-line-4: #efe9e0;
+  --tone-line-5: #f0ebe4;
+  --tone-line-6: #ece6dd;
+  --tone-line-7: #ecdfc4;
+  --tone-line-8: #ded5c8;
+  --tone-line-9: #f7edd6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a8f84;
+  --tone-muted-2: #8a7c6c;
+  --tone-muted-3: #a08a52;
+  --tone-muted-4: #b0a698;
+  --tone-muted-5: #a2968a;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a4a3f;
+  --tone-deep-2: #6b6259;
+  --tone-deep-3: #3d3630;
+  --tone-deep-4: #6b5b3f;
+  --tone-deep-5: #8a6d1f;
+}
+
+/* Державный синий — Тёмно-синий с приглушённым золотом — самая частая схема органов власти */
+:root[data-palette="navy"] {
+  /* фирменные цвета */
+  --color-primary: #1e3a5f;
+  --color-primary-dark: #142a47;
+  --color-accent: #b08d57;
+  --color-accent-light: #c8a86e;
+  --color-page: #f5f6f8;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f1ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1eaf6;
+  --tone-surface-5: #eaedf2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0ddf0;
+  --tone-line-2: #dce1e8;
+  --tone-line-3: #cad2dd;
+  --tone-line-4: #e0e6ef;
+  --tone-line-5: #e4e9f0;
+  --tone-line-6: #dde3ec;
+  --tone-line-7: #c4d5ec;
+  --tone-line-8: #c8d1de;
+  --tone-line-9: #d6e4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848d9a;
+  --tone-muted-2: #6c788a;
+  --tone-muted-3: #5272a0;
+  --tone-muted-4: #98a2b0;
+  --tone-muted-5: #8a94a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4a5a;
+  --tone-deep-2: #59606b;
+  --tone-deep-3: #30353d;
+  --tone-deep-4: #3f516b;
+  --tone-deep-5: #1f4c8a;
+}
+
+/* Тёмно-зелёный — Хвойный зелёный с бронзой — спокойно, без официозного холода */
+:root[data-palette="green"] {
+  /* фирменные цвета */
+  --color-primary: #24503c;
+  --color-primary-dark: #173729;
+  --color-accent: #b4975b;
+  --color-accent-light: #c9b077;
+  --color-page: #f5f7f4;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7ffef;
+  --tone-surface-2: #f4fbf6;
+  --tone-surface-3: #f8fdfa;
+  --tone-surface-4: #e1f6e8;
+  --tone-surface-5: #eaf2ed;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0f0db;
+  --tone-line-2: #dce8e0;
+  --tone-line-3: #caddd0;
+  --tone-line-4: #e0efe5;
+  --tone-line-5: #e4f0e8;
+  --tone-line-6: #ddece2;
+  --tone-line-7: #c4ecd1;
+  --tone-line-8: #c8decf;
+  --tone-line-9: #d6f7e1;
+
+  /* приглушённый текст */
+  --tone-muted-1: #849a8b;
+  --tone-muted-2: #6c8a76;
+  --tone-muted-3: #52a06c;
+  --tone-muted-4: #98b0a0;
+  --tone-muted-5: #8aa292;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f5a48;
+  --tone-deep-2: #596b5f;
+  --tone-deep-3: #303d34;
+  --tone-deep-4: #3f6b4e;
+  --tone-deep-5: #1f8a43;
+}
+
+/* Графит и сталь — Нейтральный серый с холодным синим акцентом — самая сдержанная */
+:root[data-palette="graphite"] {
+  /* фирменные цвета */
+  --color-primary: #363c44;
+  --color-primary-dark: #23272d;
+  --color-accent: #7a92ab;
+  --color-accent-light: #96a9be;
+  --color-page: #f5f6f7;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f3ff;
+  --tone-surface-2: #f4f8fb;
+  --tone-surface-3: #f8fbfd;
+  --tone-surface-4: #e1ecf6;
+  --tone-surface-5: #eaeef2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0e0f0;
+  --tone-line-2: #dce2e8;
+  --tone-line-3: #cad3dd;
+  --tone-line-4: #e0e8ef;
+  --tone-line-5: #e4eaf0;
+  --tone-line-6: #dde4ec;
+  --tone-line-7: #c4d8ec;
+  --tone-line-8: #c8d3de;
+  --tone-line-9: #d6e6f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848f9a;
+  --tone-muted-2: #6c7b8a;
+  --tone-muted-3: #5279a0;
+  --tone-muted-4: #98a4b0;
+  --tone-muted-5: #8a96a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4c5a;
+  --tone-deep-2: #59626b;
+  --tone-deep-3: #30363d;
+  --tone-deep-4: #3f556b;
+  --tone-deep-5: #1f548a;
+}
+
+/* Приглушённое бордо — Тот же характер, что сейчас, но тише: меньше насыщенность */
+:root[data-palette="bordeaux"] {
+  /* фирменные цвета */
+  --color-primary: #6e2f36;
+  --color-primary-dark: #4c1f25;
+  --color-accent: #ab936f;
+  --color-accent-light: #c3ad8b;
+  --color-page: #f8f6f3;
+
+  /* фоны и заливки */
+  --tone-surface-1: #fff1e7;
+  --tone-surface-2: #fbf7f4;
+  --tone-surface-3: #fdfaf8;
+  --tone-surface-4: #f6eae1;
+  --tone-surface-5: #f2edea;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0ddd0;
+  --tone-line-2: #e8e1dc;
+  --tone-line-3: #ddd2ca;
+  --tone-line-4: #efe6e0;
+  --tone-line-5: #f0e9e4;
+  --tone-line-6: #ece3dd;
+  --tone-line-7: #ecd5c4;
+  --tone-line-8: #ded1c8;
+  --tone-line-9: #f7e4d6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a8d84;
+  --tone-muted-2: #8a786c;
+  --tone-muted-3: #a07252;
+  --tone-muted-4: #b0a298;
+  --tone-muted-5: #a2948a;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a4a3f;
+  --tone-deep-2: #6b6059;
+  --tone-deep-3: #3d3530;
+  --tone-deep-4: #6b513f;
+  --tone-deep-5: #8a4c1f;
+}
+
+/* Петроль — Тёмный сине-зелёный с песочным акцентом — строго, но не банально */
+:root[data-palette="petrol"] {
+  /* фирменные цвета */
+  --color-primary: #1f4a4f;
+  --color-primary-dark: #133034;
+  --color-accent: #a8935f;
+  --color-accent-light: #c0ab77;
+  --color-page: #f4f7f7;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7fdff;
+  --tone-surface-2: #f4fafb;
+  --tone-surface-3: #f8fdfd;
+  --tone-surface-4: #e1f4f6;
+  --tone-surface-5: #eaf1f2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0edf0;
+  --tone-line-2: #dce7e8;
+  --tone-line-3: #cadbdd;
+  --tone-line-4: #e0eeef;
+  --tone-line-5: #e4eff0;
+  --tone-line-6: #ddebec;
+  --tone-line-7: #c4e9ec;
+  --tone-line-8: #c8dcde;
+  --tone-line-9: #d6f4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #84989a;
+  --tone-muted-2: #6c878a;
+  --tone-muted-3: #529aa0;
+  --tone-muted-4: #98aeb0;
+  --tone-muted-5: #8aa0a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f585a;
+  --tone-deep-2: #596a6b;
+  --tone-deep-3: #303c3d;
+  --tone-deep-4: #3f676b;
+  --tone-deep-5: #1f818a;
+}
+
+/* Светлая шапка — Белый верх с тёмно-синим текстом, синяя навигация — как у современных госпорталов */
+:root[data-palette="light"] {
+  /* фирменные цвета */
+  --color-primary: #1c3f66;
+  --color-primary-dark: #142f4d;
+  --color-accent: #2f6ba3;
+  --color-accent-light: #6092c6;
+  --color-page: #fafbfc;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f2ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1ebf6;
+  --tone-surface-5: #eaeef2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0dff0;
+  --tone-line-2: #dce2e8;
+  --tone-line-3: #cad3dd;
+  --tone-line-4: #e0e7ef;
+  --tone-line-5: #e4eaf0;
+  --tone-line-6: #dde4ec;
+  --tone-line-7: #c4d7ec;
+  --tone-line-8: #c8d2de;
+  --tone-line-9: #d6e5f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848e9a;
+  --tone-muted-2: #6c7a8a;
+  --tone-muted-3: #5276a0;
+  --tone-muted-4: #98a3b0;
+  --tone-muted-5: #8a95a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4c5a;
+  --tone-deep-2: #59616b;
+  --tone-deep-3: #30363d;
+  --tone-deep-4: #3f546b;
+  --tone-deep-5: #1f518a;
+}
+
+/* Синий с красным — Тёмно-синий и приглушённый красный вместо золота — без пестроты */
+:root[data-palette="flag"] {
+  /* фирменные цвета */
+  --color-primary: #14315c;
+  --color-primary-dark: #0e2444;
+  --color-accent: #9d2f35;
+  --color-accent-light: #c66369;
+  --color-page: #f6f7f9;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f1ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1eaf6;
+  --tone-surface-5: #eaedf2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0ddf0;
+  --tone-line-2: #dce1e8;
+  --tone-line-3: #cad2dd;
+  --tone-line-4: #e0e6ef;
+  --tone-line-5: #e4e9f0;
+  --tone-line-6: #dde3ec;
+  --tone-line-7: #c4d5ec;
+  --tone-line-8: #c8d1de;
+  --tone-line-9: #d6e4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848d9a;
+  --tone-muted-2: #6c788a;
+  --tone-muted-3: #5272a0;
+  --tone-muted-4: #98a2b0;
+  --tone-muted-5: #8a94a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4a5a;
+  --tone-deep-2: #59606b;
+  --tone-deep-3: #30353d;
+  --tone-deep-4: #3f516b;
+  --tone-deep-5: #1f4c8a;
+}
+
+/* Синий с бирюзой — Глубокий синий, акцент — приглушённая бирюза, а не золото */
+:root[data-palette="teal"] {
+  /* фирменные цвета */
+  --color-primary: #17384f;
+  --color-primary-dark: #0f2637;
+  --color-accent: #2f7d78;
+  --color-accent-light: #4c9d97;
+  --color-page: #f4f7f8;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f9ff;
+  --tone-surface-2: #f4f9fb;
+  --tone-surface-3: #f8fcfd;
+  --tone-surface-4: #e1f1f6;
+  --tone-surface-5: #eaf0f2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0e8f0;
+  --tone-line-2: #dce5e8;
+  --tone-line-3: #cad8dd;
+  --tone-line-4: #e0ebef;
+  --tone-line-5: #e4edf0;
+  --tone-line-6: #dde8ec;
+  --tone-line-7: #c4e2ec;
+  --tone-line-8: #c8d8de;
+  --tone-line-9: #d6eff7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #84949a;
+  --tone-muted-2: #6c828a;
+  --tone-muted-3: #528ca0;
+  --tone-muted-4: #98aab0;
+  --tone-muted-5: #8a9ca2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f535a;
+  --tone-deep-2: #59666b;
+  --tone-deep-3: #303a3d;
+  --tone-deep-4: #3f606b;
+  --tone-deep-5: #1f6f8a;
+}
+
+/* Оливково-серый — Тёплый серо-зелёный с песочным — почти монохром, спокойнее всех */
+:root[data-palette="olive"] {
+  /* фирменные цвета */
+  --color-primary: #4a5445;
+  --color-primary-dark: #333c30;
+  --color-accent: #afa58c;
+  --color-accent-light: #c1b8a2;
+  --color-page: #f7f7f4;
+
+  /* фоны и заливки */
+  --tone-surface-1: #f3ffe7;
+  --tone-surface-2: #f8fbf4;
+  --tone-surface-3: #fbfdf8;
+  --tone-surface-4: #ecf6e1;
+  --tone-surface-5: #eef2ea;
+
+  /* рамки и разделители */
+  --tone-line-1: #e0f0d0;
+  --tone-line-2: #e2e8dc;
+  --tone-line-3: #d3ddca;
+  --tone-line-4: #e8efe0;
+  --tone-line-5: #eaf0e4;
+  --tone-line-6: #e4ecdd;
+  --tone-line-7: #d8ecc4;
+  --tone-line-8: #d3dec8;
+  --tone-line-9: #e6f7d6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #8f9a84;
+  --tone-muted-2: #7b8a6c;
+  --tone-muted-3: #79a052;
+  --tone-muted-4: #a4b098;
+  --tone-muted-5: #96a28a;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #4d5a3f;
+  --tone-deep-2: #626b59;
+  --tone-deep-3: #373d30;
+  --tone-deep-4: #556b3f;
+  --tone-deep-5: #558a1f;
+}
+
+/* Камень и медь — Тёмно-серо-коричневый с медным акцентом — тёплый, но без бордового */
+:root[data-palette="stone"] {
+  /* фирменные цвета */
+  --color-primary: #433d37;
+  --color-primary-dark: #2d2925;
+  --color-accent: #ab8d6c;
+  --color-accent-light: #c0a382;
+  --color-page: #f8f7f5;
+
+  /* фоны и заливки */
+  --tone-surface-1: #fff5e7;
+  --tone-surface-2: #fbf8f4;
+  --tone-surface-3: #fdfbf8;
+  --tone-surface-4: #f6ede1;
+  --tone-surface-5: #f2efea;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0e3d0;
+  --tone-line-2: #e8e3dc;
+  --tone-line-3: #ddd5ca;
+  --tone-line-4: #efe9e0;
+  --tone-line-5: #f0ebe4;
+  --tone-line-6: #ece6dd;
+  --tone-line-7: #ecdbc4;
+  --tone-line-8: #ded5c8;
+  --tone-line-9: #f7e9d6;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a9184;
+  --tone-muted-2: #8a7d6c;
+  --tone-muted-3: #a08052;
+  --tone-muted-4: #b0a698;
+  --tone-muted-5: #a2988a;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a4f3f;
+  --tone-deep-2: #6b6359;
+  --tone-deep-3: #3d3830;
+  --tone-deep-4: #6b593f;
+  --tone-deep-5: #8a5d1f;
+}
+
+/* ==========================================
+   ПАНЕЛЬ ВЫБОРА СХЕМЫ — ВРЕМЕННАЯ
+   Ставится и снимается: python3 tools/gen_themes.py [--off]
+   ========================================== */
+
+.th-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.th-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 14px/1 'Inter', Arial, sans-serif;
+  color: #ffffff;
+  background: var(--color-primary-dark);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.th-toggle::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid #ffffff;
+}
+
+.th-list {
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  width: 260px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid var(--tone-line-2);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+
+.th-list p {
+  font-size: 12px;
+  color: var(--tone-muted-2);
+  padding: 6px 10px 10px;
+  margin: 0;
+  border-bottom: 1px solid var(--tone-line-5);
+}
+
+.th-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  font: 500 14px/1.3 'Inter', Arial, sans-serif;
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 10px;
+  cursor: pointer;
+}
+
+.th-item:hover {
+  background: var(--tone-surface-2);
+}
+
+.th-item.is-on {
+  background: var(--tone-line-4);
+  font-weight: 600;
+}
+
+.th-dots {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.th-dots i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  margin-left: -5px;
+}
+
+.th-dots i:first-child {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .th-panel {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .th-list {
+    width: calc(100vw - 40px);
+  }
+}

@@ -3,6 +3,25 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/),
 проект придерживается [семантического версионирования](https://semver.org/lang/ru/).
 
+## [1.8.0] — 2026-09-04
+
+### Добавлено — временно
+
+- **Переключатель цветовых схем на сайте**: кнопка в правом нижнем углу,
+  17 схем из `data/palitry.json`, выбор запоминается в браузере.
+  Панель нужна, чтобы выбрать оформление на живом сайте, а не по
+  скриншотам, и **подлежит удалению после выбора**:
+
+  ```bash
+  python3 tools/gen_themes.py --off
+  ```
+
+- `tools/gen_themes.py` — ставит и снимает панель вместе со всеми
+  подключениями: `sources/assets/css/themes.css`, `sources/assets/js/themes.js`.
+
+Схемы переопределяют переменные на `:root[data-palette="…"]` — иначе,
+как выяснилось раньше, переопределение просто не применяется.
+
 ## [1.7.1] — 2026-09-04
 
 ### Изменено
@@ -283,6 +302,7 @@
 - Семь ссылок на карточках главной страницы и в новостях ведут на ещё
   не написанные страницы разделов. Список — в `docs/STRUCTURE.md`.
 
+[1.8.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.8.0
 [1.7.1]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.7.1
 [1.7.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.7.0
 [1.6.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.6.0
