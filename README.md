@@ -36,16 +36,19 @@ python3 -m http.server 8000 --directory src
 │       ├── css/style.css общие стили всех страниц
 │       ├── js/script.js  аккордеон FAQ, плавная прокрутка, год в подвале
 │       └── images/       фотографии
-├── data/                 данные визитницы
+├── data/                 данные проекта
 │   ├── rukovoditeli.json   руководители из телефонного справочника
-│   └── podrazdeleniya.json разделы и описания функций подразделений
+│   ├── podrazdeleniya.json разделы и описания функций подразделений
+│   └── palitry.json        цветовые схемы сайта
 ├── scripts/
 │   ├── build.sh          сборка dist/ и архива релиза
 │   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
 │   ├── gen_leaders.py    данные → src/leaders.html
+│   ├── gen_palette.py    смена цветовой схемы
 │   └── templates/        шаблоны и стили страницы «Визитница»
 ├── docs/                 документация проекта
 │   ├── STRUCTURE.md      разбор страниц, стилей и известных пробелов
+│   ├── COLORS.md         цветовые схемы и как их менять
 │   └── DEPLOY.md         публикация: GitHub Pages, обычный хостинг, релизы
 ├── CLAUDE.md             память проекта для Claude Code
 ├── CHANGELOG.md          история версий
@@ -71,6 +74,20 @@ python3 scripts/gen_leaders.py
 Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка
 карточки — в `scripts/templates/`. Для импорта нужен `openpyxl`
 (`pip install openpyxl`); генератору хватает стандартной библиотеки.
+
+## Цветовая схема
+
+Все цвета заданы переменными в блоке `:root` файла `src/assets/css/style.css`.
+В комплекте одиннадцать готовых схем — от исходного бордо до светлой шапки:
+
+```bash
+python3 scripts/gen_palette.py                 # список схем
+python3 scripts/gen_palette.py navy --apply    # применить
+python3 scripts/gen_leaders.py                 # пересобрать визитницу
+```
+
+Каждая схема проверена на контрастность по WCAG AA. Подробности —
+в [docs/COLORS.md](docs/COLORS.md).
 
 ## Сборка релиза
 

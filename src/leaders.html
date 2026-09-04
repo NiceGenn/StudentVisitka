@@ -35,7 +35,7 @@
         transform: translateY(-50%);
         width: 18px;
         height: 18px;
-        fill: #9a8f84;
+        fill: var(--tone-muted-1);
         pointer-events: none;
       }
 
@@ -45,7 +45,7 @@
         font-size: 15px;
         color: #1a1a1a;
         padding: 11px 14px 11px 40px;
-        border: 1px solid #ddd5ca;
+        border: 1px solid var(--tone-line-3);
         border-radius: 6px;
         background: #ffffff;
         outline: none;
@@ -53,7 +53,7 @@
       }
 
       .vz-searchbox input:focus {
-        border-color: #7a1a1a;
+        border-color: var(--color-primary);
         box-shadow: 0 0 0 3px rgba(122, 26, 26, 0.1);
       }
 
@@ -67,9 +67,9 @@
         font-family: inherit;
         font-size: 13px;
         font-weight: 500;
-        color: #5a4a3f;
+        color: var(--tone-deep-1);
         background: #ffffff;
-        border: 1px solid #ddd5ca;
+        border: 1px solid var(--tone-line-3);
         border-radius: 50px;
         padding: 7px 16px;
         cursor: pointer;
@@ -77,22 +77,22 @@
       }
 
       .vz-chip:hover {
-        border-color: #c49a3c;
-        color: #7a1a1a;
+        border-color: var(--color-accent);
+        color: var(--color-primary);
       }
 
       .vz-chip.is-active {
-        background: #7a1a1a;
-        border-color: #7a1a1a;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
         color: #ffffff;
       }
 
       .vz-status {
         font-size: 14px;
-        color: #6b6259;
+        color: var(--tone-deep-2);
         margin: 0 0 26px;
         padding-bottom: 14px;
-        border-bottom: 1px solid #e8e3dc;
+        border-bottom: 1px solid var(--tone-line-2);
       }
 
       /* --- Разделы --- */
@@ -103,7 +103,7 @@
       .vz-section-title {
         font-size: 21px;
         font-weight: 700;
-        color: #5a0f0f;
+        color: var(--color-primary-dark);
         letter-spacing: -0.2px;
         display: flex;
         align-items: center;
@@ -114,15 +114,15 @@
       .vz-section-title span {
         font-size: 13px;
         font-weight: 600;
-        color: #8a7c6c;
-        background: #efe9e0;
+        color: var(--tone-muted-2);
+        background: var(--tone-line-4);
         border-radius: 50px;
         padding: 2px 10px;
       }
 
       .vz-section-sub {
         font-size: 14px;
-        color: #6b6259;
+        color: var(--tone-deep-2);
         margin-bottom: 18px;
       }
 
@@ -144,9 +144,9 @@
       /* --- Карточка --- */
       .vz-card {
         background: #ffffff;
-        border: 1px solid #e8e3dc;
+        border: 1px solid var(--tone-line-2);
         border-radius: 8px;
-        border-top: 3px solid #7a1a1a;
+        border-top: 3px solid var(--color-primary);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         overflow: hidden;
         display: flex;
@@ -164,8 +164,8 @@
         align-items: flex-start;
         gap: 14px;
         padding: 18px 22px 14px;
-        background: linear-gradient(180deg, #fbf8f4 0%, #ffffff 100%);
-        border-bottom: 1px solid #f0ebe4;
+        background: linear-gradient(180deg, var(--tone-surface-2) 0%, #ffffff 100%);
+        border-bottom: 1px solid var(--tone-line-5);
       }
 
       .vz-icon {
@@ -173,7 +173,7 @@
         width: 42px;
         height: 42px;
         border-radius: 8px;
-        background: #7a1a1a;
+        background: var(--color-primary);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -182,13 +182,13 @@
       .vz-icon svg {
         width: 22px;
         height: 22px;
-        fill: #d9b15a;
+        fill: var(--color-accent-light);
       }
 
       .vz-card-title h4 {
         font-size: 17px;
         font-weight: 700;
-        color: #5a0f0f;
+        color: var(--color-primary-dark);
         line-height: 1.3;
         letter-spacing: -0.2px;
         margin-bottom: 3px;
@@ -196,7 +196,7 @@
 
       .vz-metaline {
         font-size: 12px;
-        color: #8a7c6c;
+        color: var(--tone-muted-2);
         text-transform: uppercase;
         letter-spacing: 0.4px;
       }
@@ -204,14 +204,14 @@
       /* --- Блок «Чем занимается» --- */
       .vz-func {
         padding: 16px 22px 14px;
-        background: #fdfbf8;
-        border-bottom: 1px solid #f0ebe4;
+        background: var(--tone-surface-3);
+        border-bottom: 1px solid var(--tone-line-5);
       }
 
       .vz-func p {
         font-size: 14px;
         line-height: 1.62;
-        color: #3d3630;
+        color: var(--tone-deep-3);
         margin-bottom: 12px;
       }
 
@@ -220,14 +220,14 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: #a08a52;
+        color: var(--tone-muted-3);
         margin-bottom: 9px;
       }
 
       .vz-people .vz-h5 {
         margin-top: 16px;
         padding-top: 14px;
-        border-top: 1px dashed #ece6dd;
+        border-top: 1px dashed var(--tone-line-6);
       }
 
       .vz-people .vz-h5:first-child {
@@ -245,9 +245,9 @@
 
       .vz-tags li {
         font-size: 12px;
-        color: #6b5b3f;
-        background: #f6efe1;
-        border: 1px solid #ecdfc4;
+        color: var(--tone-deep-4);
+        background: var(--tone-surface-4);
+        border: 1px solid var(--tone-line-7);
         border-radius: 4px;
         padding: 3px 9px;
       }
@@ -274,8 +274,8 @@
         width: 38px;
         height: 38px;
         border-radius: 50%;
-        background: #efe9e0;
-        color: #7a1a1a;
+        background: var(--tone-line-4);
+        color: var(--color-primary);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.5px;
@@ -288,26 +288,26 @@
         width: 46px;
         height: 46px;
         font-size: 15px;
-        background: #7a1a1a;
-        color: #d9b15a;
-        border: 2px solid #c49a3c;
+        background: var(--color-primary);
+        color: var(--color-accent-light);
+        border: 2px solid var(--color-accent);
       }
 
       .vz-ava--vac {
-        background: #f2efea;
-        color: #b0a698;
+        background: var(--tone-surface-5);
+        color: var(--tone-muted-4);
       }
 
       .vz-person--main .vz-ava--vac {
-        background: #efe9e0;
-        color: #a2968a;
-        border-color: #ded5c8;
+        background: var(--tone-line-4);
+        color: var(--tone-muted-5);
+        border-color: var(--tone-line-8);
       }
 
       .vz-otdel {
         font-size: 12px;
         font-weight: 600;
-        color: #8a7c6c;
+        color: var(--tone-muted-2);
         margin-bottom: 1px;
       }
 
@@ -321,18 +321,18 @@
       .vz-person--main .vz-fio {
         font-size: 16px;
         font-weight: 700;
-        color: #5a0f0f;
+        color: var(--color-primary-dark);
       }
 
       .vz-person--vac .vz-fio {
-        color: #a2968a;
+        color: var(--tone-muted-5);
         font-style: italic;
         font-weight: 500;
       }
 
       .vz-post {
         font-size: 13px;
-        color: #6b6259;
+        color: var(--tone-deep-2);
         line-height: 1.4;
         margin: 1px 0 4px;
       }
@@ -346,20 +346,20 @@
 
       .vz-contacts a,
       .vz-contacts span {
-        color: #7a1a1a;
+        color: var(--color-primary);
         white-space: nowrap;
       }
 
       .vz-contacts span {
-        color: #8a7c6c;
+        color: var(--tone-muted-2);
       }
 
       .vz-contacts a:hover {
-        color: #5a0f0f;
+        color: var(--color-primary-dark);
       }
 
       .vz-room {
-        color: #8a7c6c !important;
+        color: var(--tone-muted-2) !important;
       }
 
       .vz-badge {
@@ -368,8 +368,8 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #8a6d1f;
-        background: #f7edd6;
+        color: var(--tone-deep-5);
+        background: var(--tone-line-9);
         border-radius: 3px;
         padding: 1px 6px;
         margin-left: 7px;
@@ -377,13 +377,13 @@
       }
 
       .vz-badge--ref {
-        color: #5a4a3f;
-        background: #ece6dd;
+        color: var(--tone-deep-1);
+        background: var(--tone-line-6);
       }
 
       .vz-none {
         font-size: 13px;
-        color: #a2968a;
+        color: var(--tone-muted-5);
         font-style: italic;
       }
 
@@ -391,18 +391,18 @@
       .vz-empty {
         text-align: center;
         padding: 46px 20px;
-        color: #6b6259;
+        color: var(--tone-deep-2);
         background: #ffffff;
-        border: 1px dashed #ddd5ca;
+        border: 1px dashed var(--tone-line-3);
         border-radius: 8px;
       }
 
       .vz-note {
         font-size: 13px;
         line-height: 1.6;
-        color: #8a7c6c;
-        background: #fdfbf8;
-        border-left: 3px solid #c49a3c;
+        color: var(--tone-muted-2);
+        background: var(--tone-surface-3);
+        border-left: 3px solid var(--color-accent);
         border-radius: 0 6px 6px 0;
         padding: 12px 18px;
         margin: 10px 0 34px;
