@@ -35,6 +35,17 @@
   },
   "схемы": [
     {
+      "id": "steel",
+      "имя": "Сталь и лён",
+      "описание": "Монохромный сине-стальной на светлом фоне — основная схема",
+      "основной": "#1f4e6d",
+      "тёмный": "#123449",
+      "акцент": "#3f83ad",
+      "акцент_светлый": "#86b4d0",
+      "фон": "#f4f6f8",
+      "тон": 208
+    },
+    {
       "id": "current",
       "имя": "Бордо (текущая)",
       "описание": "Как сейчас: тёмно-бордовый с золотом",
@@ -110,8 +121,7 @@
       "акцент": "#2f6ba3",
       "акцент_светлый": "#6092c6",
       "фон": "#fafbfc",
-      "тон": 212,
-      "дополнительно": "header {\n  background: #ffffff;\n  box-shadow: none;\n  border-bottom: 1px solid #dde2e8;\n}\n.logo-text h1,\n.header-contacts .phone,\n.header-contacts .phone a,\n.header-contacts .email a { color: #1c3f66; }\n.logo-text p,\n.header-contacts .worktime { color: #5b6672; opacity: 1; }\n.btn-accent { color: #ffffff; }"
+      "тон": 212
     },
     {
       "id": "flag",
@@ -122,8 +132,7 @@
       "акцент": "#9d2f35",
       "акцент_светлый": "#c66369",
       "фон": "#f6f7f9",
-      "тон": 215,
-      "дополнительно": ".btn-accent,\n.btn-accent:hover { color: #ffffff; }"
+      "тон": 215
     },
     {
       "id": "teal",
@@ -134,8 +143,7 @@
       "акцент": "#2f7d78",
       "акцент_светлый": "#4c9d97",
       "фон": "#f4f7f8",
-      "тон": 195,
-      "дополнительно": ".btn-accent,\n.btn-accent:hover { color: #ffffff; }"
+      "тон": 195
     },
     {
       "id": "olive",

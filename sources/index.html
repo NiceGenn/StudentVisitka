@@ -11,14 +11,13 @@
            ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
            ============================================================ */
       .hero {
-        background: linear-gradient(135deg, rgba(122, 26, 26, 0.35) 0%, rgba(90, 15, 15, 0.45) 100%), url('assets/images/blag-city.jpg');
+        background: linear-gradient(180deg, rgba(18, 52, 73, 0.55) 0%, rgba(18, 52, 73, 0.78) 100%), url('assets/images/blag-city.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         color: #ffffff;
-        padding: 56px 0 48px;
-        border-bottom: 4px solid var(--color-accent);
-        margin-bottom: 32px;
+        padding: 72px 0 64px;
+        margin-bottom: 36px;
         position: relative;
         min-height: 300px;
       }
@@ -37,7 +36,7 @@
       }
 
       .hero-text h2 {
-        font-size: 34px;
+        font-size: 38px;
         font-weight: 700;
         letter-spacing: -0.5px;
         margin: 0 0 8px;
@@ -54,11 +53,10 @@
         display: flex;
         gap: 32px;
         flex-wrap: wrap;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 16px 28px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(4px);
+        background: rgba(255, 255, 255, 0.12);
+        padding: 18px 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
       }
 
       .hero-stats .stat-item {
@@ -66,9 +64,9 @@
       }
 
       .hero-stats .stat-number {
-        font-size: 30px;
+        font-size: 32px;
         font-weight: 700;
-        color: var(--color-accent-light);
+        color: #ffffff;
         display: block;
         line-height: 1.1;
       }
@@ -78,122 +76,6 @@
         opacity: 0.85;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-      }
-
-      /* ============================================================
-           ШАПКА — БЕЗ КРУЖКА, НАДПИСЬ БОЛЬШЕ
-           ============================================================ */
-      .logo {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-      }
-
-      .logo-text h1 {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        line-height: 1.1;
-        margin: 0;
-      }
-
-      .logo-text p {
-        font-size: 16px;
-        opacity: 0.8;
-        margin: 2px 0 0;
-        font-weight: 400;
-      }
-
-      .header-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 16px 24px;
-      }
-
-      .header-contacts {
-        text-align: right;
-        flex-shrink: 0;
-      }
-
-      .header-contacts .phone {
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: -0.2px;
-        color: #ffffff;
-      }
-
-      .header-contacts .phone a {
-        color: #ffffff;
-      }
-
-      .header-contacts .phone a:hover {
-        color: var(--color-accent-light);
-        text-decoration: none;
-      }
-
-      .header-contacts .worktime {
-        font-size: 13px;
-        opacity: 0.8;
-        margin: 2px 0 0;
-      }
-
-      .header-contacts .email {
-        font-size: 14px;
-        opacity: 0.85;
-        margin: 2px 0 0;
-      }
-
-      .header-contacts .email a {
-        color: #ffffff;
-      }
-
-      .header-contacts .email a:hover {
-        color: var(--color-accent-light);
-        text-decoration: none;
-      }
-
-      /* Кнопка "Написать обращение" — ПО ЦЕНТРУ */
-      .btn-accent {
-        display: inline-block;
-        background: var(--color-accent);
-        color: var(--color-primary-dark);
-        font-weight: 700;
-        font-size: 16px;
-        padding: 12px 36px;
-        border-radius: 50px;
-        transition:
-          background 0.2s,
-          transform 0.2s;
-        border: none;
-        cursor: pointer;
-        letter-spacing: 0.5px;
-        margin-top: 10px;
-        text-align: center;
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .btn-accent:hover {
-        background: var(--color-accent-light);
-        color: var(--color-primary-dark);
-        transform: translateY(-2px);
-        text-decoration: none;
-      }
-
-      /* Центрируем кнопку */
-      .header-contacts {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-
-      .header-contacts .btn-wrap {
-        display: flex;
-        justify-content: center;
-        width: 100%;
       }
 
       /* ============================================================

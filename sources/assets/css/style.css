@@ -3,53 +3,53 @@
 /* ========================================== */
 
 /* ==========================================
-   ЦВЕТОВАЯ СХЕМА: Бордо (текущая)
-   Как сейчас: тёмно-бордовый с золотом
+   ЦВЕТОВАЯ СХЕМА: Сталь и лён
+   Монохромный сине-стальной на светлом фоне — основная схема
 
    Все цвета сайта заданы здесь. Сменить схему:
-   python3 scripts/gen_palette.py <id> --apply
+   python3 tools/gen_palette.py <id> --apply
    Список схем — в data/palitry.json и docs/COLORS.md.
    ========================================== */
 
 :root {
   /* фирменные цвета */
-  --color-primary: #7a1a1a;
-  --color-primary-dark: #5a0f0f;
-  --color-accent: #c49a3c;
-  --color-accent-light: #d9b15a;
-  --color-page: #f8f5f0;
+  --color-primary: #1f4e6d;
+  --color-primary-dark: #123449;
+  --color-accent: #3f83ad;
+  --color-accent-light: #86b4d0;
+  --color-page: #f4f6f8;
 
   /* фоны и заливки */
-  --tone-surface-1: #fff8e7;
-  --tone-surface-2: #fbf8f4;
-  --tone-surface-3: #fdfbf8;
-  --tone-surface-4: #f6efe1;
-  --tone-surface-5: #f2efea;
+  --tone-surface-1: #e7f4ff;
+  --tone-surface-2: #f4f8fb;
+  --tone-surface-3: #f8fbfd;
+  --tone-surface-4: #e1ecf6;
+  --tone-surface-5: #eaeef2;
 
   /* рамки и разделители */
-  --tone-line-1: #f0e4d0;
-  --tone-line-2: #e8e3dc;
-  --tone-line-3: #ddd5ca;
-  --tone-line-4: #efe9e0;
-  --tone-line-5: #f0ebe4;
-  --tone-line-6: #ece6dd;
-  --tone-line-7: #ecdfc4;
-  --tone-line-8: #ded5c8;
-  --tone-line-9: #f7edd6;
+  --tone-line-1: #d0e1f0;
+  --tone-line-2: #dce2e8;
+  --tone-line-3: #cad4dd;
+  --tone-line-4: #e0e8ef;
+  --tone-line-5: #e4eaf0;
+  --tone-line-6: #dde5ec;
+  --tone-line-7: #c4d9ec;
+  --tone-line-8: #c8d4de;
+  --tone-line-9: #d6e8f7;
 
   /* приглушённый текст */
-  --tone-muted-1: #9a8f84;
-  --tone-muted-2: #8a7c6c;
-  --tone-muted-3: #a08a52;
-  --tone-muted-4: #b0a698;
-  --tone-muted-5: #a2968a;
+  --tone-muted-1: #84909a;
+  --tone-muted-2: #6c7c8a;
+  --tone-muted-3: #527ca0;
+  --tone-muted-4: #98a5b0;
+  --tone-muted-5: #8a97a2;
 
   /* тёмные оттенки */
-  --tone-deep-1: #5a4a3f;
-  --tone-deep-2: #6b6259;
-  --tone-deep-3: #3d3630;
-  --tone-deep-4: #6b5b3f;
-  --tone-deep-5: #8a6d1f;
+  --tone-deep-1: #3f4d5a;
+  --tone-deep-2: #59636b;
+  --tone-deep-3: #30373d;
+  --tone-deep-4: #3f566b;
+  --tone-deep-5: #1f588a;
 }
 
 
@@ -94,8 +94,8 @@ a:hover {
   background: var(--color-primary-dark);
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
-  padding: 6px 0;
-  border-bottom: 2px solid var(--color-accent);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .top-bar .container {
@@ -133,10 +133,10 @@ a:hover {
 /* ========================================== */
 
 header {
-  background: var(--color-primary);
-  color: #ffffff;
-  padding: 18px 0 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  color: var(--color-primary-dark);
+  padding: 22px 0 20px;
+  border-bottom: 1px solid var(--tone-line-2);
   z-index: 100;
 }
 
@@ -158,18 +158,17 @@ header {
 .logo-text h1 {
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
+  letter-spacing: -0.6px;
+  line-height: 1.15;
   margin: 0;
-  color: #ffffff;
+  color: var(--color-primary-dark);
 }
 
 .logo-text p {
-  font-size: 16px;
-  opacity: 0.8;
-  margin: 2px 0 0;
+  font-size: 15px;
+  margin: 3px 0 0;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--tone-deep-2);
 }
 
 .header-contacts {
@@ -181,14 +180,14 @@ header {
 }
 
 .header-contacts .phone {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   letter-spacing: -0.2px;
-  color: #ffffff;
+  color: var(--color-primary-dark);
 }
 
 .header-contacts .phone a {
-  color: #ffffff;
+  color: var(--color-primary-dark);
 }
 
 .header-contacts .phone a:hover {
@@ -198,18 +197,17 @@ header {
 
 .header-contacts .worktime {
   font-size: 13px;
-  opacity: 0.8;
-  margin: 2px 0 0;
+  margin: 3px 0 0;
+  color: var(--tone-deep-2);
 }
 
 .header-contacts .email {
   font-size: 14px;
-  opacity: 0.85;
   margin: 2px 0 0;
 }
 
 .header-contacts .email a {
-  color: #ffffff;
+  color: var(--color-primary);
 }
 
 .header-contacts .email a:hover {
@@ -225,28 +223,25 @@ header {
 
 .btn-accent {
   display: inline-block;
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
-  font-weight: 700;
-  font-size: 16px;
-  padding: 12px 36px;
-  border-radius: 50px;
-  transition:
-    background 0.2s,
-    transform 0.2s;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  transition: background 0.2s;
   border: none;
   cursor: pointer;
-  letter-spacing: 0.5px;
-  margin-top: 10px;
+  letter-spacing: 0.2px;
+  margin-top: 12px;
   text-align: center;
   width: 100%;
   max-width: 320px;
 }
 
 .btn-accent:hover {
-  background: var(--color-accent-light);
-  color: var(--color-primary-dark);
-  transform: translateY(-2px);
+  background: var(--color-primary-dark);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -256,7 +251,6 @@ header {
 
 nav {
   background: var(--color-primary-dark);
-  border-bottom: 2px solid var(--color-accent);
 }
 
 nav ul {
@@ -270,26 +264,24 @@ nav ul {
 
 nav ul li a {
   display: block;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.88);
+  padding: 14px 22px;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.2px;
-  transition:
-    background 0.2s,
-    color 0.2s;
-  border-radius: 0;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 nav ul li a:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  color: #ffffff;
+  border-bottom-color: var(--color-accent-light);
   text-decoration: none;
 }
 
 nav ul li a.active {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  color: #ffffff;
+  border-bottom-color: var(--color-accent);
 }
 
 /* ========================================== */
@@ -322,27 +314,27 @@ nav ul li a.active {
 /* ========================================== */
 
 .section-title {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 6px;
-  letter-spacing: -0.3px;
+  color: var(--color-primary-dark);
+  margin: 0 0 8px;
+  letter-spacing: -0.6px;
 }
 
 .section-title .accent-line {
   display: inline-block;
-  width: 48px;
-  height: 4px;
-  background: var(--color-accent);
-  border-radius: 4px;
-  margin-right: 12px;
+  width: 32px;
+  height: 3px;
+  background: var(--color-primary);
+  margin-right: 14px;
   vertical-align: middle;
 }
 
 .section-subtitle {
-  color: #555555;
+  color: var(--tone-deep-2);
   font-size: 16px;
   margin: 0 0 28px;
+  max-width: 720px;
 }
 
 /* ========================================== */
@@ -350,12 +342,12 @@ nav ul li a.active {
 /* ========================================== */
 
 .alert {
-  background: var(--tone-surface-1);
-  border-left: 5px solid var(--color-accent);
-  padding: 14px 22px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  border: 1px solid var(--tone-line-1);
+  background: var(--tone-surface-2);
+  border: 1px solid var(--tone-line-2);
+  border-left: 3px solid var(--color-primary);
+  padding: 16px 22px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 32px;
 }
 
 .alert p {
@@ -391,24 +383,20 @@ nav ul li a.active {
 
 .dept-card {
   background: #ffffff;
-  padding: 22px 20px 20px;
-  border-radius: 8px;
-  border-left: 5px solid var(--color-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
+  padding: 26px 24px 22px;
+  border-radius: 10px;
   border: 1px solid var(--tone-line-2);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .dept-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(122, 26, 26, 0.12);
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(18, 52, 73, 0.08);
 }
 
 .dept-card .dept-icon {
   font-size: 0;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 .dept-card .dept-icon svg {
@@ -471,23 +459,21 @@ nav ul li a.active {
 
 .news-card {
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-bottom: 3px solid var(--color-primary);
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
+  border: 1px solid var(--tone-line-2);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .news-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(18, 52, 73, 0.08);
 }
 
 .news-card .news-image {
-  height: 140px;
-  background: var(--tone-line-2);
+  height: 132px;
+  background: var(--tone-surface-2);
+  border-bottom: 1px solid var(--tone-line-2);
   display: flex;
   align-items: center;
   justify-content: center;
