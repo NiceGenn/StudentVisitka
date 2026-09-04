@@ -31,7 +31,19 @@
 Source: **GitHub Actions**. Без этого workflow публикации падает с ошибкой
 `Get Pages site failed` — она и даёт красный крестик у коммитов. Создать
 сайт из workflow нельзя: у `GITHUB_TOKEN` нет таких прав. После включения
-сайт откроется по адресу `https://nicegenn.github.io/VisitkaStudent/`.
+сайт откроется по адресу `https://nicegenn.github.io/StudentVisitka/`.
+
+**Переименовать репозиторий в `StudentVisitka`.** Settings → General →
+Repository name → StudentVisitka → Rename. Ссылки в документации уже
+указывают на новое имя, поэтому до переименования они не работают.
+После — обновить свой локальный клон:
+
+```bash
+git remote set-url origin https://github.com/NiceGenn/StudentVisitka.git
+```
+
+Старые ссылки GitHub перенаправляет автоматически, но перенаправление
+пропадёт, если завести новый репозиторий со старым именем.
 
 **Решить с веткой.** Вся работа лежит в `claude/project-structure-release-vkf2gr`,
 ветки `main` в репозитории нет. Либо создать `main` из текущей и сделать её
@@ -67,8 +79,8 @@ Source: **GitHub Actions**. Без этого workflow публикации па
 ## Как продолжить работу
 
 ```bash
-git clone https://github.com/NiceGenn/VisitkaStudent.git
-cd VisitkaStudent
+git clone https://github.com/NiceGenn/StudentVisitka.git
+cd StudentVisitka
 git checkout claude/project-structure-release-vkf2gr
 
 python3 -m http.server 8000 --directory sources   # посмотреть сайт

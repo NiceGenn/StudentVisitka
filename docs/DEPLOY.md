@@ -10,7 +10,7 @@
 
 Что нужно сделать один раз: **Settings → Pages → Build and deployment →
 Source: GitHub Actions**. После этого сайт будет доступен по адресу
-`https://nicegenn.github.io/VisitkaStudent/`.
+`https://nicegenn.github.io/StudentVisitka/`.
 
 Ссылки внутри сайта относительные, поэтому подкаталог в URL им не мешает.
 

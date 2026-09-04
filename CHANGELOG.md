@@ -3,6 +3,20 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/),
 проект придерживается [семантического версионирования](https://semver.org/lang/ru/).
 
+## [1.7.1] — 2026-09-04
+
+### Изменено
+
+- Ссылки в документации переведены на новое имя репозитория —
+  `NiceGenn/StudentVisitka`. Семнадцать вхождений в `README.md`,
+  `HANDOFF.md`, `CHANGELOG.md`, `docs/DEPLOY.md` и `releases/README.md`.
+- В `HANDOFF.md` добавлен шаг: переименовать репозиторий в настройках
+  и обновить `git remote set-url` в локальном клоне.
+
+Имя архива релиза (`visitka-student-vX.Y.Z.zip`) не менялось: оно не
+связано с именем репозитория, а переименование сломало бы соответствие
+уже выпущенным версиям.
+
 ## [1.7.0] — 2026-09-04
 
 ### Добавлено
@@ -269,12 +283,13 @@
 - Семь ссылок на карточках главной страницы и в новостях ведут на ещё
   не написанные страницы разделов. Список — в `docs/STRUCTURE.md`.
 
-[1.7.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.7.0
-[1.6.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.6.0
-[1.5.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.5.0
-[1.4.1]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.4.1
-[1.4.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.4.0
-[1.3.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.3.0
-[1.2.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.2.0
-[1.1.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.1.0
-[1.0.0]: https://github.com/NiceGenn/VisitkaStudent/releases/tag/v1.0.0
+[1.7.1]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.7.1
+[1.7.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.7.0
+[1.6.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.6.0
+[1.5.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.5.0
+[1.4.1]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.4.1
+[1.4.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.4.0
+[1.3.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.3.0
+[1.2.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.2.0
+[1.1.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.1.0
+[1.0.0]: https://github.com/NiceGenn/StudentVisitka/releases/tag/v1.0.0

@@ -1,4 +1,4 @@
-# VisitkaStudent — сайт администрации города Благовещенска
+# StudentVisitka — сайт администрации города Благовещенска
 
 Статический сайт-визитка органов местного самоуправления: восемь страниц,
 общая таблица стилей, немного JavaScript. Ни сборщиков, ни зависимостей —
@@ -7,8 +7,8 @@
 ## Быстрый старт
 
 ```bash
-git clone https://github.com/NiceGenn/VisitkaStudent.git
-cd VisitkaStudent
+git clone https://github.com/NiceGenn/StudentVisitka.git
+cd StudentVisitka
 
 # локальный просмотр
 python3 -m http.server 8000 --directory sources

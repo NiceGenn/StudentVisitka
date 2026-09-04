@@ -15,7 +15,7 @@
 | 1.1.0 | Раздел «Визитница»: 42 карточки подразделений | `visitka-student-v1.1.0.zip` |
 | 1.0.0 | Первая версия: структура репозитория и сборка | `visitka-student-v1.0.0.zip` |
 
-Те же архивы лежат во вкладке [Releases](https://github.com/NiceGenn/VisitkaStudent/releases)
+Те же архивы лежат во вкладке [Releases](https://github.com/NiceGenn/StudentVisitka/releases)
 на GitHub — там их создаёт workflow при пуше тега `v*`.
 
 ## Собрать свежий архив
