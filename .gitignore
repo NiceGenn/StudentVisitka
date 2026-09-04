@@ -1,0 +1,22 @@
+# Сборка
+dist/
+release/
+*.zip
+
+# Локальные настройки Claude Code / память
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Системный мусор
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+*~
+
+# Зависимости (если появятся)
+node_modules/

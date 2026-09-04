@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Школы и сады | Благовещенский муниципальный округ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* ============================================================
+           ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "ШКОЛЫ И САДЫ"
+           ============================================================ */
+
+      .edu-block {
+        background: #ffffff;
+        padding: 24px 28px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        margin-bottom: 25px;
+        border: 1px solid #e8e3dc;
+        overflow-x: auto;
+      }
+
+      .edu-block h3 {
+        font-size: 20px;
+        color: #7a1a1a;
+        margin: 0 0 16px;
+        font-weight: 600;
+        border-bottom: 2px solid #c49a3c;
+        padding-bottom: 8px;
+      }
+
+      .edu-block p {
+        font-size: 15px;
+        color: #1a1a1a;
+        margin: 0 0 12px;
+        line-height: 1.7;
+      }
+
+      .edu-block .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 30px;
+        margin: 10px 0;
+      }
+
+      .edu-block .info-grid .item {
+        font-size: 14px;
+        color: #333;
+        padding: 4px 0;
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      .edu-block .info-grid .item strong {
+        color: #7a1a1a;
+        display: inline-block;
+        min-width: 140px;
+      }
+
+      /* ТАБЛИЦЫ */
+      .table-wrap {
+        overflow-x: auto;
+        border-radius: 6px;
+        border: 1px solid #e8e3dc;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        min-width: 600px;
+      }
+
+      thead {
+        background: #7a1a1a;
+        color: #ffffff;
+      }
+
+      thead th {
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      tbody td {
+        padding: 10px 16px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333;
+      }
+
+      tbody tr:hover {
+        background: #f8f5f0;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #c49a3c;
+        color: #5a0f0f;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .badge-blue {
+        background: #7a1a1a;
+        color: #ffffff;
+      }
+
+      .note {
+        font-size: 13px;
+        color: #666;
+        margin-top: 12px;
+        padding: 12px 16px;
+        background: #f8f5f0;
+        border-radius: 6px;
+        border-left: 3px solid #c49a3c;
+      }
+
+      .note a {
+        color: #7a1a1a;
+        font-weight: 500;
+      }
+
+      .note a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .edu-block {
+          padding: 18px;
+        }
+
+        .edu-block .info-grid {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .edu-block .info-grid .item strong {
+          display: block;
+          min-width: auto;
+        }
+
+        table {
+          font-size: 13px;
+          min-width: 480px;
+        }
+
+        thead th,
+        tbody td {
+          padding: 8px 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        table {
+          font-size: 12px;
+          min-width: 360px;
+        }
+
+        thead th,
+        tbody td {
+          padding: 6px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
+        </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header>
+      <div class="container header-wrap">
+        <div class="logo">
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
+        </div>
+        <div class="header-contacts">
+          <div class="phone">
+            <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Об администрации</a></li>
+            <li><a href="structure.html">Структура</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="schools.html">Школы и сады</a></li>
+            <li><a href="docs.html">Документы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
+    <main>
+      <div class="container">
+        <h2 class="section-title"><span class="accent-line"></span>Школы и детские сады</h2>
+        <p class="section-subtitle">Образовательные учреждения Благовещенского муниципального округа</p>
+
+        <!-- БЛОК 1: УПРАВЛЕНИЕ ОБРАЗОВАНИЯ -->
+        <div class="edu-block">
+          <h3>Управление образования</h3>
+          <p>Учредителем всех школ и учреждений дополнительного образования является <strong>Управление образования администрации Благовещенского муниципального округа</strong>.</p>
+          <div class="info-grid">
+            <div class="item"><strong>Полное наименование:</strong> Управление образования администрации Благовещенского муниципального округа</div>
+            <div class="item"><strong>Юридический адрес:</strong> 675000, Амурская область, г. Благовещенск, ул. Зейская, д. 198</div>
+            <div class="item"><strong>Телефон:</strong> 8 (4162) 77-45-20</div>
+            <div class="item"><strong>Email:</strong> upobr@blagraion.ru</div>
+            <div class="item"><strong>Начальник управления:</strong> Мандзюк Ольга Петровна</div>
+            <div class="item"><strong>Муниципальный координатор ГИА:</strong> Лисина Виктория Александровна</div>
+          </div>
+        </div>
+
+        <!-- БЛОК 2: ШКОЛЫ -->
+        <div class="edu-block">
+          <h3>Список школ</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Название школы</th>
+                  <th>Населённый пункт</th>
+                  <th>Телефон</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>МАОУ Волковская СОШ</td>
+                  <td>с. Волково</td>
+                  <td>8 (4162) 39-02-44</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>МАОУ Грибская СОШ</td>
+                  <td>с. Грибское</td>
+                  <td>8 (4162) 39-64-19</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>МАОУ Гродековская СОШ</td>
+                  <td>с. Гродеково</td>
+                  <td>+7 (914) 538-42-10</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>МАОУ Марковская СОШ</td>
+                  <td>с. Марково</td>
+                  <td>8 (4162) 39-40-23</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>МАОУ Михайловская СОШ</td>
+                  <td>с. Михайловка</td>
+                  <td>8 (4162) 59-84-67</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>МАОУ Новопетровская СОШ</td>
+                  <td>с. Новопетровка</td>
+                  <td>8 (4162) 39-18-91</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>МАОУ Новотроицкая ООШ</td>
+                  <td>с. Новотроицкое</td>
+                  <td>8 (4162) 39-57-37</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>МАОУ Сергеевская СОШ</td>
+                  <td>с. Сергеевка</td>
+                  <td>8 (4162) 39-38-92</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>МАОУ Усть-Ивановская СОШ</td>
+                  <td>с. Усть-Ивановка</td>
+                  <td>8 (4162) 39-67-21</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>МАОУ Чигиринская СОШ <span class="badge">с углублённым изучением</span></td>
+                  <td>с. Чигири</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note"><strong>Примечание:</strong> Актуальность данных рекомендуется уточнять по телефону 8 (4162) 77-45-20.</div>
+        </div>
+
+        <!-- БЛОК 3: ДЕТСКИЕ САДЫ -->
+        <div class="edu-block">
+          <h3>Детские сады</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Название</th>
+                  <th>Населённый пункт</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>МДОАУ Детский сад «Семицветик»</td>
+                  <td>с. Чигири</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note"><strong>Примечание:</strong> В настоящее время ведётся работа по открытию дополнительных дошкольных учреждений на территории округа. Информация будет дополняться по мере поступления.</div>
+        </div>
+
+        <!-- БЛОК 4: ЦЕНТР ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ -->
+        <div class="edu-block">
+          <h3>Центр дополнительного образования</h3>
+          <div class="info-grid">
+            <div class="item"><strong>Полное наименование:</strong> МАОУ «Центр дополнительного образования детей Благовещенского муниципального округа»</div>
+            <div class="item"><strong>Юридический адрес:</strong> 675507, Амурская область, Благовещенский муниципальный округ, с. Волково, ул. Почтовая, д. 30</div>
+            <div class="item"><strong>Директор:</strong> Аксёнова Оксана Михайловна</div>
+            <div class="item"><strong>Телефон:</strong> 8 (4162) 77-45-20</div>
+            <div class="item"><strong>Email:</strong> mocdod@blagraion.ru</div>
+            <div class="item"><strong>Режим работы:</strong> пн–пт 09:00–18:00</div>
+          </div>
+          <p style="margin-top: 12px"><strong>Места реализации образовательных программ:</strong></p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 6px">
+            <span style="font-size: 14px; color: #333">• Волковская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Грибская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Гродековская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Марковская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Михайловская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Новопетровская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Новотроицкая ООШ</span>
+            <span style="font-size: 14px; color: #333">• Сергеевская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Усть-Ивановская СОШ</span>
+            <span style="font-size: 14px; color: #333">• Чигиринская СОШ</span>
+          </div>
+        </div>
+
+        <!-- БЛОК 5: УЧРЕДИТЕЛЬ -->
+        <div class="edu-block">
+          <h3>Учредитель</h3>
+          <p>Учредителем всех образовательных учреждений является <strong>муниципальное образование — Благовещенский муниципальный округ</strong>.</p>
+          <p>Функции и полномочия учредителя осуществляет <strong>Управление образования администрации Благовещенского муниципального округа</strong>.</p>
+        </div>
+
+        <!-- ПРИМЕЧАНИЕ -->
+        <div class="edu-block" style="border-left: 4px solid #c49a3c">
+          <p style="margin: 0; font-size: 14px; color: #555">
+            <strong>Информация актуальна на основе официальных данных Управления образования.</strong> Для уточнения контактов и режима работы рекомендуется обращаться непосредственно в учреждения по указанным телефонам.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
+          </div>
+          <div>
+            <h4>Контакты</h4>
+            <ul>
+              <li class="footer-phone">8 (4162) 77-45-19</li>
+              <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Разделы</h4>
+            <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
+              <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
+              <li><a href="schools.html">Школы и сады</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Режим работы</h4>
+            <ul>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

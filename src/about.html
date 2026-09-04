@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Об администрации | Благовещенский муниципальный округ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* ============================================================
+           ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "ОБ АДМИНИСТРАЦИИ"
+           ============================================================ */
+      .about-block {
+        background: #ffffff;
+        padding: 28px 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        margin-bottom: 25px;
+        border: 1px solid #e8e3dc;
+      }
+
+      .about-block h3 {
+        font-size: 20px;
+        color: #7a1a1a;
+        margin: 0 0 16px;
+        font-weight: 600;
+        border-bottom: 2px solid #c49a3c;
+        padding-bottom: 8px;
+      }
+
+      .about-block h4 {
+        font-size: 16px;
+        color: #7a1a1a;
+        margin: 20px 0 10px;
+        font-weight: 600;
+      }
+
+      .about-block p {
+        font-size: 15px;
+        color: #1a1a1a;
+        margin: 0 0 12px;
+        line-height: 1.7;
+      }
+
+      .about-block ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+      }
+
+      .about-block ul li {
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.6;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .about-block ul li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        background: #7a1a1a;
+        border-radius: 50%;
+      }
+
+      .about-block ul li:last-child {
+        border-bottom: none;
+      }
+
+      .about-block ul li strong {
+        color: #7a1a1a;
+      }
+
+      /* ============================================================
+           ФОТО ГЛАВЫ — НА ВСЮ ШИРИНУ
+           ============================================================ */
+      .staff-profile {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .staff-photo-large {
+        flex: 0 0 280px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 3px solid #c49a3c;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .staff-photo-large img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .staff-info-large {
+        flex: 1;
+        min-width: 280px;
+      }
+
+      .staff-info-large h4 {
+        font-size: 24px;
+        color: #7a1a1a;
+        margin: 0 0 4px;
+        font-weight: 700;
+      }
+
+      .staff-info-large .position {
+        font-size: 16px;
+        color: #555;
+        margin: 0 0 12px;
+        font-weight: 500;
+      }
+
+      .staff-info-large .contacts-line {
+        font-size: 14px;
+        color: #333;
+        margin: 6px 0;
+        padding: 6px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .staff-info-large .contacts-line:last-child {
+        border-bottom: none;
+      }
+
+      .staff-info-large .contacts-line strong {
+        color: #7a1a1a;
+        display: inline-block;
+        min-width: 140px;
+      }
+
+      /* ============================================================
+           ЗАДАТЬ ВОПРОС
+           ============================================================ */
+      .question-block {
+        background: #fff8e7;
+        border: 1px solid #c49a3c;
+        border-radius: 8px;
+        padding: 20px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .question-block p {
+        margin: 0;
+        font-size: 16px;
+        color: #1a1a1a;
+      }
+
+      .question-block p strong {
+        color: #7a1a1a;
+      }
+
+      .btn-question {
+        display: inline-block;
+        background: #7a1a1a;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 28px;
+        border-radius: 50px;
+        transition: background 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-question:hover {
+        background: #5a0f0f;
+        text-decoration: none;
+        color: #ffffff;
+      }
+
+      /* ============================================================
+           АДАПТИВ
+           ============================================================ */
+      @media (max-width: 768px) {
+        .staff-profile {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .staff-photo-large {
+          flex: 0 0 auto;
+          width: 100%;
+          max-width: 400px;
+        }
+
+        .staff-info-large {
+          text-align: center;
+        }
+
+        .staff-info-large .contacts-line strong {
+          display: block;
+          min-width: auto;
+        }
+
+        .about-block {
+          padding: 18px;
+        }
+
+        .question-block {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .staff-info-large h4 {
+          font-size: 20px;
+        }
+
+        .staff-photo-large {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
+        </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header>
+      <div class="container header-wrap">
+        <div class="logo">
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
+        </div>
+        <div class="header-contacts">
+          <div class="phone">
+            <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Об администрации</a></li>
+            <li><a href="structure.html">Структура</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="schools.html">Школы и сады</a></li>
+            <li><a href="docs.html">Документы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
+    <main>
+      <div class="container">
+        <h2 class="section-title"><span class="accent-line"></span>Об администрации муниципального округа</h2>
+        <p class="section-subtitle">Информация о структуре, задачах и руководстве</p>
+
+        <!-- БЛОК 1: ОБЩИЕ СВЕДЕНИЯ -->
+        <div class="about-block">
+          <h3>Общие сведения</h3>
+          <p>
+            Администрация Благовещенского муниципального округа является исполнительно-распорядительным органом местного самоуправления, осуществляющим управление социально-экономическим развитием округа и обеспечение
+            жизнедеятельности муниципального образования.
+          </p>
+          <ul>
+            <li><strong>Полное наименование:</strong> Администрация Благовещенского муниципального округа</li>
+            <li><strong>Сокращённое наименование:</strong> Администрация Благовещенского округа</li>
+            <li><strong>Юридический адрес:</strong> 675000, Амурская область, г. Благовещенск, ул. Зейская, д. 198</li>
+            <li><strong>Телефон приёмной:</strong> 8 (4162) 77-45-19</li>
+            <li><strong>Факс:</strong> 8 (4162) 77-45-20</li>
+            <li><strong>Электронная почта:</strong> obrazovanie@blgraion.amurobl.ru</li>
+            <li><strong>Официальный сайт:</strong> blgraion.amurobl.ru</li>
+            <li><strong>Режим работы:</strong> понедельник – пятница с 08:00 до 17:00, перерыв с 12:00 до 13:00</li>
+          </ul>
+        </div>
+
+        <!-- БЛОК 2: ГЛАВА ОКРУГА -->
+        <div class="about-block">
+          <h3>Глава Благовещенского муниципального округа</h3>
+
+          <div class="staff-profile">
+            <div class="staff-photo-large">
+              <img src="assets/images/bashun.jpg" alt="Башун Александр Александрович" />
+            </div>
+            <div class="staff-info-large">
+              <h4>Башун Александр Александрович</h4>
+              <p class="position">Глава Благовещенского муниципального округа</p>
+              <div class="contacts-line"><strong>Дата рождения:</strong> 13 июня 1987 года</div>
+              <div class="contacts-line"><strong>Образование:</strong> высшее</div>
+              <div class="contacts-line"><strong>Партийная принадлежность:</strong> член партии «Единая Россия», секретарь местного отделения</div>
+              <div class="contacts-line"><strong>Избран:</strong> 31 октября 2025 года на сессии Совета народных депутатов</div>
+              <div class="contacts-line"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 100)</div>
+              <div class="contacts-line"><strong>Приём граждан:</strong> понедельник, среда 14:00–17:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- БЛОК 3: СТРУКТУРА -->
+        <div class="about-block">
+          <h3>Структура администрации</h3>
+          <p>В структуру администрации Благовещенского муниципального округа входят следующие подразделения:</p>
+
+          <h4>I. Руководство</h4>
+          <ul>
+            <li><strong>Глава округа:</strong> Башун Александр Александрович</li>
+            <li><strong>Первый заместитель главы – начальник финансового управления:</strong> (вакансия)</li>
+            <li><strong>Заместитель главы администрации (4 человека):</strong> курируют различные направления</li>
+            <li><strong>Советники главы администрации (2 человека):</strong> обеспечивают деятельность главы</li>
+            <li><strong>Отдел по режиму секретности и мобилизационной работе:</strong> защита государственной тайны, мобилизационная подготовка</li>
+          </ul>
+
+          <h4>II. Блок первого заместителя – начальника финансового управления</h4>
+          <ul>
+            <li><strong>Финансовое управление:</strong> бюджетная политика, исполнение бюджета, контроль за финансами</li>
+            <li><strong>Отдел экономики:</strong> экономическое развитие, планирование, прогнозирование</li>
+            <li><strong>Отдел муниципальных торгов:</strong> организация и проведение торгов, закупок</li>
+          </ul>
+
+          <h4>III. Блок заместителя главы администрации</h4>
+          <ul>
+            <li><strong>Управление жизнеобеспечения:</strong> жилищно-коммунальное хозяйство, благоустройство, транспорт</li>
+            <li><strong>Отдел сельского хозяйства и охраны окружающей среды:</strong> агропромышленный комплекс, экология</li>
+            <li><strong>Отдел по гражданской защите и пожарной безопасности:</strong> защита населения от ЧС, пожарная безопасность</li>
+          </ul>
+
+          <h4>IV. Блок заместителя главы по социальным вопросам</h4>
+          <ul>
+            <li><strong>Управление образования:</strong> школы, детские сады, дополнительное образование, опека (с правом юридического лица)</li>
+            <li><strong>Управление по делам молодёжи, культуры, физической культуры и спорта:</strong> молодёжная политика, культура, спорт</li>
+            <li><strong>Отдел по социальным вопросам:</strong> социальная поддержка, льготы, помощь семьям и пенсионерам</li>
+            <li><strong>Консультант по делам несовершеннолетних:</strong> защита прав детей, профилактика правонарушений</li>
+          </ul>
+
+          <h4>V. Блок заместителя главы администрации</h4>
+          <ul>
+            <li><strong>Организационно-контрольный отдел:</strong> организационная работа, контроль исполнения поручений</li>
+            <li><strong>Отдел муниципальной службы и документационного обеспечения:</strong> кадры, делопроизводство, архив</li>
+            <li><strong>Правовой отдел:</strong> правовое обеспечение, нормативные акты, судебная защита</li>
+            <li><strong>Управление по работе с территориями:</strong> взаимодействие с населением, работа с ТОС</li>
+          </ul>
+
+          <h4>VI. Блок заместителя главы администрации</h4>
+          <ul>
+            <li><strong>Управление имущественных и земельных отношений:</strong> управление муниципальным имуществом, земельные вопросы</li>
+            <li><strong>Управление архитектуры и градостроительства:</strong> градостроительная политика, архитектурный надзор</li>
+            <li><strong>Отдел муниципального контроля:</strong> контроль за соблюдением законодательства</li>
+          </ul>
+        </div>
+
+        <!-- БЛОК 4: КОНСУЛЬТАЦИИ -->
+        <div class="about-block">
+          <h3>Консультации и горячие линии</h3>
+          <ul>
+            <li><strong>Общее образование:</strong> 8 (4162) 77-45-19 (доб. 101)</li>
+            <li><strong>Дошкольное образование:</strong> 8 (4162) 77-45-19 (доб. 102)</li>
+            <li><strong>Защита прав детей:</strong> 8 (4162) 77-45-19 (доб. 103)</li>
+            <li><strong>Социальные вопросы:</strong> 8 (4162) 77-45-19 (доб. 104)</li>
+            <li><strong>Экономические вопросы:</strong> 8 (4162) 77-45-19 (доб. 105)</li>
+          </ul>
+        </div>
+
+        <!-- БЛОК 5: ЗАДАТЬ ВОПРОС -->
+        <div class="question-block">
+          <p><strong>Остались вопросы?</strong> Вы можете задать их главе округа или специалистам администрации.</p>
+          <a href="contacts.html" class="btn-question">Задать вопрос</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
+          </div>
+          <div>
+            <h4>Контакты</h4>
+            <ul>
+              <li class="footer-phone">8 (4162) 77-45-19</li>
+              <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Разделы</h4>
+            <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
+              <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Режим работы</h4>
+            <ul>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
