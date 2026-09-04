@@ -2,7 +2,9 @@ name: Публикация на GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # main — штатная ветка публикации; ветка разработки добавлена, чтобы
+    # сайт был доступен до слияния.
+    branches: [main, 'claude/**']
   workflow_dispatch:
 
 permissions:
@@ -23,7 +25,11 @@ jobs:
       - name: Собрать dist/
         run: ./scripts/build.sh
 
+      # enablement: true включает Pages через API, если раздел ещё не
+      # настроен вручную в Settings → Pages.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
