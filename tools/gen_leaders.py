@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Сборка страницы «Визитница» — src/leaders.html.
+Сборка страницы «Визитница» — sources/leaders.html.
 
-    python3 scripts/gen_leaders.py
+    python3 tools/gen_leaders.py
 
 Читает два файла:
     data/rukovoditeli.json    — руководители из телефонного справочника
-                                (готовит scripts/import_xlsx.py)
+                                (готовит tools/import_xlsx.py)
     data/podrazdeleniya.json  — разделы страницы и описания функций подразделений
 
 Страница генерируется целиком, править её руками бессмысленно: правки
@@ -21,7 +21,7 @@ from collections import OrderedDict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'src' / 'leaders.html'
+OUT = ROOT / 'sources' / 'leaders.html'
 
 # Подразделения-контейнеры: у них нет собственного руководителя, каждый
 # входящий отдел показывается отдельной карточкой.
@@ -305,9 +305,9 @@ def main():
                 esc(r['id']), esc(r['название']), len(свои), esc(r['описание']),
                 ''.join(card_html(c) for c in свои)))
 
-    шапка = (ROOT / 'scripts' / 'templates' / 'chrome-head.html').read_text(encoding='utf-8')
-    подвал = (ROOT / 'scripts' / 'templates' / 'chrome-foot.html').read_text(encoding='utf-8')
-    стили = (ROOT / 'scripts' / 'templates' / 'leaders.css').read_text(encoding='utf-8')
+    шапка = (ROOT / 'tools' / 'templates' / 'chrome-head.html').read_text(encoding='utf-8')
+    подвал = (ROOT / 'tools' / 'templates' / 'chrome-foot.html').read_text(encoding='utf-8')
+    стили = (ROOT / 'tools' / 'templates' / 'leaders.css').read_text(encoding='utf-8')
 
     страница = шапка.replace('{{СТИЛИ}}', стили).replace('{{СОДЕРЖИМОЕ}}', (
         '        <h2 class="section-title"><span class="accent-line"></span>Визитница</h2>\n'

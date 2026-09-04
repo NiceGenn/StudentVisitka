@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Структура | Благовещенский муниципальный округ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ============================================================
+           ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "СТРУКТУРА"
+           ============================================================ */
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .org-level {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e8e3dc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .org-level-header {
+            background: #7a1a1a;
+            color: #ffffff;
+            padding: 14px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .org-level-header .badge-count {
+            background: #c49a3c;
+            color: #5a0f0f;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 1px 12px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        .org-level-body {
+            padding: 16px 20px 20px;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .org-item {
+            background: #f8f5f0;
+            border-left: 3px solid #c49a3c;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #1a1a1a;
+            transition: background 0.2s;
+        }
+
+        .org-item:hover {
+            background: #f0ebe4;
+        }
+
+        .org-item .org-name {
+            font-weight: 600;
+            color: #7a1a1a;
+        }
+
+        .org-item .org-desc {
+            font-size: 13px;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        .org-item .org-phone {
+            font-size: 13px;
+            color: #333;
+            margin-top: 4px;
+        }
+
+        .org-item .org-phone strong {
+            color: #7a1a1a;
+        }
+
+        .org-sub {
+            padding-left: 20px;
+            margin-top: 6px;
+            border-left: 2px dashed #d9b15a;
+        }
+
+        .org-sub .org-item {
+            background: #ffffff;
+            border-left-color: #d9b15a;
+        }
+
+        .note-block {
+            background: #fff8e7;
+            border-left: 4px solid #c49a3c;
+            padding: 16px 22px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .note-block p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .note-block a {
+            color: #7a1a1a;
+            font-weight: 500;
+        }
+
+        .note-block a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .org-level-header {
+                font-size: 14px;
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .org-level-header .badge-count {
+                margin-left: 0;
+            }
+
+            .org-level-body {
+                padding: 12px 14px 16px;
+            }
+
+            .org-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .org-sub {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+        <div class="container">
+            <div>
+                <a href="#">Версия для слабовидящих</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="docs.html">Документы</a>
+            </div>
+            <div>
+                <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+                <span class="divider">|</span>
+                <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header>
+        <div class="container header-wrap">
+            <div class="logo">
+                <div class="logo-text">
+                    <h1>Администрация Благовещенского муниципального округа</h1>
+                    <p>Официальный сайт</p>
+                </div>
+            </div>
+            <div class="header-contacts">
+                <div class="phone">
+                    <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+                </div>
+                <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+                <div class="email">
+                    <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+                </div>
+                <div class="btn-wrap">
+                    <a href="#" class="btn-accent">Написать обращение</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Об администрации</a></li>
+            <li><a href="structure.html">Структура</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="schools.html">Школы и сады</a></li>
+            <li><a href="docs.html">Документы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
+    <main>
+        <div class="container">
+
+            <h2 class="section-title">
+                <span class="accent-line"></span>Структура администрации
+            </h2>
+            <p class="section-subtitle">Организационная структура администрации Благовещенского муниципального округа</p>
+
+            <div class="org-chart">
+
+                <!-- УРОВЕНЬ 1: ГЛАВА ОКРУГА -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Глава Благовещенского муниципального округа
+                        <span class="badge-count">1</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Башун Александр Александрович</div>
+                                <div class="org-desc">Глава Благовещенского муниципального округа</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 100)</div>
+                                <div class="org-phone"><strong>Приём:</strong> понедельник, среда 14:00–17:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 2: РУКОВОДСТВО -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Руководство администрации
+                        <span class="badge-count">8</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Первый заместитель главы – начальник финансового управления</div>
+                                <div class="org-desc">(вакансия)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Заместитель главы администрации</div>
+                                <div class="org-desc">Курирует блок жизнеобеспечения, сельского хозяйства, ГО и ЧС</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Заместитель главы администрации по социальным вопросам</div>
+                                <div class="org-desc">Курирует образование, культуру, спорт, молодёжную политику, соцвопросы</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Заместитель главы администрации</div>
+                                <div class="org-desc">Курирует организационную работу, кадры, правовой отдел, работу с территориями</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Заместитель главы администрации</div>
+                                <div class="org-desc">Курирует имущественные и земельные отношения, архитектуру, муниципальный контроль</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Советник главы администрации</div>
+                                <div class="org-desc">Обеспечивает деятельность главы по направлениям</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Советник главы администрации</div>
+                                <div class="org-desc">Обеспечивает деятельность главы по направлениям</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел по режиму секретности и мобилизационной работе</div>
+                                <div class="org-desc">Защита государственной тайны, мобилизационная подготовка</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 3: БЛОК ПЕРВОГО ЗАМЕСТИТЕЛЯ -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Блок первого заместителя – начальника финансового управления
+                        <span class="badge-count">3</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Финансовое управление</div>
+                                <div class="org-desc">Бюджетная политика, исполнение бюджета, контроль за финансами</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 201)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел экономики</div>
+                                <div class="org-desc">Экономическое развитие, планирование, прогнозирование</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 202)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел муниципальных торгов</div>
+                                <div class="org-desc">Организация и проведение торгов, закупок</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 203)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 4: БЛОК ЖКХ И БЕЗОПАСНОСТИ -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Блок заместителя главы администрации (ЖКХ, сельское хозяйство, ГО и ЧС)
+                        <span class="badge-count">3</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Управление жизнеобеспечения</div>
+                                <div class="org-desc">Жилищно-коммунальное хозяйство, благоустройство, транспорт</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 205)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел сельского хозяйства и охраны окружающей среды</div>
+                                <div class="org-desc">Агропромышленный комплекс, экология, природопользование</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 206)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел по гражданской защите и пожарной безопасности</div>
+                                <div class="org-desc">Защита населения от ЧС, пожарная безопасность, гражданская оборона</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 207)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 5: БЛОК СОЦИАЛЬНЫХ ВОПРОСОВ -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Блок заместителя главы по социальным вопросам
+                        <span class="badge-count">4</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Управление образования</div>
+                                <div class="org-desc">Школы, детские сады, дополнительное образование, опека и попечительство (с правом юридического лица)</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-20</div>
+                                <div class="org-phone"><strong>Email:</strong> upobr@blagraion.ru</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление по делам молодёжи, культуры, физической культуры и спорта</div>
+                                <div class="org-desc">Молодёжная политика, культура, спорт, творческие коллективы</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 105)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел по социальным вопросам</div>
+                                <div class="org-desc">Социальная поддержка, льготы, помощь семьям и пенсионерам</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 104)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Консультант по делам несовершеннолетних</div>
+                                <div class="org-desc">Защита прав детей, профилактика правонарушений несовершеннолетних</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 106)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 6: БЛОК ОРГАНИЗАЦИОННО-КАДРОВОЙ РАБОТЫ -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Блок заместителя главы администрации (организационная работа, кадры, право)
+                        <span class="badge-count">4</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Организационно-контрольный отдел</div>
+                                <div class="org-desc">Организационная работа, контроль исполнения поручений, взаимодействие с Думой</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 401)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел муниципальной службы и документационного обеспечения</div>
+                                <div class="org-desc">Кадровая политика, работа с муниципальными служащими, делопроизводство, архив</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 402)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Правовой отдел</div>
+                                <div class="org-desc">Правовое обеспечение деятельности, нормативные акты, судебная защита</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 403)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление по работе с территориями</div>
+                                <div class="org-desc">Взаимодействие с населением, работа с ТОС, сельскими поселениями</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 404)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- УРОВЕНЬ 7: БЛОК ИМУЩЕСТВЕННЫХ ОТНОШЕНИЙ -->
+                <div class="org-level">
+                    <div class="org-level-header">
+                        Блок заместителя главы администрации (имущество, архитектура, контроль)
+                        <span class="badge-count">3</span>
+                    </div>
+                    <div class="org-level-body">
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Управление имущественных и земельных отношений</div>
+                                <div class="org-desc">Управление муниципальным имуществом, земельные вопросы, аренда, приватизация</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 301)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление архитектуры и градостроительства</div>
+                                <div class="org-desc">Градостроительная политика, архитектурный надзор, разрешения на строительство</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 302)</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел муниципального контроля</div>
+                                <div class="org-desc">Муниципальный контроль за соблюдением законодательства, профилактика нарушений</div>
+                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 303)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ПРИМЕЧАНИЕ -->
+            <div class="note-block">
+                <p>
+                    <strong>Информация актуальна на 2026 год.</strong>
+                    Структура утверждена решением Совета народных депутатов Благовещенского муниципального округа от 01.11.2025 № 450.
+                    Для уточнения контактных данных обращайтесь по телефону 8 (4162) 77-45-19.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Администрация Благовещенского муниципального округа</h4>
+                    <p>Официальный сайт органов местного самоуправления</p>
+                    <p style="margin-top: 8px; font-size: 13px; opacity: 0.6;">© 2026 Все права защищены</p>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li class="footer-phone">8 (4162) 77-45-19</li>
+                        <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
+                        <li>г. Благовещенск, ул. Зейская, 198</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="about.html">Об администрации</a></li>
+                        <li><a href="structure.html">Структура</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li><a href="schools.html">Школы и сады</a></li>
+                        <li><a href="docs.html">Документы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Режим работы</h4>
+                    <ul>
+                        <li>понедельник – пятница</li>
+                        <li>08:00 – 17:00</li>
+                        <li>перерыв: 12:00 – 13:00</li>
+                        <li>суббота, воскресенье: выходной</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

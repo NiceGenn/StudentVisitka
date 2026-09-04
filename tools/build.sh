@@ -2,18 +2,18 @@
 #
 # Сборка релиза статического сайта.
 #
-#   ./scripts/build.sh            -> dist/ + release/visitka-student-<версия>.zip
-#   ./scripts/build.sh 1.2.0      -> та же сборка с явно заданной версией
+#   ./tools/build.sh            -> dist/ + releases/visitka-student-<версия>.zip
+#   ./tools/build.sh 1.2.0      -> та же сборка с явно заданной версией
 #
 # Сборка намеренно простая: сайт статический, шаг сборки только копирует
-# src/ в dist/, проверяет целостность ссылок и упаковывает архив.
+# sources/ в dist/, проверяет целостность ссылок и упаковывает архив.
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SRC="$ROOT/src"
+SRC="$ROOT/sources"
 DIST="$ROOT/dist"
-RELEASE="$ROOT/release"
+RELEASE="$ROOT/releases"
 
 VERSION="${1:-$(sed -n 's/^## \[\([0-9][^]]*\)\].*/\1/p' "$ROOT/CHANGELOG.md" | head -n1)}"
 VERSION="${VERSION:-0.0.0}"
@@ -31,8 +31,8 @@ touch "$DIST/.nojekyll"
 # Визитница генерируется из data/ — предупреждаем, если страница отстала.
 for data_file in "$ROOT"/data/*.json; do
   if [ -e "$data_file" ] && [ "$data_file" -nt "$SRC/leaders.html" ]; then
-    echo "==> ВНИМАНИЕ: $(basename "$data_file") новее src/leaders.html"
-    echo "    выполните: python3 scripts/gen_leaders.py"
+    echo "==> ВНИМАНИЕ: $(basename "$data_file") новее sources/leaders.html"
+    echo "    выполните: python3 tools/gen_leaders.py"
     break
   fi
 done
@@ -58,4 +58,4 @@ rm -f "$RELEASE/${NAME}.zip"
 
 echo "==> Готово:"
 echo "    каталог: dist/"
-echo "    архив:   release/${NAME}.zip ($(du -h "$RELEASE/${NAME}.zip" | cut -f1))"
+echo "    архив:   releases/${NAME}.zip ($(du -h "$RELEASE/${NAME}.zip" | cut -f1))"

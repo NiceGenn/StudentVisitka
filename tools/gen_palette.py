@@ -3,9 +3,9 @@
 """
 Цветовая схема сайта.
 
-    python3 scripts/gen_palette.py                 список схем
-    python3 scripts/gen_palette.py navy            показать блок :root
-    python3 scripts/gen_palette.py navy --apply    применить к style.css
+    python3 tools/gen_palette.py                 список схем
+    python3 tools/gen_palette.py navy            показать блок :root
+    python3 tools/gen_palette.py navy --apply    применить к style.css
 
 Схемы описаны в data/palitry.json. Фирменные цвета там заданы явно, тёплые
 оттенки фонов и рамок пересчитываются в тон схемы: светлота и насыщенность
@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ДАННЫЕ = ROOT / 'data' / 'palitry.json'
-СТИЛИ = ROOT / 'src' / 'assets' / 'css' / 'style.css'
+СТИЛИ = ROOT / 'sources' / 'assets' / 'css' / 'style.css'
 
 НАЧАЛО = '/* НАЧАЛО ДОПОЛНЕНИЙ СХЕМЫ — правится генератором */'
 КОНЕЦ = '/* КОНЕЦ ДОПОЛНЕНИЙ СХЕМЫ */'
@@ -43,7 +43,7 @@ def блок_root(данные, схема):
               '   %s' % схема['описание'],
               '',
               '   Все цвета сайта заданы здесь. Сменить схему:',
-              '   python3 scripts/gen_palette.py <id> --apply',
+              '   python3 tools/gen_palette.py <id> --apply',
               '   Список схем — в data/palitry.json и docs/COLORS.md.',
               '   ========================================== */',
               '', ':root {', '  /* фирменные цвета */']
@@ -94,8 +94,8 @@ def main():
         print('Доступные схемы:\n')
         for c in данные['схемы']:
             print('  %-10s %-22s %s' % (c['id'], c['имя'], c['описание']))
-        print('\nПоказать блок:   python3 scripts/gen_palette.py <id>')
-        print('Применить:       python3 scripts/gen_palette.py <id> --apply')
+        print('\nПоказать блок:   python3 tools/gen_palette.py <id>')
+        print('Применить:       python3 tools/gen_palette.py <id> --apply')
         return
 
     ид = sys.argv[1]
@@ -114,7 +114,7 @@ def main():
         sys.exit('Не нашёл блок :root в style.css — проверьте файл вручную.')
     СТИЛИ.write_text(новый, encoding='utf-8')
     print('Схема «%s» применена к %s' % (схема['имя'], СТИЛИ.relative_to(ROOT)))
-    print('Дальше: python3 scripts/gen_leaders.py && ./scripts/build.sh')
+    print('Дальше: python3 tools/gen_leaders.py && ./tools/build.sh')
 
 
 if __name__ == '__main__':

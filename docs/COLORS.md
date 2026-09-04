@@ -1,21 +1,21 @@
 # Цветовые схемы
 
 Все цвета сайта заданы CSS-переменными в блоке `:root` файла
-`src/assets/css/style.css`. В вёрстке нет ни одного фирменного цвета
+`sources/assets/css/style.css`. В вёрстке нет ни одного фирменного цвета
 литералом — только `var(--color-primary)` и подобные. Поэтому смена схемы
 это замена одного блока, а не поиск по сорока значениям в девяти файлах.
 
 ## Сменить схему
 
 ```bash
-python3 scripts/gen_palette.py                 # список схем
-python3 scripts/gen_palette.py navy            # посмотреть блок :root
-python3 scripts/gen_palette.py navy --apply    # применить
-python3 scripts/gen_leaders.py                 # пересобрать визитницу
-./scripts/build.sh                             # собрать dist/
+python3 tools/gen_palette.py                 # список схем
+python3 tools/gen_palette.py navy            # посмотреть блок :root
+python3 tools/gen_palette.py navy --apply    # применить
+python3 tools/gen_leaders.py                 # пересобрать визитницу
+./tools/build.sh                             # собрать dist/
 ```
 
-Вернуться к исходному виду: `python3 scripts/gen_palette.py current --apply`.
+Вернуться к исходному виду: `python3 tools/gen_palette.py current --apply`.
 
 ## Как устроено
 

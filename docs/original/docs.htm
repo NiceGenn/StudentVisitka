@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Документы | Благовещенский муниципальный округ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .docs-block {
+        background: #ffffff;
+        padding: 24px 28px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        margin-bottom: 25px;
+        border: 1px solid #e8e3dc;
+      }
+
+      .docs-block h3 {
+        font-size: 20px;
+        color: #7a1a1a;
+        margin: 0 0 16px;
+        font-weight: 600;
+        border-bottom: 2px solid #c49a3c;
+        padding-bottom: 8px;
+      }
+
+      .docs-block p {
+        font-size: 15px;
+        color: #1a1a1a;
+        margin: 0 0 12px;
+        line-height: 1.7;
+      }
+
+      .doc-item {
+        background: #f8f5f0;
+        border-left: 4px solid #7a1a1a;
+        padding: 14px 20px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        transition: background 0.2s;
+      }
+
+      .doc-item:hover {
+        background: #f0ebe4;
+      }
+
+      .doc-item .doc-info {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .doc-item .doc-info h4 {
+        font-size: 15px;
+        color: #7a1a1a;
+        margin: 0 0 4px;
+        font-weight: 600;
+      }
+
+      .doc-item .doc-info p {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+      }
+
+      .doc-item .doc-link {
+        display: inline-block;
+        background: #7a1a1a;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 13px;
+        padding: 6px 18px;
+        border-radius: 4px;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+
+      .doc-item .doc-link:hover {
+        background: #5a0f0f;
+        text-decoration: none;
+        color: #ffffff;
+      }
+
+      .doc-item .doc-link-external {
+        background: #c49a3c;
+        color: #5a0f0f;
+      }
+
+      .doc-item .doc-link-external:hover {
+        background: #d9b15a;
+        color: #5a0f0f;
+      }
+
+      .note-block {
+        background: #fff8e7;
+        border-left: 4px solid #c49a3c;
+        padding: 16px 22px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .note-block p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .note-block a {
+        color: #7a1a1a;
+        font-weight: 500;
+      }
+
+      .note-block a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .docs-block {
+          padding: 18px;
+        }
+
+        .doc-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .doc-item .doc-link {
+          white-space: normal;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+    ВЕРХНЯЯ ПЛАНКА
+    ============================================================ -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
+        </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header>
+      <div class="container header-wrap">
+        <div class="logo">
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
+        </div>
+        <div class="header-contacts">
+          <div class="phone">
+            <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+    НАВИГАЦИЯ
+    ============================================================ -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Об администрации</a></li>
+            <li><a href="structure.html">Структура</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="schools.html">Школы и сады</a></li>
+            <li><a href="docs.html">Документы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- ============================================================
+    ОСНОВНОЙ КОНТЕНТ
+    ============================================================ -->
+    <main>
+      <div class="container">
+        <h2 class="section-title"><span class="accent-line"></span>Документы</h2>
+        <p class="section-subtitle">Нормативные правовые акты и официальные документы администрации</p>
+
+        <!-- БЛОК 1: ПОСТАНОВЛЕНИЯ -->
+        <div class="docs-block">
+          <h3>Постановления администрации</h3>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Об утверждении программы профилактики рисков в сфере муниципального жилищного контроля на 2024 год</h4>
+              <p>Постановление № 3224 от 25.12.2023</p>
+            </div>
+            <a
+              href="http://www.blagraion.ru/documents/02_10_01_2024/%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B4%D0%BB%D1%8F_%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8_%D0%B2_%D0%B3%D0%B0%D0%B7%D0%B5%D1%82%D0%B5_%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B_%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8_%D1%80%D0%B8%D1%81%D0%BA%D0%BE%D0%B2.docx"
+              target="_blank"
+              class="doc-link"
+              >Скачать DOCX</a
+            >
+          </div>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Об утверждении программы профилактики рисков в сфере муниципального земельного контроля на 2024 год</h4>
+              <p>Постановление от 25.12.2023</p>
+            </div>
+            <a
+              href="http://www.blagraion.ru/documents/02_10_01_2024/%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B4%D0%BB%D1%8F_%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8_%D0%B2_%D0%B3%D0%B0%D0%B7%D0%B5%D1%82%D0%B5_%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B_%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8_%D1%80%D0%B8%D1%81%D0%BA%D0%BE%D0%B2.docx"
+              target="_blank"
+              class="doc-link"
+              >Скачать DOCX</a
+            >
+          </div>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Об утверждении программы профилактики рисков по муниципальному контролю в сфере благоустройства на 2024 год</h4>
+              <p>Постановление от 25.12.2023</p>
+            </div>
+            <a
+              href="http://www.blagraion.ru/documents/02_10_01_2024/%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B4%D0%BB%D1%8F_%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8_%D0%B2_%D0%B3%D0%B0%D0%B7%D0%B5%D1%82%D0%B5_%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B_%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8_%D1%80%D0%B8%D1%81%D0%BA%D0%BE%D0%B2.docx"
+              target="_blank"
+              class="doc-link"
+              >Скачать DOCX</a
+            >
+          </div>
+        </div>
+
+        <!-- БЛОК 2: ПУБЛИЧНЫЕ СЛУШАНИЯ И ИЗВЕЩЕНИЯ -->
+        <div class="docs-block">
+          <h3>Публичные слушания и извещения</h3>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Оповещение о начале публичных слушаний по проекту внесения изменений в Правила землепользования и застройки</h4>
+              <p>Срок проведения: 08.09.2021 – 12.10.2021</p>
+            </div>
+            <a href="http://www.blagraion.ru/documents/36_08_09_2021/opoveshenie_nt.docx" target="_blank" class="doc-link doc-link-external">Скачать DOCX</a>
+          </div>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Сообщение о возможном установлении публичного сервитута для размещения ЛЭП-10/0,4 кВ</h4>
+              <p>Общая площадь публичного сервитута: 1943 кв.м., срок: 10 лет</p>
+            </div>
+            <a
+              href="http://blagraion.ru/index.php?option=com_content&view=article&id=520:vnesenie-izmenenij-v-soobshchenie-o-vozmozhnom-ustanovlenii-publichnogo-servituta-dlya-razmeshcheniya-lep-10-0-4-kv&catid=98&tmpl=component&print=1&layout=default&Itemid=187"
+              target="_blank"
+              class="doc-link doc-link-external"
+              >Читать на сайте</a
+            >
+          </div>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Сообщение о внесении изменений в границы публичного сервитута</h4>
+              <p>Площадь: 11 кв.м., срок: 10 лет</p>
+            </div>
+            <a
+              href="http://www.blagraion.ru/index.php?option=com_content&view=article&id=1006:soobshchenie-o-vnesenii-izmenenij-v-granitsy-publichnogo-servituta&catid=108&tmpl=component&print=1&layout=default&Itemid=198"
+              target="_blank"
+              class="doc-link doc-link-external"
+              >Читать на сайте</a
+            >
+          </div>
+        </div>
+
+        <!-- БЛОК 3: ДОКУМЕНТЫ ПО ЗЕМЕЛЬНЫМ АУКЦИОНАМ -->
+        <div class="docs-block">
+          <h3>Документация по аукционам</h3>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Извещение о проведении аукциона на право заключения договора аренды земельного участка</h4>
+              <p>Образец извещения с порядком подачи заявок и условиями участия</p>
+            </div>
+            <a href="http://blagraion.ru/documents/30_22_07_2020/5.docx" target="_blank" class="doc-link doc-link-external">Скачать DOCX</a>
+          </div>
+
+          <div class="doc-item">
+            <div class="doc-info">
+              <h4>Соглашение о задатке для участия в аукционе</h4>
+              <p>Размер задатка: 20% от начальной цены предмета аукциона</p>
+            </div>
+            <a href="http://blagraion.ru/documents/30_22_07_2020/5.docx" target="_blank" class="doc-link doc-link-external">Скачать DOCX</a>
+          </div>
+        </div>
+
+        <!-- БЛОК 4: ПОИСК ДОКУМЕНТОВ -->
+        <div class="docs-block">
+          <h3>Поиск документов</h3>
+          <p>
+            Все официальные документы администрации размещаются на официальном сайте
+            <a href="https://blgraion.amurobl.ru" target="_blank">blgraion.amurobl.ru</a>
+            и в сетевом издании
+            <a href="http://www.blagraion.ru" target="_blank">«Официальный вестник Благовещенского муниципального округа»</a>.
+          </p>
+          <p>Для поиска нормативных правовых актов вы можете использовать официальный сайт администрации или обратиться в правовой отдел по телефону 8 (4162) 77-45-19.</p>
+        </div>
+
+        <!-- ПРИМЕЧАНИЕ -->
+        <div class="note-block">
+          <p>
+            <strong>Внимание:</strong> Документы представлены для ознакомления. Актуальные версии нормативных правовых актов размещаются на официальном сайте администрации
+            <a href="https://blgraion.amurobl.ru" target="_blank">blgraion.amurobl.ru</a>
+            и в сетевом издании «Официальный вестник Благовещенского муниципального округа» (<a href="http://www.blagraion.ru" target="_blank">blagraion.ru</a>). Информация актуальна на 2026 год.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================================================
+    ПОДВАЛ
+    ============================================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
+          </div>
+          <div>
+            <h4>Контакты</h4>
+            <ul>
+              <li class="footer-phone">8 (4162) 77-45-19</li>
+              <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Разделы</h4>
+            <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
+              <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
+              <li><a href="schools.html">Школы и сады</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Режим работы</h4>
+            <ul>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

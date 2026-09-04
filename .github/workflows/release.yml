@@ -30,12 +30,12 @@ jobs:
           echo "value=${value}" >> "$GITHUB_OUTPUT"
 
       - name: Собрать архив
-        run: ./scripts/build.sh "${{ steps.version.outputs.value }}"
+        run: ./tools/build.sh "${{ steps.version.outputs.value }}"
 
       - name: Создать релиз
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.version.outputs.value }}
           name: Версия ${{ steps.version.outputs.value }}
-          files: release/visitka-student-v${{ steps.version.outputs.value }}.zip
+          files: releases/visitka-student-v${{ steps.version.outputs.value }}.zip
           generate_release_notes: true

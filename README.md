@@ -2,7 +2,7 @@
 
 Статический сайт-визитка органов местного самоуправления: восемь страниц,
 общая таблица стилей, немного JavaScript. Ни сборщиков, ни зависимостей —
-достаточно открыть `src/index.html` в браузере.
+достаточно открыть `sources/index.html` в браузере.
 
 ## Быстрый старт
 
@@ -11,7 +11,7 @@ git clone https://github.com/NiceGenn/VisitkaStudent.git
 cd VisitkaStudent
 
 # локальный просмотр
-python3 -m http.server 8000 --directory src
+python3 -m http.server 8000 --directory sources
 # → http://localhost:8000/
 ```
 
@@ -22,7 +22,7 @@ python3 -m http.server 8000 --directory src
 
 ```
 .
-├── src/                  исходники сайта — единственное, что нужно править
+├── sources/              исходники сайта — единственное, что нужно править
 │   ├── index.html        главная
 │   ├── about.html        об администрации
 │   ├── structure.html    структура
@@ -33,57 +33,60 @@ python3 -m http.server 8000 --directory src
 │   ├── docs.html         документы
 │   ├── contacts.html     контакты
 │   └── assets/
-│       ├── css/style.css общие стили всех страниц
-│       ├── js/script.js  аккордеон FAQ, плавная прокрутка, год в подвале
+│       ├── css/style.css общие стили и блок :root с цветами
+│       ├── js/script.js  поиск визитницы, прокрутка, год в подвале
 │       └── images/       фотографии
+├── tools/                сборка и генераторы
+│   ├── build.sh          сборка dist/ и архива релиза
+│   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
+│   ├── gen_leaders.py    данные → sources/leaders.html
+│   ├── gen_palette.py    смена цветовой схемы
+│   └── templates/        шаблоны и стили страницы «Визитница»
 ├── data/                 данные проекта
 │   ├── rukovoditeli.json   руководители из телефонного справочника
 │   ├── podrazdeleniya.json разделы и описания функций подразделений
 │   └── palitry.json        цветовые схемы сайта
-├── scripts/
-│   ├── build.sh          сборка dist/ и архива релиза
-│   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
-│   ├── gen_leaders.py    данные → src/leaders.html
-│   ├── gen_palette.py    смена цветовой схемы
-│   └── templates/        шаблоны и стили страницы «Визитница»
-├── docs/                 документация проекта
+├── releases/             готовые архивы версий
+├── docs/                 документация
 │   ├── STRUCTURE.md      разбор страниц, стилей и известных пробелов
+│   ├── DEPLOY.md         публикация: Pages, хостинг, релизы
 │   ├── COLORS.md         цветовые схемы и как их менять
-│   └── DEPLOY.md         публикация: GitHub Pages, обычный хостинг, релизы
-├── CLAUDE.md             память проекта для Claude Code
-├── CHANGELOG.md          история версий
-└── .github/workflows/    публикация на Pages и сборка релиза по тегу
+│   └── original/         нетронутая копия исходного архива
+├── CLAUDE.md             правила работы с кодом
+├── MEMORY.md             журнал решений: что и почему сделано так
+├── HANDOFF.md            состояние проекта и что осталось сделать
+└── CHANGELOG.md          история версий
 ```
 
-Каталоги `dist/` и `release/` создаются сборкой и в репозиторий не попадают.
+Каталог `dist/` создаётся сборкой и в репозиторий не попадает.
 
 ## Визитница
 
-`src/leaders.html` — карточки подразделений: чем занимается подразделение,
+`sources/leaders.html` — карточки подразделений: чем занимается подразделение,
 кто им руководит, кабинет, телефон и почта. Страница **генерируется**, править
 её руками бессмысленно — правки затрёт следующая сборка:
 
 ```bash
 # 1. обновить данные из нового телефонного справочника
-python3 scripts/import_xlsx.py ~/Downloads/spravochnik.xlsx
+python3 tools/import_xlsx.py ~/Downloads/spravochnik.xlsx
 
 # 2. пересобрать страницу
-python3 scripts/gen_leaders.py
+python3 tools/gen_leaders.py
 ```
 
 Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка
-карточки — в `scripts/templates/`. Для импорта нужен `openpyxl`
+карточки — в `tools/templates/`. Для импорта нужен `openpyxl`
 (`pip install openpyxl`); генератору хватает стандартной библиотеки.
 
 ## Цветовая схема
 
-Все цвета заданы переменными в блоке `:root` файла `src/assets/css/style.css`.
+Все цвета заданы переменными в блоке `:root` файла `sources/assets/css/style.css`.
 В комплекте одиннадцать готовых схем — от исходного бордо до светлой шапки:
 
 ```bash
-python3 scripts/gen_palette.py                 # список схем
-python3 scripts/gen_palette.py navy --apply    # применить
-python3 scripts/gen_leaders.py                 # пересобрать визитницу
+python3 tools/gen_palette.py                 # список схем
+python3 tools/gen_palette.py navy --apply    # применить
+python3 tools/gen_leaders.py                 # пересобрать визитницу
 ```
 
 Каждая схема проверена на контрастность по WCAG AA. Подробности —
@@ -92,12 +95,12 @@ python3 scripts/gen_leaders.py                 # пересобрать визи
 ## Сборка релиза
 
 ```bash
-./scripts/build.sh          # версия берётся из CHANGELOG.md
-./scripts/build.sh 1.1.0    # или задаётся явно
+./tools/build.sh          # версия берётся из CHANGELOG.md
+./tools/build.sh 1.1.0    # или задаётся явно
 ```
 
-Скрипт копирует `src/` в `dist/`, проверяет, что все внутренние ссылки и
-ресурсы существуют, и кладёт `release/visitka-student-v<версия>.zip` —
+Скрипт копирует `sources/` в `dist/`, проверяет, что все внутренние ссылки и
+ресурсы существуют, и кладёт `releases/visitka-student-v<версия>.zip` —
 готовый к заливке на любой хостинг архив.
 
 Релиз на GitHub собирается автоматически при пуше тега:
@@ -110,10 +113,10 @@ git tag v1.0.0 && git push origin v1.0.0
 
 ## Внесение изменений
 
-- Правится только `src/`. `dist/` — результат сборки, его не коммитят.
-- Общие стили живут в `src/assets/css/style.css`; стили, нужные одной
+- Правится только `sources/`. `dist/` — результат сборки, его не коммитят.
+- Общие стили живут в `sources/assets/css/style.css`; стили, нужные одной
   странице, лежат в её теге `<style>` — так уже устроен проект.
-- Перед коммитом полезно прогнать `./scripts/build.sh`: он не собирает
+- Перед коммитом полезно прогнать `./tools/build.sh`: он не собирает
   ничего сложного, но ловит битые ссылки и отсутствующие картинки.
 
 ## Известные пробелы

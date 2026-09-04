@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Собрать dist/
-        run: ./scripts/build.sh
+        run: ./tools/build.sh
 
       # Pages включается один раз вручную: Settings → Pages → Source:
       # GitHub Actions. Через API (enablement: true) не выходит —
