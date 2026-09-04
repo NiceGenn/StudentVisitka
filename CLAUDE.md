@@ -71,6 +71,12 @@ python3 tools/gen_structure.py                               # страница 
 вёрстка карточки — в `tools/gen_structure.py` и `tools/templates/leaders.css`.
 Ручная правка `structure.html` пропадёт при следующей сборке.
 
+**Фавиконка генерируется.** `sources/assets/favicon.*` и
+`apple-touch-icon.png` собирает `python3 tools/gen_favicon.py` из
+`docs/original/gerb-bmo.png`. Руками их не править — правится сам
+генератор. Подключение стоит во всех восьми страницах и в
+`tools/templates/chrome-head.html`.
+
 **Стили.** Общие правила — в `sources/assets/css/style.css`. Нужные одной
 странице — в её собственном `<style>` в `<head>`. Так устроен проект;
 сохранять это разделение, а не переносить всё в общий файл.
