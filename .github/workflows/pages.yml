@@ -25,11 +25,10 @@ jobs:
       - name: Собрать dist/
         run: ./scripts/build.sh
 
-      # enablement: true включает Pages через API, если раздел ещё не
-      # настроен вручную в Settings → Pages.
+      # Pages включается один раз вручную: Settings → Pages → Source:
+      # GitHub Actions. Через API (enablement: true) не выходит —
+      # GITHUB_TOKEN не имеет прав на создание сайта.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
