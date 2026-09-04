@@ -3,6 +3,12 @@ name: Релиз
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Версия релиза без префикса v, например 1.0.0'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -13,9 +19,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Определить версию из тега
+      - name: Определить версию
         id: version
-        run: echo "value=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            value="${{ inputs.version }}"
+          else
+            value="${GITHUB_REF_NAME#v}"
+          fi
+          echo "value=${value}" >> "$GITHUB_OUTPUT"
 
       - name: Собрать архив
         run: ./scripts/build.sh "${{ steps.version.outputs.value }}"
@@ -23,6 +35,7 @@ jobs:
       - name: Создать релиз
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ steps.version.outputs.value }}
           name: Версия ${{ steps.version.outputs.value }}
           files: release/visitka-student-v${{ steps.version.outputs.value }}.zip
           generate_release_notes: true
