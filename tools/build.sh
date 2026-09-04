@@ -29,7 +29,7 @@ cp -R "$SRC"/. "$DIST"/
 touch "$DIST/.nojekyll"
 
 # Визитница и структура генерируются из data/ — предупреждаем, если отстали.
-for page in leaders structure; do
+for page in structure; do
   for data_file in "$ROOT"/data/*.json; do
     if [ -e "$data_file" ] && [ "$data_file" -nt "$SRC/$page.html" ]; then
       echo "==> ВНИМАНИЕ: $(basename "$data_file") новее sources/$page.html"

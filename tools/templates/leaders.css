@@ -149,10 +149,16 @@
         transform: translateY(-2px);
       }
 
+      /* Шапка карточки — кнопка: по ней раскрывается состав подразделения. */
       .vz-card-head {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         gap: 14px;
+        width: 100%;
+        text-align: left;
+        font-family: inherit;
+        border: none;
+        cursor: pointer;
         padding: 18px 22px 14px;
         background: linear-gradient(180deg, var(--tone-surface-2) 0%, #ffffff 100%);
         border-bottom: 1px solid var(--tone-line-5);
@@ -175,7 +181,12 @@
         fill: var(--color-accent-light);
       }
 
-      .vz-card-title h4 {
+      .vz-card-title {
+        flex-grow: 1;
+      }
+
+      .vz-h4 {
+        display: block;
         font-size: 17px;
         font-weight: 700;
         color: var(--color-primary-dark);
@@ -185,10 +196,40 @@
       }
 
       .vz-metaline {
+        display: block;
         font-size: 12px;
         color: var(--tone-muted-2);
         text-transform: uppercase;
         letter-spacing: 0.4px;
+      }
+
+      /* Стрелка-указатель: повёрнута вниз, у раскрытой карточки — вверх. */
+      .vz-toggle {
+        flex-shrink: 0;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--tone-muted-2);
+        border-bottom: 2px solid var(--tone-muted-2);
+        transform: rotate(45deg);
+        margin: -4px 4px 0;
+        transition: transform 0.2s;
+      }
+
+      .vz-card.is-open .vz-toggle {
+        transform: rotate(-135deg);
+        margin-top: 4px;
+      }
+
+      .vz-card-head:hover .vz-toggle {
+        border-color: var(--color-primary);
+      }
+
+      .vz-count {
+        font-size: 12px;
+        color: var(--tone-muted-2);
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid var(--tone-line-5);
       }
 
       /* --- Блок «Чем занимается» --- */

@@ -131,3 +131,25 @@ if (yearElement) {
     });
   });
 })();
+
+// ============================================================
+// СТРУКТУРА — РАСКРЫТИЕ КАРТОЧКИ ПОДРАЗДЕЛЕНИЯ
+// ============================================================
+
+(function () {
+  const шапки = Array.prototype.slice.call(document.querySelectorAll('.vz-card-head'));
+
+  // Страница без карточек — блок просто ничего не делает.
+  if (!шапки.length) return;
+
+  шапки.forEach(function (шапка) {
+    шапка.addEventListener('click', function () {
+      const состав = шапка.parentNode.querySelector('.vz-people');
+      if (!состав) return;
+      const открыть = состав.hidden;
+      состав.hidden = !открыть;
+      шапка.setAttribute('aria-expanded', открыть ? 'true' : 'false');
+      шапка.parentNode.classList.toggle('is-open', открыть);
+    });
+  });
+})();

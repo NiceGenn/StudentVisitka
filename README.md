@@ -25,8 +25,7 @@ python3 -m http.server 8000 --directory sources
 ├── sources/              исходники сайта — единственное, что нужно править
 │   ├── index.html        главная
 │   ├── about.html        об администрации
-│   ├── structure.html    структура (генерируется)
-│   ├── leaders.html      визитница (генерируется, см. ниже)
+│   ├── structure.html    структура (генерируется, см. ниже)
 │   ├── services.html     услуги
 │   ├── news.html         новости
 │   ├── schools.html      школы и сады
@@ -39,7 +38,6 @@ python3 -m http.server 8000 --directory sources
 ├── tools/                сборка и генераторы
 │   ├── build.sh          сборка dist/ и архива релиза
 │   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
-│   ├── gen_leaders.py    данные → sources/leaders.html
 │   ├── gen_structure.py  данные → sources/structure.html
 │   ├── gen_palette.py    смена цветовой схемы
 │   └── templates/        шаблоны и стили страницы «Визитница»
@@ -61,9 +59,9 @@ python3 -m http.server 8000 --directory sources
 
 Каталог `dist/` создаётся сборкой и в репозиторий не попадает.
 
-## Визитница
+## Структура
 
-`sources/leaders.html` — карточки подразделений: чем занимается подразделение,
+`sources/structure.html` — карточки подразделений: чем занимается подразделение,
 кто им руководит, кабинет, телефон и почта. Страница **генерируется**, править
 её руками бессмысленно — правки затрёт следующая сборка:
 
@@ -72,15 +70,10 @@ python3 -m http.server 8000 --directory sources
 python3 tools/import_xlsx.py docs/original/spravochnik.xlsx
 
 # 2. пересобрать обе генерируемые страницы
-python3 tools/gen_leaders.py     # визитница
-python3 tools/gen_structure.py   # структура
+python3 tools/gen_structure.py
 ```
 
-Из тех же данных собирается и страница «Структура» — поэтому расхождений
-между ней и визитницей быть не может.
-
-Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка
-карточки — в `tools/templates/`. Для импорта нужен `openpyxl`
+Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка карточки — в `tools/templates/`. Для импорта нужен `openpyxl`
 (`pip install openpyxl`); генератору хватает стандартной библиотеки.
 
 ## Цветовая схема

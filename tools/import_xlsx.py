@@ -5,9 +5,10 @@
 
     python3 tools/import_xlsx.py путь/к/справочнику.xlsx
 
-Из справочника берутся только руководящие должности — главы, начальники,
-председатели, директора, руководители и их заместители. Рядовые сотрудники
-в data/rukovoditeli.json не попадают: раздел «Визитница» — о руководителях.
+В data/rukovoditeli.json попадают все сотрудники справочника. У руководящих
+должностей — глав, начальников, председателей, директоров, руководителей и
+их заместителей — стоит флаг «руководитель»: по нему страница показывает
+сначала руководителя подразделения, а под ним остальных сотрудников.
 
 Ожидаемые колонки листа, начиная со строки 5:
     A Подразделение · B Отдел · C Должность · D ФИО · E Кабинет · F Телефон · G E-mail
@@ -78,20 +79,20 @@ def main():
     штат = [OrderedDict(подразделение=k[0], отдел=k[1], человек=v)
             for k, v in счёт.items()]
 
-    leaders = [p for p in people if is_leader(p['должность'])]
-    for p in leaders:
-        p['заместитель'] = bool(DEPUTY.match(p['должность']))
+    for p in people:
+        p['руководитель'] = is_leader(p['должность'])
+        p['заместитель'] = p['руководитель'] and bool(DEPUTY.match(p['должность']))
 
     data = OrderedDict(
         источник=str(ws['A1'].value or src.name).strip(),
         актуально=str(ws['A2'].value or '').strip(),
         численность=штат,
-        руководители=leaders,
+        сотрудники=people,
     )
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print('Всего строк справочника: %d' % len(people))
-    print('Руководителей отобрано:  %d' % len(leaders))
+    print('Сотрудников: %d' % len(people))
+    print('из них руководящих должностей: %d' % sum(1 for p in people if p['руководитель']))
     print('Записано: %s' % OUT.relative_to(ROOT))
 
 
