@@ -84,48 +84,6 @@
   --tone-deep-5: #1f8a55;
 }
 
-/* Сланец — Почти нейтральный сине-серый — самая тихая схема */
-:root[data-palette="slate"] {
-  /* фирменные цвета */
-  --color-primary: #3a4652;
-  --color-primary-dark: #252d36;
-  --color-accent: #647a8f;
-  --color-accent-light: #9aabbb;
-  --color-page: #f5f6f8;
-
-  /* фоны и заливки */
-  --tone-surface-1: #e7f1ff;
-  --tone-surface-2: #f4f7fb;
-  --tone-surface-3: #f8fafd;
-  --tone-surface-4: #e1eaf6;
-  --tone-surface-5: #eaedf2;
-
-  /* рамки и разделители */
-  --tone-line-1: #d0ddf0;
-  --tone-line-2: #dce1e8;
-  --tone-line-3: #cad2dd;
-  --tone-line-4: #e0e6ef;
-  --tone-line-5: #e4e9f0;
-  --tone-line-6: #dde3ec;
-  --tone-line-7: #c4d5ec;
-  --tone-line-8: #c8d1de;
-  --tone-line-9: #d6e4f7;
-
-  /* приглушённый текст */
-  --tone-muted-1: #848d9a;
-  --tone-muted-2: #6c788a;
-  --tone-muted-3: #5272a0;
-  --tone-muted-4: #98a2b0;
-  --tone-muted-5: #8a94a2;
-
-  /* тёмные оттенки */
-  --tone-deep-1: #3f4a5a;
-  --tone-deep-2: #59606b;
-  --tone-deep-3: #30353d;
-  --tone-deep-4: #3f516b;
-  --tone-deep-5: #1f4c8a;
-}
-
 /* Тёмный янтарь — Тёплый коричнево-золотой на светлом фоне */
 :root[data-palette="amber"] {
   /* фирменные цвета */
@@ -166,48 +124,6 @@
   --tone-deep-3: #3d3830;
   --tone-deep-4: #6b5b3f;
   --tone-deep-5: #8a631f;
-}
-
-/* Винный — Приглушённый винно-красный — ближе к исходной схеме */
-:root[data-palette="wine"] {
-  /* фирменные цвета */
-  --color-primary: #6b2c3e;
-  --color-primary-dark: #451a27;
-  --color-accent: #9c5a6c;
-  --color-accent-light: #c08d9b;
-  --color-page: #f8f4f5;
-
-  /* фоны и заливки */
-  --tone-surface-1: #ffe7ed;
-  --tone-surface-2: #fbf4f6;
-  --tone-surface-3: #fdf8f9;
-  --tone-surface-4: #f6e1e6;
-  --tone-surface-5: #f2eaec;
-
-  /* рамки и разделители */
-  --tone-line-1: #f0d0d8;
-  --tone-line-2: #e8dcdf;
-  --tone-line-3: #ddcacf;
-  --tone-line-4: #efe0e4;
-  --tone-line-5: #f0e4e7;
-  --tone-line-6: #ecdde1;
-  --tone-line-7: #ecc4ce;
-  --tone-line-8: #dec8cd;
-  --tone-line-9: #f7d6de;
-
-  /* приглушённый текст */
-  --tone-muted-1: #9a848a;
-  --tone-muted-2: #8a6c74;
-  --tone-muted-3: #a05265;
-  --tone-muted-4: #b0989e;
-  --tone-muted-5: #a28a90;
-
-  /* тёмные оттенки */
-  --tone-deep-1: #5a3f46;
-  --tone-deep-2: #6b595e;
-  --tone-deep-3: #3d3033;
-  --tone-deep-4: #6b3f4a;
-  --tone-deep-5: #8a1f3a;
 }
 
 /* Индиго — Глубокий сине-фиолетовый — строго, но не как у всех */
@@ -252,7 +168,7 @@
   --tone-deep-5: #1f2d8a;
 }
 
-/* Бордо (текущая) — Как сейчас: тёмно-бордовый с золотом */
+/* Бордо (исходная) — Как сейчас: тёмно-бордовый с золотом */
 :root[data-palette="current"] {
   /* фирменные цвета */
   --color-primary: #7a1a1a;
@@ -292,6 +208,90 @@
   --tone-deep-3: #3d3630;
   --tone-deep-4: #6b5b3f;
   --tone-deep-5: #8a6d1f;
+}
+
+/* Сланец — Почти нейтральный сине-серый — самая тихая схема */
+:root[data-palette="slate"] {
+  /* фирменные цвета */
+  --color-primary: #3a4652;
+  --color-primary-dark: #252d36;
+  --color-accent: #647a8f;
+  --color-accent-light: #9aabbb;
+  --color-page: #f5f6f8;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f1ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1eaf6;
+  --tone-surface-5: #eaedf2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0ddf0;
+  --tone-line-2: #dce1e8;
+  --tone-line-3: #cad2dd;
+  --tone-line-4: #e0e6ef;
+  --tone-line-5: #e4e9f0;
+  --tone-line-6: #dde3ec;
+  --tone-line-7: #c4d5ec;
+  --tone-line-8: #c8d1de;
+  --tone-line-9: #d6e4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848d9a;
+  --tone-muted-2: #6c788a;
+  --tone-muted-3: #5272a0;
+  --tone-muted-4: #98a2b0;
+  --tone-muted-5: #8a94a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4a5a;
+  --tone-deep-2: #59606b;
+  --tone-deep-3: #30353d;
+  --tone-deep-4: #3f516b;
+  --tone-deep-5: #1f4c8a;
+}
+
+/* Винный — Приглушённый винно-красный — ближе к исходной схеме */
+:root[data-palette="wine"] {
+  /* фирменные цвета */
+  --color-primary: #6b2c3e;
+  --color-primary-dark: #451a27;
+  --color-accent: #9c5a6c;
+  --color-accent-light: #c08d9b;
+  --color-page: #f8f4f5;
+
+  /* фоны и заливки */
+  --tone-surface-1: #ffe7ed;
+  --tone-surface-2: #fbf4f6;
+  --tone-surface-3: #fdf8f9;
+  --tone-surface-4: #f6e1e6;
+  --tone-surface-5: #f2eaec;
+
+  /* рамки и разделители */
+  --tone-line-1: #f0d0d8;
+  --tone-line-2: #e8dcdf;
+  --tone-line-3: #ddcacf;
+  --tone-line-4: #efe0e4;
+  --tone-line-5: #f0e4e7;
+  --tone-line-6: #ecdde1;
+  --tone-line-7: #ecc4ce;
+  --tone-line-8: #dec8cd;
+  --tone-line-9: #f7d6de;
+
+  /* приглушённый текст */
+  --tone-muted-1: #9a848a;
+  --tone-muted-2: #8a6c74;
+  --tone-muted-3: #a05265;
+  --tone-muted-4: #b0989e;
+  --tone-muted-5: #a28a90;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #5a3f46;
+  --tone-deep-2: #6b595e;
+  --tone-deep-3: #3d3033;
+  --tone-deep-4: #6b3f4a;
+  --tone-deep-5: #8a1f3a;
 }
 
 /* Державный синий — Тёмно-синий с приглушённым золотом — самая частая схема органов власти */
@@ -378,6 +378,48 @@
   --tone-deep-5: #1f8a43;
 }
 
+/* Петроль — Тёмный сине-зелёный с песочным акцентом — строго, но не банально */
+:root[data-palette="petrol"] {
+  /* фирменные цвета */
+  --color-primary: #1f4a4f;
+  --color-primary-dark: #133034;
+  --color-accent: #a8935f;
+  --color-accent-light: #c0ab77;
+  --color-page: #f4f7f7;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7fdff;
+  --tone-surface-2: #f4fafb;
+  --tone-surface-3: #f8fdfd;
+  --tone-surface-4: #e1f4f6;
+  --tone-surface-5: #eaf1f2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0edf0;
+  --tone-line-2: #dce7e8;
+  --tone-line-3: #cadbdd;
+  --tone-line-4: #e0eeef;
+  --tone-line-5: #e4eff0;
+  --tone-line-6: #ddebec;
+  --tone-line-7: #c4e9ec;
+  --tone-line-8: #c8dcde;
+  --tone-line-9: #d6f4f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #84989a;
+  --tone-muted-2: #6c878a;
+  --tone-muted-3: #529aa0;
+  --tone-muted-4: #98aeb0;
+  --tone-muted-5: #8aa0a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f585a;
+  --tone-deep-2: #596a6b;
+  --tone-deep-3: #303c3d;
+  --tone-deep-4: #3f676b;
+  --tone-deep-5: #1f818a;
+}
+
 /* Графит и сталь — Нейтральный серый с холодным синим акцентом — самая сдержанная */
 :root[data-palette="graphite"] {
   /* фирменные цвета */
@@ -462,88 +504,46 @@
   --tone-deep-5: #8a4c1f;
 }
 
-/* Петроль — Тёмный сине-зелёный с песочным акцентом — строго, но не банально */
-:root[data-palette="petrol"] {
+/* Синий с бирюзой — Глубокий синий, акцент — приглушённая бирюза, а не золото */
+:root[data-palette="teal"] {
   /* фирменные цвета */
-  --color-primary: #1f4a4f;
-  --color-primary-dark: #133034;
-  --color-accent: #a8935f;
-  --color-accent-light: #c0ab77;
-  --color-page: #f4f7f7;
+  --color-primary: #17384f;
+  --color-primary-dark: #0f2637;
+  --color-accent: #2f7d78;
+  --color-accent-light: #4c9d97;
+  --color-page: #f4f7f8;
 
   /* фоны и заливки */
-  --tone-surface-1: #e7fdff;
-  --tone-surface-2: #f4fafb;
-  --tone-surface-3: #f8fdfd;
-  --tone-surface-4: #e1f4f6;
-  --tone-surface-5: #eaf1f2;
+  --tone-surface-1: #e7f9ff;
+  --tone-surface-2: #f4f9fb;
+  --tone-surface-3: #f8fcfd;
+  --tone-surface-4: #e1f1f6;
+  --tone-surface-5: #eaf0f2;
 
   /* рамки и разделители */
-  --tone-line-1: #d0edf0;
-  --tone-line-2: #dce7e8;
-  --tone-line-3: #cadbdd;
-  --tone-line-4: #e0eeef;
-  --tone-line-5: #e4eff0;
-  --tone-line-6: #ddebec;
-  --tone-line-7: #c4e9ec;
-  --tone-line-8: #c8dcde;
-  --tone-line-9: #d6f4f7;
+  --tone-line-1: #d0e8f0;
+  --tone-line-2: #dce5e8;
+  --tone-line-3: #cad8dd;
+  --tone-line-4: #e0ebef;
+  --tone-line-5: #e4edf0;
+  --tone-line-6: #dde8ec;
+  --tone-line-7: #c4e2ec;
+  --tone-line-8: #c8d8de;
+  --tone-line-9: #d6eff7;
 
   /* приглушённый текст */
-  --tone-muted-1: #84989a;
-  --tone-muted-2: #6c878a;
-  --tone-muted-3: #529aa0;
-  --tone-muted-4: #98aeb0;
-  --tone-muted-5: #8aa0a2;
+  --tone-muted-1: #84949a;
+  --tone-muted-2: #6c828a;
+  --tone-muted-3: #528ca0;
+  --tone-muted-4: #98aab0;
+  --tone-muted-5: #8a9ca2;
 
   /* тёмные оттенки */
-  --tone-deep-1: #3f585a;
-  --tone-deep-2: #596a6b;
-  --tone-deep-3: #303c3d;
-  --tone-deep-4: #3f676b;
-  --tone-deep-5: #1f818a;
-}
-
-/* Светлая шапка — Белый верх с тёмно-синим текстом, синяя навигация — как у современных госпорталов */
-:root[data-palette="light"] {
-  /* фирменные цвета */
-  --color-primary: #1c3f66;
-  --color-primary-dark: #142f4d;
-  --color-accent: #2f6ba3;
-  --color-accent-light: #6092c6;
-  --color-page: #fafbfc;
-
-  /* фоны и заливки */
-  --tone-surface-1: #e7f2ff;
-  --tone-surface-2: #f4f7fb;
-  --tone-surface-3: #f8fafd;
-  --tone-surface-4: #e1ebf6;
-  --tone-surface-5: #eaeef2;
-
-  /* рамки и разделители */
-  --tone-line-1: #d0dff0;
-  --tone-line-2: #dce2e8;
-  --tone-line-3: #cad3dd;
-  --tone-line-4: #e0e7ef;
-  --tone-line-5: #e4eaf0;
-  --tone-line-6: #dde4ec;
-  --tone-line-7: #c4d7ec;
-  --tone-line-8: #c8d2de;
-  --tone-line-9: #d6e5f7;
-
-  /* приглушённый текст */
-  --tone-muted-1: #848e9a;
-  --tone-muted-2: #6c7a8a;
-  --tone-muted-3: #5276a0;
-  --tone-muted-4: #98a3b0;
-  --tone-muted-5: #8a95a2;
-
-  /* тёмные оттенки */
-  --tone-deep-1: #3f4c5a;
-  --tone-deep-2: #59616b;
-  --tone-deep-3: #30363d;
-  --tone-deep-4: #3f546b;
-  --tone-deep-5: #1f518a;
+  --tone-deep-1: #3f535a;
+  --tone-deep-2: #59666b;
+  --tone-deep-3: #303a3d;
+  --tone-deep-4: #3f606b;
+  --tone-deep-5: #1f6f8a;
 }
 
 /* Синий с красным — Тёмно-синий и приглушённый красный вместо золота — без пестроты */
@@ -586,48 +586,6 @@
   --tone-deep-3: #30353d;
   --tone-deep-4: #3f516b;
   --tone-deep-5: #1f4c8a;
-}
-
-/* Синий с бирюзой — Глубокий синий, акцент — приглушённая бирюза, а не золото */
-:root[data-palette="teal"] {
-  /* фирменные цвета */
-  --color-primary: #17384f;
-  --color-primary-dark: #0f2637;
-  --color-accent: #2f7d78;
-  --color-accent-light: #4c9d97;
-  --color-page: #f4f7f8;
-
-  /* фоны и заливки */
-  --tone-surface-1: #e7f9ff;
-  --tone-surface-2: #f4f9fb;
-  --tone-surface-3: #f8fcfd;
-  --tone-surface-4: #e1f1f6;
-  --tone-surface-5: #eaf0f2;
-
-  /* рамки и разделители */
-  --tone-line-1: #d0e8f0;
-  --tone-line-2: #dce5e8;
-  --tone-line-3: #cad8dd;
-  --tone-line-4: #e0ebef;
-  --tone-line-5: #e4edf0;
-  --tone-line-6: #dde8ec;
-  --tone-line-7: #c4e2ec;
-  --tone-line-8: #c8d8de;
-  --tone-line-9: #d6eff7;
-
-  /* приглушённый текст */
-  --tone-muted-1: #84949a;
-  --tone-muted-2: #6c828a;
-  --tone-muted-3: #528ca0;
-  --tone-muted-4: #98aab0;
-  --tone-muted-5: #8a9ca2;
-
-  /* тёмные оттенки */
-  --tone-deep-1: #3f535a;
-  --tone-deep-2: #59666b;
-  --tone-deep-3: #303a3d;
-  --tone-deep-4: #3f606b;
-  --tone-deep-5: #1f6f8a;
 }
 
 /* Оливково-серый — Тёплый серо-зелёный с песочным — почти монохром, спокойнее всех */
@@ -712,6 +670,48 @@
   --tone-deep-3: #3d3830;
   --tone-deep-4: #6b593f;
   --tone-deep-5: #8a5d1f;
+}
+
+/* Светлая шапка — Белый верх с тёмно-синим текстом, синяя навигация — как у современных госпорталов */
+:root[data-palette="light"] {
+  /* фирменные цвета */
+  --color-primary: #1c3f66;
+  --color-primary-dark: #142f4d;
+  --color-accent: #2f6ba3;
+  --color-accent-light: #6092c6;
+  --color-page: #fafbfc;
+
+  /* фоны и заливки */
+  --tone-surface-1: #e7f2ff;
+  --tone-surface-2: #f4f7fb;
+  --tone-surface-3: #f8fafd;
+  --tone-surface-4: #e1ebf6;
+  --tone-surface-5: #eaeef2;
+
+  /* рамки и разделители */
+  --tone-line-1: #d0dff0;
+  --tone-line-2: #dce2e8;
+  --tone-line-3: #cad3dd;
+  --tone-line-4: #e0e7ef;
+  --tone-line-5: #e4eaf0;
+  --tone-line-6: #dde4ec;
+  --tone-line-7: #c4d7ec;
+  --tone-line-8: #c8d2de;
+  --tone-line-9: #d6e5f7;
+
+  /* приглушённый текст */
+  --tone-muted-1: #848e9a;
+  --tone-muted-2: #6c7a8a;
+  --tone-muted-3: #5276a0;
+  --tone-muted-4: #98a3b0;
+  --tone-muted-5: #8a95a2;
+
+  /* тёмные оттенки */
+  --tone-deep-1: #3f4c5a;
+  --tone-deep-2: #59616b;
+  --tone-deep-3: #30363d;
+  --tone-deep-4: #3f546b;
+  --tone-deep-5: #1f518a;
 }
 
 /* ==========================================
