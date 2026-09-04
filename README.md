@@ -25,7 +25,7 @@ python3 -m http.server 8000 --directory sources
 ├── sources/              исходники сайта — единственное, что нужно править
 │   ├── index.html        главная
 │   ├── about.html        об администрации
-│   ├── structure.html    структура
+│   ├── structure.html    структура (генерируется)
 │   ├── leaders.html      визитница (генерируется, см. ниже)
 │   ├── services.html     услуги
 │   ├── news.html         новости
@@ -40,6 +40,7 @@ python3 -m http.server 8000 --directory sources
 │   ├── build.sh          сборка dist/ и архива релиза
 │   ├── import_xlsx.py    справочник .xlsx → data/rukovoditeli.json
 │   ├── gen_leaders.py    данные → sources/leaders.html
+│   ├── gen_structure.py  данные → sources/structure.html
 │   ├── gen_palette.py    смена цветовой схемы
 │   └── templates/        шаблоны и стили страницы «Визитница»
 ├── data/                 данные проекта
@@ -51,7 +52,7 @@ python3 -m http.server 8000 --directory sources
 │   ├── STRUCTURE.md      разбор страниц, стилей и известных пробелов
 │   ├── DEPLOY.md         публикация: Pages, хостинг, релизы
 │   ├── COLORS.md         цветовые схемы и как их менять
-│   └── original/         нетронутая копия исходного архива
+│   └── original/         исходный архив сайта и телефонный справочник
 ├── CLAUDE.md             правила работы с кодом
 ├── MEMORY.md             журнал решений: что и почему сделано так
 ├── HANDOFF.md            состояние проекта и что осталось сделать
@@ -68,11 +69,15 @@ python3 -m http.server 8000 --directory sources
 
 ```bash
 # 1. обновить данные из нового телефонного справочника
-python3 tools/import_xlsx.py ~/Downloads/spravochnik.xlsx
+python3 tools/import_xlsx.py docs/original/spravochnik.xlsx
 
-# 2. пересобрать страницу
-python3 tools/gen_leaders.py
+# 2. пересобрать обе генерируемые страницы
+python3 tools/gen_leaders.py     # визитница
+python3 tools/gen_structure.py   # структура
 ```
+
+Из тех же данных собирается и страница «Структура» — поэтому расхождений
+между ней и визитницей быть не может.
 
 Тексты о функциях подразделений живут в `data/podrazdeleniya.json`, вёрстка
 карточки — в `tools/templates/`. Для импорта нужен `openpyxl`

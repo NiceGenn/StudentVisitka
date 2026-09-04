@@ -1,0 +1,205 @@
+
+        /* ============================================================
+           ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "СТРУКТУРА"
+           ============================================================ */
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .org-level {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--tone-line-2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .org-level-header {
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 14px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .org-level-header .badge-count {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 1px 12px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        .org-level-body {
+            padding: 16px 20px 20px;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .org-item {
+            background: var(--color-page);
+            border-left: 3px solid var(--color-accent);
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #1a1a1a;
+            transition: background 0.2s;
+        }
+
+        .org-item:hover {
+            background: var(--tone-line-5);
+        }
+
+        .org-item .org-name {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .org-item .org-desc {
+            font-size: 13px;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        .org-item .org-phone {
+            font-size: 13px;
+            color: #333;
+            margin-top: 4px;
+        }
+
+        .org-item .org-phone strong {
+            color: var(--color-primary);
+        }
+
+        .org-sub {
+            padding-left: 20px;
+            margin-top: 6px;
+            border-left: 2px dashed var(--color-accent-light);
+        }
+
+        .org-sub .org-item {
+            background: #ffffff;
+            border-left-color: var(--color-accent-light);
+        }
+
+        .note-block {
+            background: var(--tone-surface-1);
+            border-left: 4px solid var(--color-accent);
+            padding: 16px 22px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .note-block p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .note-block a {
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .note-block a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .org-level-header {
+                font-size: 14px;
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .org-level-header .badge-count {
+                margin-left: 0;
+            }
+
+            .org-level-body {
+                padding: 12px 14px 16px;
+            }
+
+            .org-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .org-sub {
+                padding-left: 10px;
+            }
+        }
+
+        /* --- Добавлено генератором: руководитель и пометки --- */
+        .org-level-note {
+            font-size: 14px;
+            color: var(--tone-deep-2);
+            margin: 0 0 16px;
+        }
+
+        .org-person {
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-top: 8px;
+        }
+
+        .org-person strong {
+            font-weight: 600;
+        }
+
+        .org-person .org-post {
+            display: block;
+            font-size: 13px;
+            color: var(--tone-deep-2);
+            font-weight: 400;
+        }
+
+        .org-person--vac {
+            color: var(--tone-muted-5);
+            font-style: italic;
+        }
+
+        .org-mark {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--tone-deep-5);
+            background: var(--tone-line-9);
+            border-radius: 3px;
+            padding: 1px 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .org-meta {
+            font-size: 12px;
+            color: var(--tone-muted-2);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid var(--tone-line-5);
+        }
+
+        .org-note {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--tone-muted-2);
+            background: var(--tone-surface-3);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 6px 6px 0;
+            padding: 12px 18px;
+            margin: 24px 0 34px;
+        }

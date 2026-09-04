@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Структура | Благовещенский муниципальный округ</title>
+    <meta name="description" content="Структура администрации Благовещенского муниципального округа: подразделения, управления, учреждения и территориальные администрации с руководителями и телефонами." />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
+
         /* ============================================================
            ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "СТРУКТУРА"
            ============================================================ */
@@ -148,52 +150,114 @@
                 padding-left: 10px;
             }
         }
-    </style>
-</head>
-<body>
 
+        /* --- Добавлено генератором: руководитель и пометки --- */
+        .org-level-note {
+            font-size: 14px;
+            color: var(--tone-deep-2);
+            margin: 0 0 16px;
+        }
+
+        .org-person {
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-top: 8px;
+        }
+
+        .org-person strong {
+            font-weight: 600;
+        }
+
+        .org-person .org-post {
+            display: block;
+            font-size: 13px;
+            color: var(--tone-deep-2);
+            font-weight: 400;
+        }
+
+        .org-person--vac {
+            color: var(--tone-muted-5);
+            font-style: italic;
+        }
+
+        .org-mark {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--tone-deep-5);
+            background: var(--tone-line-9);
+            border-radius: 3px;
+            padding: 1px 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .org-meta {
+            font-size: 12px;
+            color: var(--tone-muted-2);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid var(--tone-line-5);
+        }
+
+        .org-note {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--tone-muted-2);
+            background: var(--tone-surface-3);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 6px 6px 0;
+            padding: 12px 18px;
+            margin: 24px 0 34px;
+        }
+    </style>
+  </head>
+  <body>
     <!-- ============================================================
     ВЕРХНЯЯ ПЛАНКА
     ============================================================ -->
     <div class="top-bar">
-        <div class="container">
-            <div>
-                <a href="#">Версия для слабовидящих</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="docs.html">Документы</a>
-            </div>
-            <div>
-                <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
-                <span class="divider">|</span>
-                <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
-            </div>
+      <div class="container">
+        <div>
+          <a href="#">Версия для слабовидящих</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="docs.html">Документы</a>
         </div>
+        <div>
+          <a href="https://www.amurobl.ru" target="_blank">Правительство Амурской области</a>
+          <span class="divider">|</span>
+          <a href="https://blgraion.amurobl.ru" target="_blank">Официальный портал округа</a>
+        </div>
+      </div>
     </div>
 
     <!-- ============================================================
     ШАПКА
     ============================================================ -->
     <header>
-        <div class="container header-wrap">
-            <div class="logo">
-                <div class="logo-text">
-                    <h1>Администрация Благовещенского муниципального округа</h1>
-                    <p>Официальный сайт</p>
-                </div>
-            </div>
-            <div class="header-contacts">
-                <div class="phone">
-                    <a href="tel:+74162233752">8 (4162) 77-45-19</a>
-                </div>
-                <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
-                <div class="email">
-                    <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
-                </div>
-                <div class="btn-wrap">
-                    <a href="#" class="btn-accent">Написать обращение</a>
-                </div>
-            </div>
+      <div class="container header-wrap">
+        <div class="logo">
+          <div class="logo-text">
+            <h1>Администрация Благовещенского муниципального округа</h1>
+            <p>Официальный сайт</p>
+          </div>
         </div>
+        <div class="header-contacts">
+          <div class="phone">
+            <a href="tel:+74162233752">8 (4162) 77-45-19</a>
+          </div>
+          <div class="worktime">пн–пт 08:00–17:00 · перерыв 12:00–13:00</div>
+          <div class="email">
+            <a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" class="btn-accent">Написать обращение</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!-- ============================================================
@@ -218,285 +282,441 @@
     <!-- ============================================================
     ОСНОВНОЙ КОНТЕНТ
     ============================================================ -->
-    <main>
-        <div class="container">
+        <main>
+      <div class="container">
+        <h2 class="section-title"><span class="accent-line"></span>Структура администрации</h2>
+        <p class="section-subtitle">Подразделения, управления, учреждения и территориальные администрации Благовещенского муниципального округа — 42 подразделения с руководителями и телефонами</p>
 
-            <h2 class="section-title">
-                <span class="accent-line"></span>Структура администрации
-            </h2>
-            <p class="section-subtitle">Организационная структура администрации Благовещенского муниципального округа</p>
-
-            <div class="org-chart">
-
-                <!-- УРОВЕНЬ 1: ГЛАВА ОКРУГА -->
+        <div class="org-chart">
                 <div class="org-level">
-                    <div class="org-level-header">
-                        Глава Благовещенского муниципального округа
-                        <span class="badge-count">1</span>
-                    </div>
+                    <div class="org-level-header">Руководство округа<span class="badge-count">6</span></div>
                     <div class="org-level-body">
+                        <p class="org-level-note">Глава округа и заместители главы администрации</p>
                         <div class="org-grid">
                             <div class="org-item">
                                 <div class="org-name">Башун Александр Александрович</div>
-                                <div class="org-desc">Глава Благовещенского муниципального округа</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 100)</div>
-                                <div class="org-phone"><strong>Приём:</strong> понедельник, среда 14:00–17:00</div>
+                                <div class="org-desc">Глава округа</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 41</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221689">22-16-89</a></div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Рулева Наталья Александровна</div>
+                                <div class="org-desc">Первый заместитель главы администрации МО — начальник финансового управления</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 40</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221690">22-16-90</a> <a href="tel:+74162771030">77-10-30</a></div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Ивашутин Алексей Александрович</div>
+                                <div class="org-desc">Заместитель главы администрации МО</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 36</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221690">22-16-90</a></div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Степанова Анна Викторовна</div>
+                                <div class="org-desc">Заместитель главы администрации МО</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 35</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221642">22-16-42</a></div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Умнов Виталий Викторович</div>
+                                <div class="org-desc">Заместитель главы администрации МО</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 37</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774531">77-45-31</a></div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Продашанов Дмитрий Анатольевич</div>
+                                <div class="org-desc">Заместитель главы администрации МО</div>
+                                <div class="org-phone"><strong>Кабинет:</strong> 38</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221691">22-16-91</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- УРОВЕНЬ 2: РУКОВОДСТВО -->
                 <div class="org-level">
-                    <div class="org-level-header">
-                        Руководство администрации
-                        <span class="badge-count">8</span>
-                    </div>
+                    <div class="org-level-header">Органы власти округа<span class="badge-count">3</span></div>
                     <div class="org-level-body">
+                        <p class="org-level-note">Представительный орган, контрольные и избирательные органы</p>
                         <div class="org-grid">
                             <div class="org-item">
-                                <div class="org-name">Первый заместитель главы – начальник финансового управления</div>
-                                <div class="org-desc">(вакансия)</div>
+                                <div class="org-name">Совет народных депутатов</div>
+                                <div class="org-desc">Представительный орган округа. Принимает устав и изменения к нему, утверждает бюджет и отчёт о его исполнении, устанавливает местные налоги, утверждает стратегию социально-экономического развития и контролирует работу администрации.</div>
+                                <div class="org-person"><strong>Матвеев Сергей Александрович</strong><span class="org-post">Председатель Совета народных депутатов Благовещенского муниципального округа</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774526">77-45-26</a></div>
+                                <div class="org-meta">5 сотрудников · 1 отдел</div>
                             </div>
                             <div class="org-item">
-                                <div class="org-name">Заместитель главы администрации</div>
-                                <div class="org-desc">Курирует блок жизнеобеспечения, сельского хозяйства, ГО и ЧС</div>
+                                <div class="org-name">Контрольно-счётная палата</div>
+                                <div class="org-desc">Постоянно действующий орган внешнего муниципального финансового контроля. Проводит экспертизу проекта бюджета, проверяет законность и результативность расходования средств, оценивает использование муниципального имущества и готовит заключения для Совета народных депутатов.</div>
+                                <div class="org-person"><strong>Фитц Марина Юрьевна</strong><span class="org-post">Председатель</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162770172">77-01-72</a></div>
+                                <div class="org-meta">3 сотрудника</div>
                             </div>
                             <div class="org-item">
-                                <div class="org-name">Заместитель главы администрации по социальным вопросам</div>
-                                <div class="org-desc">Курирует образование, культуру, спорт, молодёжную политику, соцвопросы</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Заместитель главы администрации</div>
-                                <div class="org-desc">Курирует организационную работу, кадры, правовой отдел, работу с территориями</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Заместитель главы администрации</div>
-                                <div class="org-desc">Курирует имущественные и земельные отношения, архитектуру, муниципальный контроль</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Советник главы администрации</div>
-                                <div class="org-desc">Обеспечивает деятельность главы по направлениям</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Советник главы администрации</div>
-                                <div class="org-desc">Обеспечивает деятельность главы по направлениям</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел по режиму секретности и мобилизационной работе</div>
-                                <div class="org-desc">Защита государственной тайны, мобилизационная подготовка</div>
+                                <div class="org-name">Избирательная комиссия</div>
+                                <div class="org-desc">Организует подготовку и проведение муниципальных выборов и местных референдумов, ведёт регистрацию кандидатов, контролирует соблюдение избирательных прав граждан и устанавливает итоги голосования на территории округа.</div>
+                                <div class="org-person"><strong>Сычева Ольга Николаевна</strong><span class="org-post">Председатель</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162523837">52-38-37</a></div>
+                                <div class="org-meta">2 сотрудника</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- УРОВЕНЬ 3: БЛОК ПЕРВОГО ЗАМЕСТИТЕЛЯ -->
                 <div class="org-level">
-                    <div class="org-level-header">
-                        Блок первого заместителя – начальника финансового управления
-                        <span class="badge-count">3</span>
-                    </div>
+                    <div class="org-level-header">Отделы администрации<span class="badge-count">11</span></div>
                     <div class="org-level-body">
-                        <div class="org-grid">
-                            <div class="org-item">
-                                <div class="org-name">Финансовое управление</div>
-                                <div class="org-desc">Бюджетная политика, исполнение бюджета, контроль за финансами</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 201)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел экономики</div>
-                                <div class="org-desc">Экономическое развитие, планирование, прогнозирование</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 202)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел муниципальных торгов</div>
-                                <div class="org-desc">Организация и проведение торгов, закупок</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 203)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- УРОВЕНЬ 4: БЛОК ЖКХ И БЕЗОПАСНОСТИ -->
-                <div class="org-level">
-                    <div class="org-level-header">
-                        Блок заместителя главы администрации (ЖКХ, сельское хозяйство, ГО и ЧС)
-                        <span class="badge-count">3</span>
-                    </div>
-                    <div class="org-level-body">
-                        <div class="org-grid">
-                            <div class="org-item">
-                                <div class="org-name">Управление жизнеобеспечения</div>
-                                <div class="org-desc">Жилищно-коммунальное хозяйство, благоустройство, транспорт</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 205)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел сельского хозяйства и охраны окружающей среды</div>
-                                <div class="org-desc">Агропромышленный комплекс, экология, природопользование</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 206)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел по гражданской защите и пожарной безопасности</div>
-                                <div class="org-desc">Защита населения от ЧС, пожарная безопасность, гражданская оборона</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 207)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- УРОВЕНЬ 5: БЛОК СОЦИАЛЬНЫХ ВОПРОСОВ -->
-                <div class="org-level">
-                    <div class="org-level-header">
-                        Блок заместителя главы по социальным вопросам
-                        <span class="badge-count">4</span>
-                    </div>
-                    <div class="org-level-body">
-                        <div class="org-grid">
-                            <div class="org-item">
-                                <div class="org-name">Управление образования</div>
-                                <div class="org-desc">Школы, детские сады, дополнительное образование, опека и попечительство (с правом юридического лица)</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-20</div>
-                                <div class="org-phone"><strong>Email:</strong> upobr@blagraion.ru</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Управление по делам молодёжи, культуры, физической культуры и спорта</div>
-                                <div class="org-desc">Молодёжная политика, культура, спорт, творческие коллективы</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 105)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Отдел по социальным вопросам</div>
-                                <div class="org-desc">Социальная поддержка, льготы, помощь семьям и пенсионерам</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 104)</div>
-                            </div>
-                            <div class="org-item">
-                                <div class="org-name">Консультант по делам несовершеннолетних</div>
-                                <div class="org-desc">Защита прав детей, профилактика правонарушений несовершеннолетних</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 106)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- УРОВЕНЬ 6: БЛОК ОРГАНИЗАЦИОННО-КАДРОВОЙ РАБОТЫ -->
-                <div class="org-level">
-                    <div class="org-level-header">
-                        Блок заместителя главы администрации (организационная работа, кадры, право)
-                        <span class="badge-count">4</span>
-                    </div>
-                    <div class="org-level-body">
+                        <p class="org-level-note">Структурные подразделения аппарата администрации округа</p>
                         <div class="org-grid">
                             <div class="org-item">
                                 <div class="org-name">Организационно-контрольный отдел</div>
-                                <div class="org-desc">Организационная работа, контроль исполнения поручений, взаимодействие с Думой</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 401)</div>
+                                <div class="org-desc">Планирует работу администрации, готовит совещания и заседания коллегиальных органов, ведёт контроль исполнения поручений главы округа и муниципальных правовых актов, координирует взаимодействие подразделений и организует работу с обращениями граждан.</div>
+                                <div class="org-person"><strong>Федченко Алла Геннадьевна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774513">77-45-13</a></div>
+                                <div class="org-meta">6 сотрудников</div>
                             </div>
                             <div class="org-item">
                                 <div class="org-name">Отдел муниципальной службы и документационного обеспечения</div>
-                                <div class="org-desc">Кадровая политика, работа с муниципальными служащими, делопроизводство, архив</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 402)</div>
+                                <div class="org-desc">Ведёт кадровую работу администрации: приём и увольнение служащих, конкурсы на замещение должностей, аттестацию и повышение квалификации. Отвечает за противодействие коррупции, ведение личных дел и документооборот администрации.</div>
+                                <div class="org-person"><strong>Макухина Людмила Валентиновна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774530">77-45-30</a></div>
+                                <div class="org-meta">3 сотрудника</div>
                             </div>
                             <div class="org-item">
                                 <div class="org-name">Правовой отдел</div>
-                                <div class="org-desc">Правовое обеспечение деятельности, нормативные акты, судебная защита</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 403)</div>
+                                <div class="org-desc">Проводит правовую экспертизу проектов муниципальных правовых актов и договоров, представляет интересы администрации в судах, ведёт претензионную работу и консультирует подразделения по вопросам применения законодательства.</div>
+                                <div class="org-person"><strong>Гурьянова Светлана Владимировна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774525">77-45-25</a></div>
+                                <div class="org-meta">6 сотрудников</div>
                             </div>
                             <div class="org-item">
-                                <div class="org-name">Управление по работе с территориями</div>
-                                <div class="org-desc">Взаимодействие с населением, работа с ТОС, сельскими поселениями</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 404)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- УРОВЕНЬ 7: БЛОК ИМУЩЕСТВЕННЫХ ОТНОШЕНИЙ -->
-                <div class="org-level">
-                    <div class="org-level-header">
-                        Блок заместителя главы администрации (имущество, архитектура, контроль)
-                        <span class="badge-count">3</span>
-                    </div>
-                    <div class="org-level-body">
-                        <div class="org-grid">
-                            <div class="org-item">
-                                <div class="org-name">Управление имущественных и земельных отношений</div>
-                                <div class="org-desc">Управление муниципальным имуществом, земельные вопросы, аренда, приватизация</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 301)</div>
+                                <div class="org-name">Отдел по гражданской защите и пожарной безопасности</div>
+                                <div class="org-desc">Организует мероприятия гражданской обороны и защиты населения от чрезвычайных ситуаций, обеспечивает пожарную безопасность на территории округа, поддерживает в готовности силы и средства предупреждения ЧС, координирует действия при паводках и лесных пожарах.</div>
+                                <div class="org-person"><strong>Карченко Арина Александровна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221646">22-16-46</a></div>
+                                <div class="org-meta">1 сотрудник</div>
                             </div>
                             <div class="org-item">
-                                <div class="org-name">Управление архитектуры и градостроительства</div>
-                                <div class="org-desc">Градостроительная политика, архитектурный надзор, разрешения на строительство</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 302)</div>
+                                <div class="org-name">Отдел по режиму секретности и мобилизационной работе</div>
+                                <div class="org-desc">Обеспечивает защиту сведений, составляющих государственную тайну, ведёт секретное делопроизводство и организует мобилизационную подготовку экономики округа во взаимодействии с органами военного управления.</div>
+                                <div class="org-person"><strong>Николаев Виктор Сергеевич</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774511">77-45-11</a></div>
+                                <div class="org-meta">2 сотрудника</div>
                             </div>
                             <div class="org-item">
                                 <div class="org-name">Отдел муниципального контроля</div>
-                                <div class="org-desc">Муниципальный контроль за соблюдением законодательства, профилактика нарушений</div>
-                                <div class="org-phone"><strong>Телефон:</strong> 8 (4162) 77-45-19 (доб. 303)</div>
+                                <div class="org-desc">Осуществляет муниципальный земельный, жилищный и дорожный контроль, контроль в сфере благоустройства. Обеспечивает работу административной комиссии округа и исполняет отдельные государственные полномочия, в том числе в сфере оборота алкогольной продукции.</div>
+                                <div class="org-person"><strong>Комчадалова Анна Александровна</strong><span class="org-post">Начальника отдела</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774521">77-45-21</a></div>
+                                <div class="org-meta">5 сотрудников</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел дорожной деятельности</div>
+                                <div class="org-desc">Организует содержание, ремонт и капитальный ремонт автомобильных дорог местного значения, обеспечивает безопасность дорожного движения, ведёт учёт дорог и координирует работу по пассажирским перевозкам на муниципальных маршрутах.</div>
+                                <div class="org-person"><strong>Долматова Анна Юрьевна</strong> <span class="org-mark">декрет</span><span class="org-post">Начальник отдела</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162223934">22-39-34</a></div>
+                                <div class="org-meta">3 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел сельского хозяйства и охраны окружающей среды</div>
+                                <div class="org-desc">Поддерживает сельхозтоваропроизводителей округа и личные подсобные хозяйства, ведёт мониторинг посевных и уборочных работ, сопровождает господдержку АПК. Отвечает за вопросы охраны окружающей среды и обращения с отходами.</div>
+                                <div class="org-person"><strong>Сучков Алексей Георгиевич</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774529">77-45-29</a></div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел по социальным вопросам</div>
+                                <div class="org-desc">Координирует социальную политику округа, взаимодействует с органами социальной защиты и ветеранскими организациями, исполняет полномочия по опеке и попечительству в отношении совершеннолетних недееспособных граждан.</div>
+                                <div class="org-person"><strong>Рыбакова Оксана Юрьевна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774512">77-45-12</a></div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Комиссия по делам несовершеннолетних и защите их прав</div>
+                                <div class="org-desc">Координирует работу органов и учреждений системы профилактики безнадзорности и правонарушений несовершеннолетних, рассматривает дела об административных правонарушениях в отношении подростков и родителей, ведёт индивидуальную профилактическую работу с семьями в социально опасном положении.</div>
+                                <div class="org-meta">1 сотрудник</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Отдел муниципальных торгов</div>
+                                <div class="org-desc">Организует определение поставщиков для нужд округа по 44-ФЗ: готовит и размещает извещения, обеспечивает работу комиссий по осуществлению закупок, ведёт торги по продаже и аренде муниципального имущества и земельных участков.</div>
+                                <div class="org-person"><strong>Гудлевская Наталья Владимировна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162223914">22-39-14</a></div>
+                                <div class="org-meta">3 сотрудника</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <!-- ПРИМЕЧАНИЕ -->
-            <div class="note-block">
-                <p>
-                    <strong>Информация актуальна на 2026 год.</strong>
-                    Структура утверждена решением Совета народных депутатов Благовещенского муниципального округа от 01.11.2025 № 450.
-                    Для уточнения контактных данных обращайтесь по телефону 8 (4162) 77-45-19.
-                </p>
-            </div>
-
+                <div class="org-level">
+                    <div class="org-level-header">Управления<span class="badge-count">9</span></div>
+                    <div class="org-level-body">
+                        <p class="org-level-note">Отраслевые управления с собственными отделами и полномочиями</p>
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Управление имущественных и земельных отношений</div>
+                                <div class="org-desc">Управляет и распоряжается муниципальным имуществом и земельными участками округа: ведёт реестр имущества, оформляет аренду и продажу, приватизацию, предоставляет участки гражданам и организациям, в том числе льготным категориям.</div>
+                                <div class="org-person"><strong>Кравченко Марина Александровна</strong><span class="org-post">Начальник управления</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162770173">77-01-73</a></div>
+                                <div class="org-meta">16 сотрудников · 2 отдела</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление ЖКХ</div>
+                                <div class="org-desc">Организует тепло-, водо- и электроснабжение населённых пунктов округа, отвечает за подготовку к отопительному сезону, содержание муниципального жилищного фонда, переселение из аварийного жилья и благоустройство территорий.</div>
+                                <div class="org-person"><strong>Гурылёва Ольга Владимировна</strong><span class="org-post">Начальник управления</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774505">77-45-05</a></div>
+                                <div class="org-meta">13 сотрудников · 2 отдела</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление архитектуры и градостроительства</div>
+                                <div class="org-desc">Ведёт градостроительную деятельность округа: генеральный план, правила землепользования и застройки, документацию по планировке территории. Выдаёт градостроительные планы участков, разрешения на строительство и ввод объектов в эксплуатацию.</div>
+                                <div class="org-person org-person--vac">Руководитель: вакансия</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162223934">22-39-34</a></div>
+                                <div class="org-meta">7 сотрудников</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление экономического развития</div>
+                                <div class="org-desc">Разрабатывает прогноз социально-экономического развития округа и муниципальные программы, сопровождает инвестиционные проекты, поддерживает малое и среднее предпринимательство, отвечает за развитие потребительского рынка и туризма.</div>
+                                <div class="org-person"><strong>Гулянов Сергей Николаевич</strong><span class="org-post">Начальник управления</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162772510">77-25-10</a></div>
+                                <div class="org-meta">6 сотрудников · 3 отдела</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление по делам молодёжи, культуры и спорта</div>
+                                <div class="org-desc">Организует культурно-досуговую работу и библиотечное обслуживание, реализует молодёжную политику, развивает физическую культуру и массовый спорт, проводит окружные фестивали, спартакиады и патриотические мероприятия.</div>
+                                <div class="org-person"><strong>Мулявко Лариса Петровна</strong><span class="org-post">Начальник</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162223917">22-39-17</a></div>
+                                <div class="org-meta">3 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Финансовое управление</div>
+                                <div class="org-desc">Составляет проект бюджета округа и организует его исполнение, ведёт казначейское исполнение и учёт, управляет муниципальным долгом, осуществляет внутренний муниципальный финансовый контроль и формирует бюджетную отчётность.</div>
+                                <div class="org-person"><strong>Рулева Наталья Александровна</strong><span class="org-post">Первый заместитель главы администрации МО — начальник финансового управления</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221690">22-16-90</a> <a href="tel:+74162771030">77-10-30</a></div>
+                                <div class="org-meta">14 сотрудников · 6 отделов</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление образования</div>
+                                <div class="org-desc">Обеспечивает получение общего и дошкольного образования на территории округа, координирует работу школ, детских садов и учреждений дополнительного образования, организует летний отдых детей и исполняет полномочия органа опеки и попечительства над несовершеннолетними.</div>
+                                <div class="org-person"><strong>Аксенова Оксана Михайловна</strong><span class="org-post">Начальник управления</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162774520">77-45-20</a></div>
+                                <div class="org-meta">13 сотрудников</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Управление по работе с территориями</div>
+                                <div class="org-desc">Координирует работу территориальных администраций сёл округа, обеспечивает взаимодействие жителей населённых пунктов с администрацией округа, сопровождает сходы граждан и программы инициативного бюджетирования.</div>
+                                <div class="org-person org-person--vac">Руководитель: вакансия</div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">Военно-учётный стол</div>
+                                <div class="org-desc">Ведёт первичный воинский учёт граждан, пребывающих в запасе, и граждан, подлежащих призыву, на территории округа. Обеспечивает бронирование граждан за организациями и взаимодействие с военным комиссариатом.</div>
+                                <div class="org-person"><strong>Морозова Евгения Сергеевна</strong><span class="org-post">Начальник ВУС</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162210362">21-03-62</a></div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="org-level">
+                    <div class="org-level-header">Подведомственные учреждения<span class="badge-count">6</span></div>
+                    <div class="org-level-body">
+                        <p class="org-level-note">Муниципальные учреждения и предприятия округа</p>
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Централизованная бухгалтерия»</div>
+                                <div class="org-desc">Ведёт бухгалтерский и налоговый учёт муниципальных учреждений округа — образования, культуры и прочих. Составляет отчётность, начисляет заработную плату, планирует финансово-хозяйственную деятельность и сопровождает закупки учреждений.</div>
+                                <div class="org-person"><strong>Коляда Светлана Владимировна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162772518">77-25-18</a></div>
+                                <div class="org-meta">37 сотрудников · 5 отделов</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МБУ «Информационный центр»</div>
+                                <div class="org-desc">Обеспечивает информационно-техническую и хозяйственную работу администрации: связь со СМИ и сайт округа, информационные технологии и защита информации, картография и архив, единая дежурно-диспетчерская служба, транспорт и содержание зданий.</div>
+                                <div class="org-person"><strong>Вихрова Анастасия Васильевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162221601">22-16-01</a></div>
+                                <div class="org-meta">65 сотрудников · 10 отделов</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МАУ «Дорремстрой»</div>
+                                <div class="org-desc">Выполняет работы по содержанию и ремонту автомобильных дорог округа, зимнему содержанию улично-дорожной сети, обслуживанию элементов благоустройства и вывозу снега.</div>
+                                <div class="org-person"><strong>Стёпин Андрей Васильевич</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162996756">99-67-56</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКП «Ресурс»</div>
+                                <div class="org-desc">Муниципальное предприятие, обеспечивающее коммунальное обслуживание населённых пунктов округа и эксплуатацию объектов коммунальной инфраструктуры, находящихся в муниципальной собственности.</div>
+                                <div class="org-person"><strong>Афанасьев Артём Иванович</strong><span class="org-post">Директор</span></div>
+                                <div class="org-meta">1 сотрудник</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МАУК «Центр культуры и спорта»</div>
+                                <div class="org-desc">Организует культурно-массовые и спортивные мероприятия округа, поддерживает клубные формирования и творческие коллективы, проводит окружные праздники, конкурсы и соревнования.</div>
+                                <div class="org-person"><strong>Санжаровская Ирина Валерьевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162223930">22-39-30</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МБУК «Межпоселенческая центральная библиотека»</div>
+                                <div class="org-desc">Обеспечивает библиотечное обслуживание жителей округа, комплектует и хранит книжный фонд, ведёт краеведческую работу, организует читательские клубы и просветительские мероприятия в сельских филиалах.</div>
+                                <div class="org-person"><strong>Тренина Надежда Анатольевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162213351">21-33-51</a></div>
+                                <div class="org-meta">1 сотрудник</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="org-level">
+                    <div class="org-level-header">Территориальные администрации<span class="badge-count">11</span></div>
+                    <div class="org-level-body">
+                        <p class="org-level-note">Администрации сёл — работа с жителями на местах</p>
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Волковская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Самандов Джасур Азизович</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162390317">39-03-17</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Грибская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Лега Анжелика Сергеевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162396322">39-63-22</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Гродековская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Берегова Ольга Геннадьевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162396591">39-65-91</a></div>
+                                <div class="org-meta">3 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Марковская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person org-person--vac">Руководитель: вакансия</div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162394030">39-40-30</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Михайловская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Локтионова Виктория Сергеевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162598443">59-84-43</a></div>
+                                <div class="org-meta">3 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Натальинская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Макарова Нина Николаевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162391525">39-15-25</a></div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Новопетровская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Гладкий Иван Владимирович</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162391840">39-18-40</a></div>
+                                <div class="org-meta">4 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Новотроицкая администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Перевозчиков Виктор Сергеевич</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162395735">39-57-35</a></div>
+                                <div class="org-meta">6 сотрудников</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Сергеевская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Клышников Виталий Викторович</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162385043">38-50-43</a></div>
+                                <div class="org-meta">3 сотрудника</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Усть-Ивановская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Зайцев Антон Александрович</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162396694">39-66-94</a></div>
+                                <div class="org-meta">6 сотрудников</div>
+                            </div>
+                            <div class="org-item">
+                                <div class="org-name">МКУ «Чигиринская администрация»</div>
+                                <div class="org-desc">Территориальная администрация обеспечивает решение вопросов местного значения на территории села: содержание улиц и мест общего пользования, уличное освещение, работа с обращениями жителей, первичный воинский учёт, выдача справок и документов, организация сходов граждан.</div>
+                                <div class="org-person"><strong>Кривошеева Анна Николаевна</strong><span class="org-post">Директор</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162210352">21-03-52</a></div>
+                                <div class="org-meta">5 сотрудников</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="org-level">
+                    <div class="org-level-header">Общественные организации и советы<span class="badge-count">1</span></div>
+                    <div class="org-level-body">
+                        <p class="org-level-note">Совещательные и общественные структуры при администрации</p>
+                        <div class="org-grid">
+                            <div class="org-item">
+                                <div class="org-name">Общественные организации и советы</div>
+                                <div class="org-desc">Совещательные и общественные структуры округа: Совет ветеранов и Общественный совет. Представляют интересы жителей, участвуют в обсуждении муниципальных программ и общественном контроле, ведут патриотическую и социальную работу.</div>
+                                <div class="org-person"><strong>Музыка Наталья Анатольевна</strong><span class="org-post">Председатель Совета ветеранов БМО</span></div>
+                                <div class="org-phone"><strong>Телефон:</strong> <a href="tel:+74162770191">77-01-91</a></div>
+                                <div class="org-meta">2 сотрудника</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
+
+        <p class="org-note">Сведения приведены по телефонному справочнику органов власти округа (Актуально на 01.09.2026. Без мобильных телефонов и дат рождения). Подробные карточки подразделений с полным составом руководства — в разделе <a href="leaders.html">«Визитница»</a>.</p>
+      </div>
     </main>
 
     <!-- ============================================================
     ПОДВАЛ
     ============================================================ -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Администрация Благовещенского муниципального округа</h4>
-                    <p>Официальный сайт органов местного самоуправления</p>
-                    <p style="margin-top: 8px; font-size: 13px; opacity: 0.6;">© 2026 Все права защищены</p>
-                </div>
-                <div>
-                    <h4>Контакты</h4>
-                    <ul>
-                        <li class="footer-phone">8 (4162) 77-45-19</li>
-                        <li><a href="mailto:obrazovanie@blgraion.amurobl.ru">obrazovanie@blgraion.amurobl.ru</a></li>
-                        <li>г. Благовещенск, ул. Зейская, 198</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Разделы</h4>
-                    <ul>
-                        <li><a href="about.html">Об администрации</a></li>
-                        <li><a href="structure.html">Структура</a></li>
-                        <li><a href="leaders.html">Визитница</a></li>
-                        <li><a href="services.html">Услуги</a></li>
-                        <li><a href="news.html">Новости</a></li>
-                        <li><a href="schools.html">Школы и сады</a></li>
-                        <li><a href="docs.html">Документы</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Режим работы</h4>
-                    <ul>
-                        <li>понедельник – пятница</li>
-                        <li>08:00 – 17:00</li>
-                        <li>перерыв: 12:00 – 13:00</li>
-                        <li>суббота, воскресенье: выходной</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>При использовании материалов ссылка на официальный сайт обязательна</p>
-            </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>Администрация Благовещенского муниципального округа</h4>
+            <p>Официальный сайт органов местного самоуправления</p>
+            <p style="margin-top: 8px; font-size: 13px; opacity: 0.6">© 2026 Все права защищены</p>
+          </div>
+          <div>
+            <h4>Контакты</h4>
+            <ul>
+              <li class="footer-phone">8 (4162) 22-16-90</li>
+              <li><a href="mailto:mail@blagraion.ru">mail@blagraion.ru</a></li>
+              <li>г. Благовещенск, ул. Зейская, 198</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Разделы</h4>
+            <ul>
+              <li><a href="about.html">Об администрации</a></li>
+              <li><a href="structure.html">Структура</a></li>
+              <li><a href="leaders.html">Визитница</a></li>
+              <li><a href="services.html">Услуги</a></li>
+              <li><a href="news.html">Новости</a></li>
+              <li><a href="docs.html">Документы</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Режим работы</h4>
+            <ul>
+              <li>понедельник – пятница</li>
+              <li>08:00 – 17:00</li>
+              <li>перерыв: 12:00 – 13:00</li>
+              <li>суббота, воскресенье: выходной</li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>При использовании материалов ссылка на официальный сайт обязательна</p>
+        </div>
+      </div>
     </footer>
-
-</body>
+  </body>
+</html>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

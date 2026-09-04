@@ -4,6 +4,10 @@
 в том виде, в каком его прислали. Здесь ничего не правится — папка нужна
 только для сверки «что было / что стало».
 
+Здесь же `spravochnik.xlsx` — телефонный справочник органов власти округа,
+из которого собраны данные визитницы и структуры. Его разбирает
+`tools/import_xlsx.py` в `data/rukovoditeli.json`.
+
 Рабочие исходники сайта лежат в `sources/`.
 
 ## Что здесь
@@ -14,6 +18,7 @@ news.html   schools.html   services.html  structure.html
 css/style.css
 js/script.js
 images/blag-city.jpg  images/bashun.jpg
+spravochnik.xlsx
 ```
 
 Обратите внимание на `docs.htm`: именно так файл назывался изначально,

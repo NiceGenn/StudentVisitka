@@ -309,6 +309,10 @@ def main():
     подвал = (ROOT / 'tools' / 'templates' / 'chrome-foot.html').read_text(encoding='utf-8')
     стили = (ROOT / 'tools' / 'templates' / 'leaders.css').read_text(encoding='utf-8')
 
+    шапка = (шапка.replace('{{ЗАГОЛОВОК}}', 'Визитница')
+                  .replace('{{ОПИСАНИЕ}}', 'Руководители подразделений, управлений '
+                           'и учреждений Благовещенского муниципального округа: чем занимается '
+                           'подразделение, кто им руководит и как связаться.'))
     страница = шапка.replace('{{СТИЛИ}}', стили).replace('{{СОДЕРЖИМОЕ}}', (
         '        <h2 class="section-title"><span class="accent-line"></span>Визитница</h2>\n'
         '        <p class="section-subtitle">Руководители подразделений, управлений и учреждений '

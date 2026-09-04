@@ -20,3 +20,7 @@ desktop.ini
 
 # Зависимости (если появятся)
 node_modules/
+
+# Python
+__pycache__/
+*.pyc

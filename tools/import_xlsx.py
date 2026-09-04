@@ -32,6 +32,12 @@ EXCLUDE = ('советник',)
 DEPUTY = re.compile(r'^\s*(заместител|первый заместител|и\.\s*о\.)', re.I)
 
 
+def прибрать(текст):
+    """Типографика: в справочнике встречается «МО– начальник» без пробела."""
+    текст = re.sub(r'\s*[–—-]\s*', ' — ', текст) if '–' in текст or '—' in текст else текст
+    return re.sub(r'\s{2,}', ' ', текст).strip()
+
+
 def is_leader(post):
     p = post.lower()
     if any(x in p for x in EXCLUDE):
@@ -61,7 +67,7 @@ def main():
         if cells[0]:
             group = cells[0]
         people.append(OrderedDict(
-            подразделение=group, отдел=cells[1], должность=cells[2],
+            подразделение=group, отдел=cells[1], должность=прибрать(cells[2]),
             фио=cells[3], кабинет=cells[4], телефон=cells[5], почта=cells[6]))
 
     # Штатная численность считается по всем строкам, в файл идут только руководители.
