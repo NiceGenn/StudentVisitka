@@ -239,8 +239,9 @@ def собрать():
             s = s.replace('<link rel="stylesheet" href="assets/css/style.css" />\n',
                           '<link rel="stylesheet" href="assets/css/style.css" />\n' + ССЫЛКА, 1)
             подключено += 1
-        if '</body>' in s:
-            s = s.replace('  </body>', СКРИПТ + '  </body>', 1)
+        m = re.search(r'^([ \t]*)</body>', s, re.M)
+        if m:
+            s = s[:m.start()] + СКРИПТ + s[m.start():]
         f.write_text(s, encoding='utf-8')
     print('Схем в панели: %d' % len(схемы))
     print('Страниц подключено: %d' % подключено)
